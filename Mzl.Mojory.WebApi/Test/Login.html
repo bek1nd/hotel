@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="../Scripts/jquery-1.10.2.min.js"></script>
+    <title></title>
+    <meta charset="utf-8"/>
+    <script type="text/javascript">
+        $(function() {
+            $.ajax({
+                url: "../api/MojoryApi/Customer/MojoryLogin", //../MojoryApi/Token/GetToken
+                type: "POST",
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader("MojoryToken", "a3288e5871544758baa22936d21f855c");
+                },
+                data: { "CorpId": "mzlu8", "UserId": "administrator", "Password": "E10ADC3949BA59ABBE56E057F20F883E" }, //{ "CorpId": "mzlu8","UserId":"administrator","Password":"123456" }
+                datatype: "json",
+                success: function (result) {
+                    console.log(result);
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+

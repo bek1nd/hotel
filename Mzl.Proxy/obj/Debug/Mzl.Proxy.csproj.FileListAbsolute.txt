@@ -1,0 +1,7 @@
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy\bin\Debug\Mzl.Proxy.dll
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy\bin\Debug\Mzl.Proxy.pdb
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy\bin\Debug\log4net.dll
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy\bin\Debug\log4net.xml
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy\obj\Debug\Mzl.Proxy.csprojResolveAssemblyReference.cache
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy\obj\Debug\Mzl.Proxy.dll
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy\obj\Debug\Mzl.Proxy.pdb

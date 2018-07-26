@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>国内直飞</title>
+    <script src="~/Script/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <div> 
+        <input type="button" data-id="button" value="查询"/>
+    </div>
+    <div>
+        <span>查询结果</span>
+    </div>
+    <textarea data-id="result" style="width:800px; height:500px"></textarea>
+    <script type="text/javascript">
+
+        $(function () {
+            $("[data-id=button]").click(function () {
+                $.post("/MuB2T/GetCaresClientData"
+                    , {}
+                    , function (data) {
+                        var result = JSON.stringify(data);
+                        $("[data-id=result]").html(result);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

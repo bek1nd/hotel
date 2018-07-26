@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{25CC7468-45D7-4CD4-9291-78CF00A5087D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mzl.BLL.Register</RootNamespace>
+    <AssemblyName>Mzl.BLL.Register</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterCustomer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mzl.Common\Mzl.Common.csproj">
+      <Project>{11a12f6e-033f-4a70-a053-193fced4403e}</Project>
+      <Name>Mzl.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.DAL.Register\Mzl.DAL.Register.csproj">
+      <Project>{df198220-2c39-4102-ba85-5c406c5950d9}</Project>
+      <Name>Mzl.DAL.Register</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.DomainModel\Mzl.DomainModel.csproj">
+      <Project>{b49c4dbc-6bcd-4697-9a1d-490099b0e376}</Project>
+      <Name>Mzl.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBLL.Register\Mzl.IBLL.Register.csproj">
+      <Project>{8e0d76d6-9516-4096-9d1e-2a74533ee46d}</Project>
+      <Name>Mzl.IBLL.Register</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IDAL.Register\Mzl.IDAL.Register.csproj">
+      <Project>{7989e48e-80b0-447f-b070-0e6edd749e5f}</Project>
+      <Name>Mzl.IDAL.Register</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Model\Mzl.EntityModel.csproj">
+      <Project>{598a15a2-c70e-4c3a-9303-f9324c7a5c0f}</Project>
+      <Name>Mzl.EntityModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)Mzl.Mojory.WebApi\bin
+copy $(TargetDir)Mzl.BLL.Register.pdb $(SolutionDir)Mzl.Mojory.WebApi\bin
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

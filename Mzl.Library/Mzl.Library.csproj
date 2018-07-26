@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E1D1A319-4A0E-42FC-9BC9-2393477A1B55}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mzl.Library</RootNamespace>
+    <AssemblyName>Mzl.Library</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="3DLL\AutoMapper.dll" />
+    <Content Include="3DLL\EntityFramework.dll" />
+    <Content Include="3DLL\EntityFramework.SqlServer.dll" />
+    <Content Include="3DLL\Getui\GetuiServerApiSDK.dll" />
+    <Content Include="3DLL\Getui\Google.ProtocolBuffers.dll" />
+    <Content Include="3DLL\log4net.dll" />
+    <Content Include="3DLL\Newtonsoft.Json.dll" />
+    <Content Include="3DLL\Quartz\C5.dll" />
+    <Content Include="3DLL\Quartz\Common.Logging.Core.dll" />
+    <Content Include="3DLL\Quartz\Common.Logging.Core.xml" />
+    <Content Include="3DLL\Quartz\Common.Logging.dll" />
+    <Content Include="3DLL\Quartz\Common.Logging.xml" />
+    <Content Include="3DLL\Quartz\Quartz.dll" />
+    <Content Include="3DLL\Quartz\Quartz.xml" />
+    <Content Include="3DLL\RabbitMq\RabbitMQ.Client.dll" />
+    <Content Include="3DLL\RabbitMq\RabbitMQ.Client.xml" />
+    <Content Include="3DLL\ServiceStack.Common.dll" />
+    <Content Include="3DLL\ServiceStack.Interfaces.dll" />
+    <Content Include="3DLL\ServiceStack.Redis.dll" />
+    <Content Include="3DLL\ServiceStack.Text.dll" />
+    <Content Include="3DLL\System.Web.Http.dll" />
+    <Content Include="3DLL\Unity\Microsoft.Practices.ServiceLocation.dll" />
+    <Content Include="3DLL\Unity\Microsoft.Practices.Unity.Configuration.dll" />
+    <Content Include="3DLL\Unity\Microsoft.Practices.Unity.dll" />
+    <Content Include="3DLL\Unity\Microsoft.Practices.Unity.Interception.Configuration.dll" />
+    <Content Include="3DLL\Unity\Microsoft.Practices.Unity.Interception.dll" />
+    <Content Include="3DLL\Unity\Microsoft.Practices.Unity.RegistrationByConvention.dll" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

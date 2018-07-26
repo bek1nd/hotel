@@ -1,0 +1,63 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ODFlightSearch</title>
+    <script src="~/Script/jquery-1.10.2.min.js"></script>
+    <style>
+        body {
+            line-height: 40px
+        }
+    </style>
+</head>
+<body>
+    <div> 
+        出发机场三字码*<input type="text" data-id="depCd" /><br />
+        到达机场三字码*<input type="text" data-id="arrCd" /><br />
+        出发日期(日期格式 YYYY-MM-DD，例如：2017-05-28)*<input type="text" data-id="depDt" /><br />
+        返程日期(日期格式 YYYY-MM-DD，例如：2017-05-28)<input type="text" data-id="retDt" /><br />
+        人数(1-5人)*<input type="text" data-id="passNum" value="1"/><br />
+        仓位<input type="text" data-id="cabin" /><br />
+        国内<input type="radio" name="flightTp" value="D" checked="checked" /> 国际及地区<input type="radio" name="flightTp" value="I" /><br />
+    
+        <input type="button" data-id="button" value="提交" />
+    </div>
+    <div>
+        <span>查询结果</span>
+    </div>
+    @*<div data-id="result"></div>*@
+    <textarea data-id="result" style="width:800px; height:500px"></textarea>
+    <script type="text/javascript">
+        $(function () {
+            $("[data-id=button]").click(function () {
+                $.post("/MuB2T/GetODFlightSearchData",
+                    {
+                        depCd: $("[data-id=depCd]").val()
+                        , arrCd: $("[data-id=arrCd]").val()
+                        , depDt: $("[data-id=depDt]").val()
+                        , retDt: $("[data-id=retDt]").val()
+                        , passNum: $("[data-id=passNum]").val()
+                        , cabin: $("[data-id=cabin]").val()
+                        , flightTp: $("input[name='flightTp']:checked").val()
+                    },
+                    function (data) {
+                        if (data.msgTp != "000") {
+                            alert(data.msgDesc);
+                        }
+                        else {
+                            var result = JSON.stringify(data);
+                            $("[data-id=result]").html(result);
+                        }
+                    }
+                );
+            });
+        });
+    </script>
+</body>
+</html>

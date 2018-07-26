@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B49C4DBC-6BCD-4697-9A1D-490099B0E376}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mzl.DomainModel</RootNamespace>
+    <AssemblyName>Mzl.DomainModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\UpdateResultBaseModel.cs" />
+    <Compile Include="Base\AddResultBaseModel.cs" />
+    <Compile Include="Base\BaseOrderListQueryModel.cs" />
+    <Compile Include="Base\BaseOrderQueryModel.cs" />
+    <Compile Include="Base\KeyValueModel.cs" />
+    <Compile Include="Common\Account\AccountDetailModel.cs" />
+    <Compile Include="Common\Account\AccountModel.cs" />
+    <Compile Include="Common\AuditOrder\AuditOrderDetailModel.cs" />
+    <Compile Include="Common\AuditOrder\AuditOrderListQueryModel.cs" />
+    <Compile Include="Common\AuditOrder\AuditOrderQueryModel.cs" />
+    <Compile Include="Common\AuditOrder\AuditResultModel.cs" />
+    <Compile Include="Common\CheckAccount\CheckAccountModel.cs" />
+    <Compile Include="Common\Insurance\InsuranceCompanyModel.cs" />
+    <Compile Include="Common\Operator\OperatorModel.cs" />
+    <Compile Include="Customer\AppOpinion\AppOpinionDomainModel.cs" />
+    <Compile Include="Customer\AppOpinion\AppOpinionDomainModelList.cs" />
+    <Compile Include="Customer\AppOpinion\QueryAppOpinionDomainModel.cs" />
+    <Compile Include="Customer\Base\AppOpinionModel.cs" />
+    <Compile Include="Customer\Base\UpdateCustomerInfoModel.cs" />
+    <Compile Include="Customer\Base\UpdateCustomerPwdModel.cs" />
+    <Compile Include="Customer\ContactInfo\AddContactModel.cs" />
+    <Compile Include="Customer\ContactInfo\ContactAddressModel.cs" />
+    <Compile Include="Customer\ContactInfo\EditContactModel.cs" />
+    <Compile Include="Customer\ContactInfo\GetContactInfoModel.cs" />
+    <Compile Include="Customer\ContactInfo\QueryContactResultModel.cs" />
+    <Compile Include="Customer\CorpAduit\BaseDealAduitResultDetailModel.cs" />
+    <Compile Include="Customer\CorpAduit\BaseDealAduitResultModel.cs" />
+    <Compile Include="Customer\CorpAduit\CorpAduitConfigCustomerModel.cs" />
+    <Compile Include="Customer\CorpAduit\CorpAduitConfigDepartmentModel.cs" />
+    <Compile Include="Customer\CorpAduit\CorpAduitConfigDetailModel.cs" />
+    <Compile Include="Customer\CorpAduit\CorpAduitConfigModel.cs" />
+    <Compile Include="Customer\CorpAduit\CorpAduitConfigProjectModel.cs" />
+    <Compile Include="Customer\CorpAduit\CorpAduitCustomerModel.cs" />
+    <Compile Include="Customer\CorpAduit\BaseDealAduitModel.cs" />
+    <Compile Include="Customer\CorpAduit\CorpAduitOrderDetailModel.cs" />
+    <Compile Include="Customer\CorpAduit\CorpAduitOrderFlowModel.cs" />
+    <Compile Include="Customer\CorpAduit\CorpAduitOrderLogModel.cs" />
+    <Compile Include="Customer\CorpAduit\CorpAduitOrderInfoModel.cs" />
+    <Compile Include="Customer\CorpAduit\CorpAduitOrderModel.cs" />
+    <Compile Include="Customer\CorpAduit\DeliveAduitModel.cs" />
+    <Compile Include="Customer\CorpAduit\DoAduitOrderModel.cs" />
+    <Compile Include="Customer\CorpAduit\DoAduitOrderResultModel.cs" />
+    <Compile Include="Customer\CorpAduit\SingleAduitModel.cs" />
+    <Compile Include="Customer\CorpAduit\SubmitAduitModel.cs" />
+    <Compile Include="Customer\CorpAduit\SubmitCorpAduitOrderDetailModel.cs" />
+    <Compile Include="Customer\CorpAduit\SubmitCorpAduitOrderModel.cs" />
+    <Compile Include="Customer\CorpAduit\TogetherAduitModel.cs" />
+    <Compile Include="Customer\CorpDepartment\CorpBookingDepartModel.cs" />
+    <Compile Include="Customer\CorpPolicy\CorpPolicyConfigProjectModel.cs" />
+    <Compile Include="Customer\MatchCorpPolicyAndAduit\CorpAduitChangeModel.cs" />
+    <Compile Include="Customer\MatchCorpPolicyAndAduit\CorpPolicyAndAduitChangeModel.cs" />
+    <Compile Include="Customer\MatchCorpPolicyAndAduit\CorpPolicyAndAduitChangeProjectModel.cs" />
+    <Compile Include="Customer\MatchCorpPolicyAndAduit\CorpPolicyChangeModel.cs" />
+    <Compile Include="Customer\CorpPolicy\CorpPolicyConfigCustomerModel.cs" />
+    <Compile Include="Customer\CorpPolicy\CorpPolicyConfigDepartmentModel.cs" />
+    <Compile Include="Customer\CorpPolicy\CorpPolicyCustomerModel.cs" />
+    <Compile Include="Customer\MatchCorpPolicyAndAduit\MatchCorpPolicyAndAduitModel.cs" />
+    <Compile Include="Customer\MatchCorpPolicyAndAduit\MatchCorpPolicyAndAduitResultModel.cs" />
+    <Compile Include="Customer\SendAppMessage\GetAppMessageQueryModel.cs" />
+    <Compile Include="Customer\SendAppMessage\GetAppMessageResultModel.cs" />
+    <Compile Include="Customer\SendAppMessage\SendAppAuditResultMessageModel.cs" />
+    <Compile Include="Customer\SendAppMessage\SendAppContentModel.cs" />
+    <Compile Include="Customer\SendAppMessage\SendAppMessageModel.cs" />
+    <Compile Include="Customer\SendAppMessage\SendAppMessageResultModel.cs" />
+    <Compile Include="Common\TravelManage\TravelDataModel.cs" />
+    <Compile Include="Common\TravelManage\TravelModel.cs" />
+    <Compile Include="Common\TravelManage\TravelQueryModel.cs" />
+    <Compile Include="Customer\Base\BaseQueryTravelModel.cs" />
+    <Compile Include="Customer\CorpPolicy\ChoiceReasonModel.cs" />
+    <Compile Include="Customer\Login\AddAppClientIdModel.cs" />
+    <Compile Include="Customer\ServiceFee\ServiceFeeInfoModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportAirConsumeCountTableModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportAirlineCountModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportAllSalePriceModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportConsumeCountModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportCostCenterModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportCountDataModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportDportCityModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportFltRefundFltModModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportPassengerTopModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportRequestDoModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportReserveDayModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportSalePriceModel.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportYearPriceCountModel.cs" />
+    <Compile Include="Flight\AddRetModApplyModel.cs" />
+    <Compile Include="Common\AuditOrder\AuditOrderListDataModel.cs" />
+    <Compile Include="Common\AuditOrder\AuditOrderListModel.cs" />
+    <Compile Include="Flight\AuditFltModApplyQueryModel.cs" />
+    <Compile Include="Flight\AuditFltOrderListQueryModel.cs" />
+    <Compile Include="Flight\AuditFltOrderQueryModel.cs" />
+    <Compile Include="Flight\AuditFltRetApplyQueryModel.cs" />
+    <Compile Include="Common\AuditOrder\AuditTypeQueryModel.cs" />
+    <Compile Include="Flight\CancelFltRetModApplyModel.cs" />
+    <Compile Include="Flight\ConfirmRetModAuditPriceDetailModel.cs" />
+    <Compile Include="Flight\ConfirmRetModAuditPriceModel.cs" />
+    <Compile Include="Flight\ConfirmRetModAuditPriceResultModel.cs" />
+    <Compile Include="Flight\CopyOrder\CopyFltFlightModel.cs" />
+    <Compile Include="Flight\CopyOrder\CopyFltOrderModel.cs" />
+    <Compile Include="Flight\CopyOrder\CopyFltPassengerModel.cs" />
+    <Compile Include="Flight\CorpPassengerCustomerModel.cs" />
+    <Compile Include="Customer\Base\CustomerInfoModel.cs" />
+    <Compile Include="Customer\Base\CustomerModel.cs" />
+    <Compile Include="Customer\Base\CustomerUnionInfoModel.cs" />
+    <Compile Include="Customer\ContactInfo\ContactInfoModel.cs" />
+    <Compile Include="Customer\CorpPolicy\CorpPolicyDetailConfigModel.cs" />
+    <Compile Include="Customer\Corp\CorporationModel.cs" />
+    <Compile Include="Customer\CostCenter\CostCenterModel.cs" />
+    <Compile Include="Customer\CorpDepartment\CorpDepartmentModel.cs" />
+    <Compile Include="Customer\Identification\IdentificationModel.cs" />
+    <Compile Include="Customer\Passenger\PassengerInfoModel.cs" />
+    <Compile Include="Customer\Login\CustomerLoginModel.cs" />
+    <Compile Include="Customer\ProjectName\ProjectNameModel.cs" />
+    <Compile Include="Customer\ServiceFee\ServiceFeeConfigDetailsModel.cs" />
+    <Compile Include="Customer\ServiceFee\ServiceFeeConfigModel.cs" />
+    <Compile Include="Enum\OrderTypeEnum.cs" />
+    <Compile Include="Enum\ResponseResultEnum.cs" />
+    <Compile Include="Enum\TokenResultEnum.cs" />
+    <Compile Include="Enum\TrainPassengerStatusEnum.cs" />
+    <Compile Include="Enum\TrainTypeEnum.cs" />
+    <Compile Include="Enum\TraOrderOnlineStatusEnum.cs" />
+    <Compile Include="Events\CommonEventArgs.cs" />
+    <Compile Include="Events\TokenEventArgs.cs" />
+    <Compile Include="Events\TraServerEventArgs.cs" />
+    <Compile Include="Flight\AddOrderModel.cs" />
+    <Compile Include="Flight\AirportModel.cs" />
+    <Compile Include="Flight\CityModel.cs" />
+    <Compile Include="Flight\CountryModel.cs" />
+    <Compile Include="Flight\FltClassNameModel.cs" />
+    <Compile Include="Flight\FltFlightModel.cs" />
+    <Compile Include="Flight\FltModFlightModel.cs" />
+    <Compile Include="Flight\FltModOrderLogModel.cs" />
+    <Compile Include="Flight\FltModOrderModel.cs" />
+    <Compile Include="Flight\FltModPassengerModel.cs" />
+    <Compile Include="Flight\FltModTicketNoModel.cs" />
+    <Compile Include="Flight\FltOrderInfoModel.cs" />
+    <Compile Include="Flight\FltOrderModel.cs" />
+    <Compile Include="Flight\FltPassengerModel.cs" />
+    <Compile Include="Flight\FltRefundDetailOrderModel.cs" />
+    <Compile Include="Flight\FltRefundOrderModel.cs" />
+    <Compile Include="Flight\FltRetFlightModel.cs" />
+    <Compile Include="Flight\FltRetModApplyLogModel.cs" />
+    <Compile Include="Flight\FltRetModApplyModel.cs" />
+    <Compile Include="Flight\FltRetModFlightApplyModel.cs" />
+    <Compile Include="Flight\FltWhiteListPassengerModel.cs" />
+    <Compile Include="Flight\GetModApplyModel.cs" />
+    <Compile Include="Flight\GetModApplyQueryModel.cs" />
+    <Compile Include="Flight\GetModRetApplyAuditModel.cs" />
+    <Compile Include="Flight\GetNotUseTicketNoDataModel.cs" />
+    <Compile Include="Flight\GetNotUseTicketNoModel.cs" />
+    <Compile Include="Flight\GetNotUseTicketNoQueryModel.cs" />
+    <Compile Include="Flight\GetRetApplyModel.cs" />
+    <Compile Include="Flight\GetRetApplyQueryModel.cs" />
+    <Compile Include="Flight\GetUnAvailablePassengerDataModel.cs" />
+    <Compile Include="Flight\GetUnAvailablePassengerModel.cs" />
+    <Compile Include="Flight\GetUnAvailablePassengerQueryModel.cs" />
+    <Compile Include="Flight\QueryFlightModApplyDataModel.cs" />
+    <Compile Include="Flight\QueryFlightModApplyListDataModel.cs" />
+    <Compile Include="Flight\QueryFlightModApplyListDataQueryModel.cs" />
+    <Compile Include="Flight\QueryFlightModApplyListModel.cs" />
+    <Compile Include="Flight\QueryFlightModApplyQueryModel.cs" />
+    <Compile Include="Flight\QueryFlightOrderListDataModel.cs" />
+    <Compile Include="Flight\QueryFlightOrderListDataQueryModel.cs" />
+    <Compile Include="Flight\QueryFlightOrderListModel.cs" />
+    <Compile Include="Flight\QueryFlightOrderDataModel.cs" />
+    <Compile Include="Flight\QueryFlightOrderQueryModel.cs" />
+    <Compile Include="Flight\QueryFlightRetApplyListDataModel.cs" />
+    <Compile Include="Flight\QueryFlightRetApplyListDataQueryModel.cs" />
+    <Compile Include="Flight\QueryFlightRetApplyListModel.cs" />
+    <Compile Include="Flight\QueryFlightRetApplyModel.cs" />
+    <Compile Include="Flight\QueryFlightRetApplyQueryModel.cs" />
+    <Compile Include="Flight\QueryRetApplyFlightModel.cs" />
+    <Compile Include="Flight\QueryRetApplyPassengerModel.cs" />
+    <Compile Include="Flight\SearchAirportModel.cs" />
+    <Compile Include="Flight\SearchCityAportModel.cs" />
+    <Compile Include="Flight\SearchCityModel.cs" />
+    <Compile Include="Flight\SearchCountryModel.cs" />
+    <Compile Include="Flight\SearchFlightDetailModel.cs" />
+    <Compile Include="Flight\SearchFlightModel.cs" />
+    <Compile Include="Flight\SearchFlightQueryModel.cs" />
+    <Compile Include="Hotel\CTrip\City\City.cs" />
+    <Compile Include="Hotel\CTrip\City\Country.cs" />
+    <Compile Include="Hotel\CTrip\City\Province.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\AcceptedCreditCard.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Amount.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Area.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\ArrivalTimeLimitInfo.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\BossInfos.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Brand.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\BusinessDistrict.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\ChildAndExtraBedPolicy.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\City.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\ContactInfo.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Coordinate.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\CTripHotelInfoRequestModel.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\CTripHotelInfoResponseModel.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\DepartureTimeLimitInfo.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Description.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\ExternalFacilities.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\ExtraBed.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Facility.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\FacilityItem.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Fee.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\GeoInfo.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Group.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\HotelStaticInfoDomainModel.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\HotelTag.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\ImportantNotice.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\LimitInfo.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\MealInfo.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\NearbyPOI.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\NormalizePolicies.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Percent.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Picture.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Policy.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\RangeLimit.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Rating.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\SellerShowInfos.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\Theme.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\TransportationInfo.cs" />
+    <Compile Include="Hotel\CTrip\Hotel\VideoItems.cs" />
+    <Compile Include="Hotel\Elong\City\HolelCommericalLocationModel.cs" />
+    <Compile Include="Hotel\Elong\City\HotelCityModel.cs" />
+    <Compile Include="Hotel\Elong\City\HotelCountryModel.cs" />
+    <Compile Include="Hotel\Elong\City\HotelDistrictModel.cs" />
+    <Compile Include="Hotel\Elong\City\HotelLandmarkLocationModel.cs" />
+    <Compile Include="Hotel\CopyOrder\CopyHotelOrderDetailModel.cs" />
+    <Compile Include="Hotel\CopyOrder\CopyHotelOrderModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\BaseHotelResponseModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelBookingRuleModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelDetailModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelDrrRuleModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelGuaranteeRuleModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelHAvailPolicyModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelInfoResultModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelNightlyRatesModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelPrepayRuleModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelRatePlanModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelReviewModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelRoomsModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\HotelValueAddModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\QueryHotelDetailRequestModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\QueryHotelDetailResponseModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\QueryHotelInfoRequestModel.cs" />
+    <Compile Include="Hotel\Elong\HotelInfo\QueryHotelInfoResponseModel.cs" />
+    <Compile Include="Hotel\Order\HotelOrderDetailModel.cs" />
+    <Compile Include="Hotel\Order\HotelOrderInfoModel.cs" />
+    <Compile Include="Hotel\Order\HotelOrderModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register\RegisterCustomerModel.cs" />
+    <Compile Include="Token\TokenModel.cs" />
+    <Compile Include="Token\TokenResultModel.cs" />
+    <Compile Include="Token\TokenValueModel.cs" />
+    <Compile Include="Tool\B2TFlightNoQueryModel.cs" />
+    <Compile Include="Train\BaseMaintenance\Tra12306AccountModel.cs" />
+    <Compile Include="Train\GrabTicket\AddTraGrabTicketModel.cs" />
+    <Compile Include="Train\GrabTicket\CancelTraGrabTicketModel.cs" />
+    <Compile Include="Train\GrabTicket\CancelTraGrabTicketResultModel.cs" />
+    <Compile Include="Train\GrabTicket\KongTieInterface\GrabTicketAbstractAsyncResponseModel.cs" />
+    <Compile Include="Train\GrabTicket\KongTieInterface\GrabTicketCancelRequestModel.cs" />
+    <Compile Include="Train\GrabTicket\KongTieInterface\GrabTicketCancelResponseModel.cs" />
+    <Compile Include="Train\GrabTicket\KongTieInterface\GrabTicketSuccessedAsyncResponseModel.cs" />
+    <Compile Include="Train\GrabTicket\KongTieInterface\GrabTicketFailedAsyncResponseModel.cs" />
+    <Compile Include="Train\GrabTicket\KongTieInterface\GrabTicketFailedDataAsyncResponseModel.cs" />
+    <Compile Include="Train\GrabTicket\KongTieInterface\GrabTicketSuccessedPassengerAsyncResponseModel.cs" />
+    <Compile Include="Train\GrabTicket\KongTieInterface\GrabTicketPassengerRequestModel.cs" />
+    <Compile Include="Train\GrabTicket\KongTieInterface\GrabTicketRequestModel.cs" />
+    <Compile Include="Train\GrabTicket\KongTieInterface\GrabTicketResponseModel.cs" />
+    <Compile Include="Train\GrabTicket\KongTieInterface\GrabTicketSuccessedDataAsyncResponseModel.cs" />
+    <Compile Include="Train\GrabTicket\TraGrabTicketListDataModel.cs" />
+    <Compile Include="Train\GrabTicket\TraGrabTicketListModel.cs" />
+    <Compile Include="Train\GrabTicket\TraGrabTicketListQueryModel.cs" />
+    <Compile Include="Train\GrabTicket\TraGrabTicketModel.cs" />
+    <Compile Include="Train\GrabTicket\TraGrabTicketPassengerModel.cs" />
+    <Compile Include="Train\GrabTicket\UpdateTraGrabTicketStatusModel.cs" />
+    <Compile Include="Train\Order\CancelTraOrderModel.cs" />
+    <Compile Include="Train\Order\ChooseSeatModel.cs" />
+    <Compile Include="Train\Order\CopyOrder\CopyTraOrderModel.cs" />
+    <Compile Include="Train\Order\CopyOrder\CopyTraPassengerModel.cs" />
+    <Compile Include="Train\Order\OrderDetail\GetTraModOrderModel.cs" />
+    <Compile Include="Train\Order\OrderDetail\GetTraOrderDetailInfoModel.cs" />
+    <Compile Include="Train\Order\OrderDetail\GetTraOrderDetailInfoQueryModel.cs" />
+    <Compile Include="Train\Order\OrderDetail\GetTraOrderPassengerModel.cs" />
+    <Compile Include="Train\Order\OrderDetail\GetTraOrderTravelModel.cs" />
+    <Compile Include="Train\Order\OrderDetail\GetTraOrderModel.cs" />
+    <Compile Include="Train\Order\QueryTraTravelModel.cs" />
+    <Compile Include="Train\Order\TraAddOrderModel.cs" />
+    <Compile Include="Train\Order\TraAddOrderResultModel.cs" />
+    <Compile Include="Train\Order\TraAddRetModOrderModel.cs" />
+    <Compile Include="Train\Order\TraModOrderDetailModel.cs" />
+    <Compile Include="Train\Order\TraModOrderInfoModel.cs" />
+    <Compile Include="Train\Order\TraModOrderListDataModel.cs" />
+    <Compile Include="Train\Order\TraModOrderListQueryModel.cs" />
+    <Compile Include="Train\Order\TraModOrderModel.cs" />
+    <Compile Include="Train\Order\TraOrderDetailModel.cs" />
+    <Compile Include="Train\Order\TraOrderInfoModel.cs" />
+    <Compile Include="Train\Order\TraOrderListDataModel.cs" />
+    <Compile Include="Train\Order\TraOrderListQueryModel.cs" />
+    <Compile Include="Train\Order\TraOrderLogModel.cs" />
+    <Compile Include="Train\Order\TraOrderModel.cs" />
+    <Compile Include="Train\Order\TraOrderResultListModel.cs" />
+    <Compile Include="Train\Order\TraOrderStatusModel.cs" />
+    <Compile Include="Train\Order\TraPassengerModel.cs" />
+    <Compile Include="Train\Order\TraRetModOrderModel.cs" />
+    <Compile Include="Train\Server\BaseOutputModel.cs" />
+    <Compile Include="Train\Server\ModelHelper\ModelHelper.cs" />
+    <Compile Include="Train\Server\RefundTicketDetailModel.cs" />
+    <Compile Include="Train\Server\TicketStatusModel.cs" />
+    <Compile Include="Train\Server\TrainMakeUpSendEmailModel.cs" />
+    <Compile Include="Train\Server\TraInterFaceOrderModel.cs" />
+    <Compile Include="Train\Server\TraOrderCancelModel.cs" />
+    <Compile Include="Train\Server\TraOrderCancelResponseModel.cs" />
+    <Compile Include="Train\Server\TraOrderConfirmResponseModel.cs" />
+    <Compile Include="Train\Server\TraRefundTicketCallBackReturnticketsModel.cs" />
+    <Compile Include="Train\Server\TraSearchOrderInfoModel.cs" />
+    <Compile Include="Train\Server\TraSearchOrderInfoResponseModel.cs" />
+    <Compile Include="Train\Server\TraOrderOperateModel.cs" />
+    <Compile Include="Train\Server\TraOrderSubmitModel.cs" />
+    <Compile Include="Train\Server\TraOrderSubmitResponseModel.cs" />
+    <Compile Include="Train\Server\TraOrderSubmitPassengerModel.cs" />
+    <Compile Include="Train\Server\TraOrderConfirmModel.cs" />
+    <Compile Include="Train\Server\TraQueryTrainModel.cs" />
+    <Compile Include="Train\Server\TraModHoldSeatCallBackLogModel.cs" />
+    <Compile Include="Train\Server\TraModPrintTicketCallBackLogModel.cs" />
+    <Compile Include="Train\Server\TraPrintTicketCallBackLogModel.cs" />
+    <Compile Include="Train\Server\TraQueryTrainResponseDateModel.cs" />
+    <Compile Include="Train\Server\TraQueryTrainResponseModel.cs" />
+    <Compile Include="Train\Server\TraRefundTicketCallBackLogModel.cs" />
+    <Compile Include="Train\Server\TraHoldSeatCallBackLogModel.cs" />
+    <Compile Include="Train\Server\BaseInputModel.cs" />
+    <Compile Include="Train\Server\TraRequestCancelResponseModel.cs" />
+    <Compile Include="Train\Server\TraRequestCancelModel.cs" />
+    <Compile Include="Train\Server\TraRequestChangeModel.cs" />
+    <Compile Include="Train\Server\TraRequestChangeResponseModel.cs" />
+    <Compile Include="Train\Server\TraRequestChangeTicketInfoModel.cs" />
+    <Compile Include="Train\Server\TraRequestConfirmModel.cs" />
+    <Compile Include="Train\Server\TraRequestConfirmResponseModel.cs" />
+    <Compile Include="Train\Server\TraTicketRefundModel.cs" />
+    <Compile Include="Train\Server\TraTicketRefundResponseModel.cs" />
+    <Compile Include="Train\Server\TraTrainInfoModel.cs" />
+    <Compile Include="Train\Server\TraTrainInfoResponseDateDetailModel.cs" />
+    <Compile Include="Train\Server\TraTrainInfoResponseDateModel.cs" />
+    <Compile Include="Train\Server\TraTrainInfoResponseModel.cs" />
+    <Compile Include="Train\Server\TraTravelInfoDetailModel.cs" />
+    <Compile Include="Train\Server\TraTravelInfoModel.cs" />
+    <Compile Include="XingA\BCTktRefundSynVO.cs" />
+    <Compile Include="XingA\XingAModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mzl.Common\Mzl.Common.csproj">
+      <Project>{11a12f6e-033f-4a70-a053-193fced4403e}</Project>
+      <Name>Mzl.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

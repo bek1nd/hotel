@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74D5A18D-1BBF-41D3-8702-B799F924297B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mzl.Bll.Hotel</RootNamespace>
+    <AssemblyName>Mzl.Bll.Hotel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Mzl.Library\3DLL\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CopyOrder\CopyHotelOrderServiceBll.cs" />
+    <Compile Include="CtripHotel\HotelInfoServiceBLL.cs" />
+    <Compile Include="CtripHotel\QueryCityInofCNBll.cs" />
+    <Compile Include="CtripHotel\QueryHotelInfoService.cs" />
+    <Compile Include="CtripHotel\SolrService\AddHotelDescription.cs" />
+    <Compile Include="CtripHotel\SolrService\HotelInfoService.cs" />
+    <Compile Include="ElongService\QueryElongHotelDetailServiceBll.cs" />
+    <Compile Include="ElongService\QueryElongHotelCityServiceBll.cs" />
+    <Compile Include="GetOrderInfo\GetHotelOrderInfoServiceBll.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ElongService\QueryElongHotelListService.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Mzl.Common\Mzl.Common.csproj">
+      <Project>{11A12F6E-033F-4A70-A053-193FCED4403E}</Project>
+      <Name>Mzl.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.DAL.CTripHotel\Mzl.DAL.CTripHotel.csproj">
+      <Project>{508b7193-b07e-42f7-bd06-0a488248ac39}</Project>
+      <Name>Mzl.DAL.CTripHotel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.DAL.Hotel\Mzl.DAL.Hotel.csproj">
+      <Project>{da676d22-0b6a-4003-a4ab-03c393c50bf0}</Project>
+      <Name>Mzl.DAL.Hotel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.DomainModel\Mzl.DomainModel.csproj">
+      <Project>{b49c4dbc-6bcd-4697-9a1d-490099b0e376}</Project>
+      <Name>Mzl.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Framework\Mzl.Framework.csproj">
+      <Project>{6A2875C0-EBBD-4ADC-AA08-B796F986F996}</Project>
+      <Name>Mzl.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBll.Hotel\Mzl.IBll.Hotel.csproj">
+      <Project>{F94CD323-8BDF-4BD0-8781-7AE982E3BE7F}</Project>
+      <Name>Mzl.IBll.Hotel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IDAL.CTripHotel\Mzl.IDAL.CTripHotel.csproj">
+      <Project>{a161d545-5307-4221-bbf7-fcd2eea00b8e}</Project>
+      <Name>Mzl.IDAL.CTripHotel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IDAL.Hotel\Mzl.IDAL.Hotel.csproj">
+      <Project>{4b32dee8-962a-4ba3-bce7-58e0ad32e273}</Project>
+      <Name>Mzl.IDAL.Hotel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Model\Mzl.EntityModel.csproj">
+      <Project>{598a15a2-c70e-4c3a-9303-f9324c7a5c0f}</Project>
+      <Name>Mzl.EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Proxy.Hotel.CTrip\Mzl.Proxy.Hotel.CTrip.csproj">
+      <Project>{dc755add-9433-4cba-8963-eb54380c77f9}</Project>
+      <Name>Mzl.Proxy.Hotel.CTrip</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Proxy.Hotel.Elong\Mzl.Proxy.Hotel.Elong.csproj">
+      <Project>{8BD0112C-F2AA-4658-9E38-C7475591E694}</Project>
+      <Name>Mzl.Proxy.Hotel.Elong</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.UIModel\Mzl.UIModel.csproj">
+      <Project>{ECFDE3DA-694F-4333-8E1A-BE2477746BDE}</Project>
+      <Name>Mzl.UIModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)Mzl.Mojory.WebApi\bin
+copy $(TargetDir)Mzl.Bll.Hotel.pdb $(SolutionDir)Mzl.Mojory.WebApi\bin
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

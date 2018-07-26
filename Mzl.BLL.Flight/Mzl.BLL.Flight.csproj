@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EFBA9F50-A0CD-451A-85D6-AEC58CDB2A2F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mzl.BLL.Flight</RootNamespace>
+    <AssemblyName>Mzl.BLL.Flight</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\Mzl.Library\3DLL\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Mzl.Library\3DLL\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\Mzl.Library\3DLL\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddDomesticOrderBll.cs" />
+    <Compile Include="AddOrderCustomer\AddCorpModApplyCustomerVisitor.cs" />
+    <Compile Include="AddOrderCustomer\AddCorpOrderBookingCustomer.cs" />
+    <Compile Include="AddOrderCustomer\AddCorpOrderCustomer.cs" />
+    <Compile Include="AddOrderCustomer\AddCorpOrderNeedCheckCustomer.cs" />
+    <Compile Include="AddOrderCustomer\AddCorpOrderNotNeedCheckCustomer.cs" />
+    <Compile Include="AddOrderCustomer\AddCorpOrderCustomerVisitor.cs" />
+    <Compile Include="AddOrderCustomer\AddCorpRetApplyCustomerVisitor.cs" />
+    <Compile Include="AddOrderCustomer\IAddCorpModApplyCustomerVisitor.cs" />
+    <Compile Include="AddOrderCustomer\IAddCorpOrderCustomerVisitor.cs" />
+    <Compile Include="AddOrderCustomer\IAddCorpRetApplyCustomerVisitor.cs" />
+    <Compile Include="AuditOrder\AuditFltModApplyBll.cs" />
+    <Compile Include="AuditOrder\AuditFltOrderBll.cs" />
+    <Compile Include="AuditOrder\AuditFltOrderServiceBll.cs" />
+    <Compile Include="AuditOrder\AuditFltRetApplyBll.cs" />
+    <Compile Include="AuditOrder\AuditValidate\AlreadyAuditedValidate.cs" />
+    <Compile Include="AuditOrder\AuditValidate\AlreadyRetModApplyAuditedValidate.cs" />
+    <Compile Include="AuditOrder\AuditValidate\AuditAbstractValidate.cs" />
+    <Compile Include="AuditOrder\AuditValidate\AuditeCidValidate.cs" />
+    <Compile Include="AuditOrder\AuditValidate\AuditeRetModApplyCidValidate.cs" />
+    <Compile Include="AuditOrder\AuditValidate\ValidataAuditContext.cs" />
+    <Compile Include="AuditOrder\AuditValidate\ValidataFltOrderAuditBll.cs" />
+    <Compile Include="AuditOrder\AuditVisitor\AuditModApplyFirst.cs" />
+    <Compile Include="AuditOrder\AuditVisitor\AuditOrderAbstract.cs" />
+    <Compile Include="AuditOrder\AuditVisitor\AuditOrderFirst.cs" />
+    <Compile Include="AuditOrder\AuditVisitor\AuditOrderSecond.cs" />
+    <Compile Include="AuditOrder\AuditVisitor\AuditModApplySecond.cs" />
+    <Compile Include="AuditOrder\AuditVisitor\AuditRetApplyFirst.cs" />
+    <Compile Include="AuditOrder\AuditVisitor\AuditRetApplySecond.cs" />
+    <Compile Include="AuditOrder\AuditVisitor\RunAuditVisitor.cs" />
+    <Compile Include="AuditOrder\AuditVisitor\IRunAuditVisitor.cs" />
+    <Compile Include="AuditOrder\GetAuditFltModApplyListBll.cs" />
+    <Compile Include="AuditOrder\GetAuditFltOrderListBll.cs" />
+    <Compile Include="AuditOrder\GetAuditFltOrderListServiceBll.cs" />
+    <Compile Include="AuditOrder\GetAuditFltRetApplyListBll.cs" />
+    <Compile Include="AuditOrder\GetAuditRetModOrderListFactory.cs" />
+    <Compile Include="BaseInfo\GetCityForFlightServiceBll.cs" />
+    <Compile Include="CheckPassengerIsInWhiteListBll.cs" />
+    <Compile Include="CopyOrder\CopyCorpFltDomesticOrderServiceBll.cs" />
+    <Compile Include="DoIBEPnrNoBll.cs" />
+    <Compile Include="DomesticRetMod\AddFltDomesticModApplyServiceBll.cs" />
+    <Compile Include="DomesticRetMod\AddFltDomesticRetApplyServiceBll.cs" />
+    <Compile Include="DomesticRetMod\AddFltRetModApplyBll.cs" />
+    <Compile Include="CancelFltOrderServiceBll.cs" />
+    <Compile Include="DomesticRetMod\CancelRetModOrderServiceBll.cs" />
+    <Compile Include="DomesticRetMod\ConfirmModAuditPriceServiceBll.cs" />
+    <Compile Include="DomesticRetMod\ConfirmRetAuditPriceServiceBll.cs" />
+    <Compile Include="DomesticRetMod\GetFlighRefundOrderBll.cs" />
+    <Compile Include="DomesticRetMod\GetFlightModOrderBll.cs" />
+    <Compile Include="DomesticRetMod\GetFlightRetModApplyBll.cs" />
+    <Compile Include="DomesticRetMod\GetFltDomesticRetApplyViewServiceBll.cs" />
+    <Compile Include="DomesticRetMod\QueryFlightModApplyListServiceBll.cs" />
+    <Compile Include="DomesticRetMod\QueryFlightModApplyServiceBll.cs" />
+    <Compile Include="DomesticRetMod\QueryFlightRetApplyListServiceBll.cs" />
+    <Compile Include="DomesticRetMod\QueryFlightRetApplyServiceBll.cs" />
+    <Compile Include="DomesticRetMod\SearchContainModPolicyFlightBll.cs" />
+    <Compile Include="DomesticRetMod\SearchModFlightServiceBll.cs" />
+    <Compile Include="DomesticRetMod\ValidateRetApplyBll.cs" />
+    <Compile Include="GetFltOrderBll.cs" />
+    <Compile Include="GetNotUseTicketNoListServiceBll.cs" />
+    <Compile Include="GetUnAvailablePassengerServiceBll.cs" />
+    <Compile Include="MapperConfig\FlightMapperCofig.cs" />
+    <Compile Include="OrderValidate\AddModRetApplyContext.cs" />
+    <Compile Include="DomesticRetMod\GetFltDomesticModApplyViewServiceBll.cs" />
+    <Compile Include="DomesticRetMod\ValidateModApplyBll.cs" />
+    <Compile Include="GetClassNameServiceBll.cs" />
+    <Compile Include="GetNationPnrNoServiceBll.cs" />
+    <Compile Include="OrderValidate\AddDomesticOrderContext.cs" />
+    <Compile Include="AddCorpOrderServiceBll.cs" />
+    <Compile Include="OrderValidate\B2GBuyRemarkValidate.cs" />
+    <Compile Include="OrderValidate\CorpAuditValidate.cs" />
+    <Compile Include="OrderValidate\CorpCzValidate.cs" />
+    <Compile Include="OrderValidate\CorpJdValidate.cs" />
+    <Compile Include="OrderValidate\CorpModApplyAuditValidate.cs" />
+    <Compile Include="OrderValidate\CorpModApplyCheckSameValidate.cs" />
+    <Compile Include="OrderValidate\CorpOrderValidate.cs" />
+    <Compile Include="OrderValidate\CorpRetApplyAuditValidate.cs" />
+    <Compile Include="OrderValidate\CorpRetApplyCheckSameValidate.cs" />
+    <Compile Include="OrderValidate\OrderAmountValidate.cs" />
+    <Compile Include="OrderValidate\RetApplySameApplyValidate.cs" />
+    <Compile Include="OrderValidate\RetApplyTicketNoValidate.cs" />
+    <Compile Include="OrderValidate\SameFlightValidate.cs" />
+    <Compile Include="OrderValidate\CorpWhiteListValidate.cs" />
+    <Compile Include="OrderValidate\UnUsedTicketValidate.cs" />
+    <Compile Include="QueryFlightOrderListServiceBll.cs" />
+    <Compile Include="QueryFlightOrderServiceBll.cs" />
+    <Compile Include="SearchCheckWhitelFlightBll.cs" />
+    <Compile Include="SearchContainPolicyFlightBll.cs" />
+    <Compile Include="SearchIBEFlightBll.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchFlightServiceBll.cs" />
+    <Compile Include="GetFltSendAppMessageContentServiceBll.cs" />
+    <Compile Include="SearchIndividuationFlightBll.cs" />
+    <Compile Include="SearchShareFlightNoFlightBll.cs" />
+    <Compile Include="Service References\IBEService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SplitOrder\SplitFltOrderServiceBll.cs" />
+    <Compile Include="ValidateOrderBll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mzl.Common\Mzl.Common.csproj">
+      <Project>{11A12F6E-033F-4A70-A053-193FCED4403E}</Project>
+      <Name>Mzl.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.DAL.Flight\Mzl.DAL.Flight.csproj">
+      <Project>{626e5fd2-fd86-442b-96a8-67f5c93369b9}</Project>
+      <Name>Mzl.DAL.Flight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.DomainModel\Mzl.DomainModel.csproj">
+      <Project>{B49C4DBC-6BCD-4697-9A1D-490099B0E376}</Project>
+      <Name>Mzl.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Framework\Mzl.Framework.csproj">
+      <Project>{6A2875C0-EBBD-4ADC-AA08-B796F986F996}</Project>
+      <Name>Mzl.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBLL.Flight\Mzl.IBLL.Flight.csproj">
+      <Project>{52d6f2a5-67a2-4f2c-9feb-b511bd08f883}</Project>
+      <Name>Mzl.IBLL.Flight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IDAL.Flight\Mzl.IDAL.Flight.csproj">
+      <Project>{936ee246-aaf3-4acc-99bb-9eb0ded687f0}</Project>
+      <Name>Mzl.IDAL.Flight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Model\Mzl.EntityModel.csproj">
+      <Project>{598A15A2-C70E-4C3A-9303-F9324C7A5C0F}</Project>
+      <Name>Mzl.EntityModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Service References\IBEService\Mzl.BLL.Flight.IBEService.Flt_SearchFlightModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\IBEService\SearchFlight.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\IBEService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IBEService\SearchFlight.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IBEService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IBEService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\IBEService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetPath) $(SolutionDir)Mzl.Mojory.WebApi\bin
+copy $(TargetDir)Mzl.BLL.Flight.pdb $(SolutionDir)Mzl.Mojory.WebApi\bin
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

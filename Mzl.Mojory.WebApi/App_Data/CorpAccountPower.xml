@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Power>
+  <!--Administrator帐号权限配置-->
+  <Administrator>
+    <!--白名单-->
+    <White>
+      <PowerUrl>/corporation/*</PowerUrl>
+      <PowerUrl>/CheckOrder/*</PowerUrl>
+      <PowerUrl>/User/*</PowerUrl>
+      <PowerUrl>/mzltrain/h_chat/*</PowerUrl>
+      <PowerUrl>/mzltrain/flight/orderlist.html</PowerUrl>
+      <PowerUrl>/mzltrain/flight/listdetails.html</PowerUrl>
+      <PowerUrl>/mzltrain/flight/refundable.html</PowerUrl>
+      <PowerUrl>/mzltrain/flight/rlist.html</PowerUrl>
+      <PowerUrl>/mzltrain/flight/Reissue.html</PowerUrl>
+      <PowerUrl>/mzltrain/flight/Relist.html</PowerUrl>
+      <PowerUrl>/mzltrain/list.html</PowerUrl>
+      <PowerUrl>/mzltrain/detail.html</PowerUrl>
+      <PowerUrl>/mzltrain/refundlist.html</PowerUrl>
+      <PowerUrl>/mzltrain/refunddetail.html</PowerUrl>
+      <PowerUrl>/mzltrain/changelist.html</PowerUrl>
+      <PowerUrl>/mzltrain/changedetail.html</PowerUrl>
+	    <PowerUrl>/mzltrain/flight/FltTicketNoList.html</PowerUrl>
+      <PowerUrl>/mzltrain/flight/generder.html</PowerUrl>
+    </White>
+    <!--黑名单-->
+    <Black>
+
+    </Black>
+  </Administrator>
+  
+  <!--普通帐号权限配置-->
+  <CommonUser>
+    <!--白名单-->
+    <White></White>
+    <!--黑名单-->
+    <Black>
+      <PowerUrl>/corporation/*</PowerUrl>
+      <PowerUrl>/CheckOrder/*</PowerUrl>
+    </Black>
+  </CommonUser>
+
+</Power>
+

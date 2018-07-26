@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SMSSendMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" type="tns:P_SendMessageEntity" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="P_SendMessageEntity">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SendMessageID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageBody" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendOid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HttpSMSBack" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Success" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SendDevice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="orderType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsMass" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Port" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SMSSendMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SMSSendMessageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SDKSmsCoo_SendSingleSMS_Ext">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Port" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SDKSmsCoo_SendSingleSMS_ExtResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SDKSmsCoo_SendSingleSMS_ExtResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SDKSmsCoo_SendSingleSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Content" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SDKSmsCoo_SendSingleSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SDKSmsCoo_SendSingleSMSResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMessageJyTest">
+        <s:complexType />
+      </s:element>
+      <s:element name="SendMessageJyTestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMessageJyTestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="int" type="s:int" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SMSSendMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:SMSSendMessage" />
+  </wsdl:message>
+  <wsdl:message name="SMSSendMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:SMSSendMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMS_ExtSoapIn">
+    <wsdl:part name="parameters" element="tns:SDKSmsCoo_SendSingleSMS_Ext" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMS_ExtSoapOut">
+    <wsdl:part name="parameters" element="tns:SDKSmsCoo_SendSingleSMS_ExtResponse" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SDKSmsCoo_SendSingleSMS" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SDKSmsCoo_SendSingleSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageJyTestSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMessageJyTest" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageJyTestSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMessageJyTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMS_ExtHttpGetIn">
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Content" type="s:string" />
+    <wsdl:part name="Port" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMS_ExtHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMSHttpGetIn">
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMSHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageJyTestHttpGetIn" />
+  <wsdl:message name="SendMessageJyTestHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMS_ExtHttpPostIn">
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Content" type="s:string" />
+    <wsdl:part name="Port" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMS_ExtHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMSHttpPostIn">
+    <wsdl:part name="Phone" type="s:string" />
+    <wsdl:part name="Content" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SDKSmsCoo_SendSingleSMSHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SendMessageJyTestHttpPostIn" />
+  <wsdl:message name="SendMessageJyTestHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="SMSSendSoap">
+    <wsdl:operation name="SMSSendMessage">
+      <wsdl:input message="tns:SMSSendMessageSoapIn" />
+      <wsdl:output message="tns:SMSSendMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS_Ext">
+      <wsdl:input message="tns:SDKSmsCoo_SendSingleSMS_ExtSoapIn" />
+      <wsdl:output message="tns:SDKSmsCoo_SendSingleSMS_ExtSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS">
+      <wsdl:input message="tns:SDKSmsCoo_SendSingleSMSSoapIn" />
+      <wsdl:output message="tns:SDKSmsCoo_SendSingleSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageJyTest">
+      <wsdl:input message="tns:SendMessageJyTestSoapIn" />
+      <wsdl:output message="tns:SendMessageJyTestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SMSSendHttpGet">
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS_Ext">
+      <wsdl:input message="tns:SDKSmsCoo_SendSingleSMS_ExtHttpGetIn" />
+      <wsdl:output message="tns:SDKSmsCoo_SendSingleSMS_ExtHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS">
+      <wsdl:input message="tns:SDKSmsCoo_SendSingleSMSHttpGetIn" />
+      <wsdl:output message="tns:SDKSmsCoo_SendSingleSMSHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageJyTest">
+      <wsdl:input message="tns:SendMessageJyTestHttpGetIn" />
+      <wsdl:output message="tns:SendMessageJyTestHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SMSSendHttpPost">
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS_Ext">
+      <wsdl:input message="tns:SDKSmsCoo_SendSingleSMS_ExtHttpPostIn" />
+      <wsdl:output message="tns:SDKSmsCoo_SendSingleSMS_ExtHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS">
+      <wsdl:input message="tns:SDKSmsCoo_SendSingleSMSHttpPostIn" />
+      <wsdl:output message="tns:SDKSmsCoo_SendSingleSMSHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageJyTest">
+      <wsdl:input message="tns:SendMessageJyTestHttpPostIn" />
+      <wsdl:output message="tns:SendMessageJyTestHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SMSSendSoap" type="tns:SMSSendSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SMSSendMessage">
+      <soap:operation soapAction="http://tempuri.org/SMSSendMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS_Ext">
+      <soap:operation soapAction="http://tempuri.org/SDKSmsCoo_SendSingleSMS_Ext" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS">
+      <soap:operation soapAction="http://tempuri.org/SDKSmsCoo_SendSingleSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageJyTest">
+      <soap:operation soapAction="http://tempuri.org/SendMessageJyTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SMSSendSoap12" type="tns:SMSSendSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SMSSendMessage">
+      <soap12:operation soapAction="http://tempuri.org/SMSSendMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS_Ext">
+      <soap12:operation soapAction="http://tempuri.org/SDKSmsCoo_SendSingleSMS_Ext" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS">
+      <soap12:operation soapAction="http://tempuri.org/SDKSmsCoo_SendSingleSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageJyTest">
+      <soap12:operation soapAction="http://tempuri.org/SendMessageJyTest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SMSSendHttpGet" type="tns:SMSSendHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS_Ext">
+      <http:operation location="/SDKSmsCoo_SendSingleSMS_Ext" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS">
+      <http:operation location="/SDKSmsCoo_SendSingleSMS" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageJyTest">
+      <http:operation location="/SendMessageJyTest" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SMSSendHttpPost" type="tns:SMSSendHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS_Ext">
+      <http:operation location="/SDKSmsCoo_SendSingleSMS_Ext" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SDKSmsCoo_SendSingleSMS">
+      <http:operation location="/SDKSmsCoo_SendSingleSMS" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMessageJyTest">
+      <http:operation location="/SendMessageJyTest" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SMSSend">
+    <wsdl:port name="SMSSendSoap" binding="tns:SMSSendSoap">
+      <soap:address location="http://192.168.1.117:8088/SMS/SMSSend.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SMSSendSoap12" binding="tns:SMSSendSoap12">
+      <soap12:address location="http://192.168.1.117:8088/SMS/SMSSend.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SMSSendHttpGet" binding="tns:SMSSendHttpGet">
+      <http:address location="http://192.168.1.117:8088/SMS/SMSSend.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SMSSendHttpPost" binding="tns:SMSSendHttpPost">
+      <http:address location="http://192.168.1.117:8088/SMS/SMSSend.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

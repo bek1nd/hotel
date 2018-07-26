@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>E:\WebSite\B2TWeb</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Data/Unity.Config.xml">
+      <publishTime>10/17/2017 09:47:01</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>09/25/2017 18:09:44</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>10/17/2017 11:18:43</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>10/17/2017 11:18:43</publishTime>
+    </File>
+    <File Include="bin/AutoMapper.dll">
+      <publishTime>09/25/2017 18:09:35</publishTime>
+    </File>
+    <File Include="bin/C5.dll">
+      <publishTime>09/25/2017 18:09:31</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.Core.dll">
+      <publishTime>09/25/2017 18:09:31</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.dll">
+      <publishTime>09/25/2017 18:09:31</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>09/25/2017 18:09:46</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>09/25/2017 18:09:46</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>09/25/2017 18:09:51</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>09/25/2017 18:09:32</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>09/25/2017 18:09:31</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Configuration.dll">
+      <publishTime>09/25/2017 18:09:31</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>09/25/2017 18:09:31</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Interception.Configuration.dll">
+      <publishTime>09/25/2017 18:09:31</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.Interception.dll">
+      <publishTime>09/25/2017 18:09:31</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.RegistrationByConvention.dll">
+      <publishTime>09/25/2017 18:09:31</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>09/25/2017 18:09:50</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>10/11/2017 14:03:44</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.Entity.EF6.dll">
+      <publishTime>10/11/2017 14:03:45</publishTime>
+    </File>
+    <File Include="bin/Mzl.Application.dll">
+      <publishTime>10/17/2017 10:51:52</publishTime>
+    </File>
+    <File Include="bin/Mzl.BLL.Common.dll">
+      <publishTime>10/17/2017 10:51:50</publishTime>
+    </File>
+    <File Include="bin/Mzl.BLL.Customer.dll">
+      <publishTime>10/17/2017 10:51:51</publishTime>
+    </File>
+    <File Include="bin/Mzl.BLL.Token.dll">
+      <publishTime>10/17/2017 10:51:51</publishTime>
+    </File>
+    <File Include="bin/Mzl.BLL.Tool.dll">
+      <publishTime>10/17/2017 10:51:51</publishTime>
+    </File>
+    <File Include="bin/Mzl.BLL.Train.dll">
+      <publishTime>10/17/2017 10:51:51</publishTime>
+    </File>
+    <File Include="bin/Mzl.Common.dll">
+      <publishTime>10/17/2017 10:51:48</publishTime>
+    </File>
+    <File Include="bin/Mzl.DAL.Common.dll">
+      <publishTime>10/17/2017 10:51:50</publishTime>
+    </File>
+    <File Include="bin/Mzl.DAL.Customer.dll">
+      <publishTime>10/17/2017 10:51:50</publishTime>
+    </File>
+    <File Include="bin/Mzl.DAL.Train.dll">
+      <publishTime>10/17/2017 10:51:50</publishTime>
+    </File>
+    <File Include="bin/Mzl.DomainModel.dll">
+      <publishTime>10/17/2017 10:51:49</publishTime>
+    </File>
+    <File Include="bin/Mzl.EntityModel.dll">
+      <publishTime>10/17/2017 10:51:48</publishTime>
+    </File>
+    <File Include="bin/Mzl.Framework.dll">
+      <publishTime>10/17/2017 10:51:48</publishTime>
+    </File>
+    <File Include="bin/Mzl.IApplication.dll">
+      <publishTime>10/17/2017 10:51:51</publishTime>
+    </File>
+    <File Include="bin/Mzl.IBLL.Common.dll">
+      <publishTime>10/17/2017 10:51:49</publishTime>
+    </File>
+    <File Include="bin/Mzl.IBLL.Customer.dll">
+      <publishTime>10/17/2017 10:51:50</publishTime>
+    </File>
+    <File Include="bin/Mzl.IBLL.Flight.dll">
+      <publishTime>10/17/2017 10:51:50</publishTime>
+    </File>
+    <File Include="bin/Mzl.IBLL.Token.dll">
+      <publishTime>10/17/2017 10:51:49</publishTime>
+    </File>
+    <File Include="bin/Mzl.IBLL.Tool.dll">
+      <publishTime>10/17/2017 10:51:50</publishTime>
+    </File>
+    <File Include="bin/Mzl.IBLL.Train.dll">
+      <publishTime>10/17/2017 10:51:50</publishTime>
+    </File>
+    <File Include="bin/Mzl.IBLL.XingA.dll">
+      <publishTime>10/17/2017 10:51:51</publishTime>
+    </File>
+    <File Include="bin/Mzl.IDAL.Common.dll">
+      <publishTime>10/17/2017 10:51:49</publishTime>
+    </File>
+    <File Include="bin/Mzl.IDAL.Customer.dll">
+      <publishTime>10/17/2017 10:51:49</publishTime>
+    </File>
+    <File Include="bin/Mzl.IDAL.Train.dll">
+      <publishTime>10/17/2017 10:51:49</publishTime>
+    </File>
+    <File Include="bin/Mzl.Redis.dll">
+      <publishTime>10/17/2017 10:51:49</publishTime>
+    </File>
+    <File Include="bin/Mzl.Tool.Web.dll">
+      <publishTime>10/17/2017 11:16:00</publishTime>
+    </File>
+    <File Include="bin/Mzl.UIModel.dll">
+      <publishTime>10/17/2017 10:51:50</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>09/25/2017 18:09:50</publishTime>
+    </File>
+    <File Include="bin/Quartz.dll">
+      <publishTime>09/25/2017 18:09:31</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>09/25/2017 18:09:34</publishTime>
+    </File>
+    <File Include="bin/ServiceStack.Common.dll">
+      <publishTime>09/25/2017 18:09:32</publishTime>
+    </File>
+    <File Include="bin/ServiceStack.Interfaces.dll">
+      <publishTime>09/25/2017 18:09:32</publishTime>
+    </File>
+    <File Include="bin/ServiceStack.Redis.dll">
+      <publishTime>09/25/2017 18:09:32</publishTime>
+    </File>
+    <File Include="bin/ServiceStack.Text.dll">
+      <publishTime>09/25/2017 18:09:32</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>09/25/2017 18:09:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>09/25/2017 18:09:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>09/25/2017 18:09:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>09/25/2017 18:09:51</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.resources.dll">
+      <publishTime>03/02/2015 09:32:38</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/EntityFramework.SqlServer.resources.dll">
+      <publishTime>03/02/2015 09:32:38</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.resources.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.WebHost.resources.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>09/25/2017 18:09:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Optimization.resources.dll">
+      <publishTime>09/25/2017 18:09:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>09/25/2017 18:09:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>09/25/2017 18:09:49</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>10/11/2017 14:03:40</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>10/10/2017 13:26:29</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>10/17/2017 11:15:10</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>10/17/2017 11:18:40</publishTime>
+    </File>
+    <File Include="Script/jquery-1.10.2.min.js">
+      <publishTime>10/11/2017 14:03:41</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>10/11/2017 14:03:40</publishTime>
+    </File>
+    <File Include="Views/MuB2T/CaresClient.cshtml">
+      <publishTime>10/12/2017 10:27:15</publishTime>
+    </File>
+    <File Include="Views/MuB2T/Index.cshtml">
+      <publishTime>10/17/2017 09:47:00</publishTime>
+    </File>
+    <File Include="Views/MuB2T/Inter.cshtml">
+      <publishTime>10/17/2017 09:47:00</publishTime>
+    </File>
+    <File Include="Views/MuB2T/ODFlightSearch.cshtml">
+      <publishTime>10/17/2017 09:47:00</publishTime>
+    </File>
+    <File Include="Views/MuB2T/Tax.cshtml">
+      <publishTime>10/17/2017 09:47:00</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>10/11/2017 14:03:40</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/17/2017 11:16:01</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

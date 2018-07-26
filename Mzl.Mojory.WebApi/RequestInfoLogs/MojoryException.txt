@@ -1,0 +1,387 @@
+2018-07-23 14:18:26,113 - Api异常信息:{"Data":null,"Flag":{"Code":-99,"Message":"Could not convert value \u0027System.Collections.ArrayList\u0027 to property \u0027HotelBrandName\u0027 of document type Mzl.EntityModel.Hotel.CTripHotel.SolrModel.KeyWordHotel","MojoryToken":"b4ed2871857b46ebb2f86dbd030f1592"}}||||||报错路径:   在 SolrNet.Impl.DocumentPropertyVisitors.RegularDocumentVisitor.Visit(Object doc, String fieldName, XElement field)
+   在 SolrNet.Impl.DocumentPropertyVisitors.AggregateDocumentVisitor.Visit(Object doc, String fieldName, XElement field)
+   在 SolrNet.Impl.DocumentPropertyVisitors.DefaultDocumentVisitor.Visit(Object doc, String fieldName, XElement field)
+   在 SolrNet.Impl.SolrDocumentResponseParser`1.ParseDocument(XElement node)
+   在 SolrNet.Impl.SolrDocumentResponseParser`1.ParseResults(XElement parentNode)
+   在 SolrNet.Impl.ResponseParsers.ResultsResponseParser`1.Parse(XDocument xml, AbstractSolrQueryResults`1 results)
+   在 SolrNet.Impl.ResponseParsers.AggregateResponseParser`1.Parse(XDocument xml, AbstractSolrQueryResults`1 results)
+   在 SolrNet.Impl.ResponseParsers.DefaultResponseParser`1.Parse(XDocument xml, AbstractSolrQueryResults`1 results)
+   在 SolrNet.Impl.SolrQueryExecuter`1.Execute(ISolrQuery q, QueryOptions options)
+   在 SolrNet.Impl.SolrBasicServer`1.Query(ISolrQuery query, QueryOptions options)
+   在 SolrNet.Impl.SolrServer`1.Query(ISolrQuery query, QueryOptions options)
+   在 SolrNet.Impl.SolrServer`1.Query(ISolrQuery q)
+   在 Mzl.DAL.CTripHotel.SolrDAL.SolrApi.Query[TType](String queryString) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.DAL.CTripHotel\SolrDAL\SolrApi.cs:行号 38
+   在 Mzl.DAL.CTripHotel.SolrDAL.CTripHotelDesDal.GetKeyWordHotel(Int32 cityCode) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.DAL.CTripHotel\SolrDAL\CTripHotelDesDal.cs:行号 29
+   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripGeoController.GetKeyWord(CTripCityInfoRequestViewModel cityReq) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripGeoController.cs:行号 39
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-07-23 14:23:36,416 - Api异常信息:{"Data":null,"Flag":{"Code":-99,"Message":"未将对象引用设置到对象的实例。","MojoryToken":"b4ed2871857b46ebb2f86dbd030f1592"}}||||||报错路径:   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripGeoController.<>c.<GetKeyWord>b__4_0(KeyWordHotel a) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripGeoController.cs:行号 40
+   在 System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripGeoController.GetKeyWord(CTripCityInfoRequestViewModel cityReq) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripGeoController.cs:行号 42
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-07-23 14:25:00,539 - Api异常信息:{"Data":null,"Flag":{"Code":-99,"Message":"未将对象引用设置到对象的实例。","MojoryToken":"b4ed2871857b46ebb2f86dbd030f1592"}}||||||报错路径:   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripGeoController.<>c.<GetKeyWord>b__4_0(KeyWordHotel a) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripGeoController.cs:行号 40
+   在 System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripGeoController.GetKeyWord(CTripCityInfoRequestViewModel cityReq) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripGeoController.cs:行号 42
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-07-23 19:00:17,494 - Api异常信息:{"Data":null,"Flag":{"Code":-99,"Message":"\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cresponse\u003e\n\n\u003clst name=\"error\"\u003e\n  \u003clst name=\"metadata\"\u003e\n    \u003cstr name=\"error-class\"\u003eorg.apache.solr.core.SolrCoreInitializationException\u003c/str\u003e\n    \u003cstr name=\"root-error-class\"\u003eorg.xml.sax.SAXParseException\u003c/str\u003e\n  \u003c/lst\u003e\n  \u003cstr name=\"msg\"\u003eSolrCore \u0027hotelsimple\u0027 is not available due to init failure: Could not load conf for core hotelsimple: Can\u0027t load schema D:\\Solr\\solr-7.4.0\\server\\solr\\hotelsimple\\conf\\managed-schema: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\u003c/str\u003e\n  \u003cstr name=\"trace\"\u003eorg.apache.solr.core.SolrCoreInitializationException: SolrCore \u0027hotelsimple\u0027 is not available due to init failure: Could not load conf for core hotelsimple: Can\u0027t load schema D:\\Solr\\solr-7.4.0\\server\\solr\\hotelsimple\\conf\\managed-schema: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\r\n\tat org.apache.solr.core.CoreContainer.getCore(CoreContainer.java:1590)\r\n\tat org.apache.solr.servlet.HttpSolrCall.init(HttpSolrCall.java:249)\r\n\tat org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:469)\r\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:377)\r\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:323)\r\n\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)\r\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)\r\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)\r\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)\r\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)\r\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1253)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)\r\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)\r\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)\r\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1155)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)\r\n\tat org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:219)\r\n\tat org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)\r\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\r\n\tat org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:335)\r\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\r\n\tat org.eclipse.jetty.server.Server.handle(Server.java:531)\r\n\tat org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:352)\r\n\tat org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)\r\n\tat org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:281)\r\n\tat org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)\r\n\tat org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)\r\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:760)\r\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:678)\r\n\tat java.lang.Thread.run(Unknown Source)\r\nCaused by: org.apache.solr.common.SolrException: Could not load conf for core hotelsimple: Can\u0027t load schema D:\\Solr\\solr-7.4.0\\server\\solr\\hotelsimple\\conf\\managed-schema: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\r\n\tat org.apache.solr.core.ConfigSetService.getConfig(ConfigSetService.java:97)\r\n\tat org.apache.solr.core.CoreContainer.getConfigSet(CoreContainer.java:1184)\r\n\tat org.apache.solr.core.CoreContainer.createFromDescriptor(CoreContainer.java:1131)\r\n\tat org.apache.solr.core.CoreContainer.lambda$load$13(CoreContainer.java:681)\r\n\tat com.codahale.metrics.InstrumentedExecutorService$InstrumentedCallable.call(InstrumentedExecutorService.java:197)\r\n\tat java.util.concurrent.FutureTask.run(Unknown Source)\r\n\tat org.apache.solr.common.util.ExecutorUtil$MDCAwareThreadPoolExecutor.lambda$execute$0(ExecutorUtil.java:209)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)\r\n\t... 1 more\r\nCaused by: org.apache.solr.common.SolrException: Can\u0027t load schema D:\\Solr\\solr-7.4.0\\server\\solr\\hotelsimple\\conf\\managed-schema: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\r\n\tat org.apache.solr.schema.IndexSchema.readSchema(IndexSchema.java:582)\r\n\tat org.apache.solr.schema.IndexSchema.\u0026lt;init\u0026gt;(IndexSchema.java:179)\r\n\tat org.apache.solr.schema.ManagedIndexSchema.\u0026lt;init\u0026gt;(ManagedIndexSchema.java:105)\r\n\tat org.apache.solr.schema.ManagedIndexSchemaFactory.create(ManagedIndexSchemaFactory.java:173)\r\n\tat org.apache.solr.schema.ManagedIndexSchemaFactory.create(ManagedIndexSchemaFactory.java:45)\r\n\tat org.apache.solr.schema.IndexSchemaFactory.buildIndexSchema(IndexSchemaFactory.java:75)\r\n\tat org.apache.solr.core.ConfigSetService.createIndexSchema(ConfigSetService.java:119)\r\n\tat org.apache.solr.core.ConfigSetService.getConfig(ConfigSetService.java:92)\r\n\t... 9 more\r\nCaused by: org.apache.solr.common.SolrException: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\r\n\tat org.apache.solr.core.Config.\u0026lt;init\u0026gt;(Config.java:154)\r\n\tat org.apache.solr.core.Config.\u0026lt;init\u0026gt;(Config.java:90)\r\n\tat org.apache.solr.schema.IndexSchema.readSchema(IndexSchema.java:442)\r\n\t... 16 more\r\nCaused by: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\r\n\tat com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.seekCloseOfStartTag(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)\r\n\tat org.apache.solr.core.Config.\u0026lt;init\u0026gt;(Config.java:143)\r\n\t... 18 more\r\n\u003c/str\u003e\n  \u003cint name=\"code\"\u003e500\u003c/int\u003e\n\u003c/lst\u003e\n\u003c/response\u003e\n","MojoryToken":"b4ed2871857b46ebb2f86dbd030f1592"}}||||||报错路径:   在 SolrNet.Impl.SolrConnection.Get(String relativeUrl, IEnumerable`1 parameters)
+   在 SolrNet.Impl.SolrQueryExecuter`1.Execute(ISolrQuery q, QueryOptions options)
+   在 SolrNet.Impl.SolrBasicServer`1.Query(ISolrQuery query, QueryOptions options)
+   在 SolrNet.Impl.SolrServer`1.Query(ISolrQuery query, QueryOptions options)
+   在 SolrNet.Impl.SolrServer`1.Query(ISolrQuery q)
+   在 Mzl.DAL.CTripHotel.SolrDAL.SolrApi.Query[TType](String queryString, String coreName) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.DAL.CTripHotel\SolrDAL\SolrApi.cs:行号 38
+   在 Mzl.DAL.CTripHotel.SolrDAL.CTripHotelDesDal.GetHotelSimple(String cityCode) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.DAL.CTripHotel\SolrDAL\CTripHotelDesDal.cs:行号 55
+   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripGeoController.QueryHotels(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripGeoController.cs:行号 65
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-07-23 19:01:49,224 - Api异常信息:{"Data":null,"Flag":{"Code":-99,"Message":"\u003c?xml version=\"1.0\" encoding=\"UTF-8\"?\u003e\n\u003cresponse\u003e\n\n\u003clst name=\"error\"\u003e\n  \u003clst name=\"metadata\"\u003e\n    \u003cstr name=\"error-class\"\u003eorg.apache.solr.core.SolrCoreInitializationException\u003c/str\u003e\n    \u003cstr name=\"root-error-class\"\u003eorg.xml.sax.SAXParseException\u003c/str\u003e\n  \u003c/lst\u003e\n  \u003cstr name=\"msg\"\u003eSolrCore \u0027hotelsimple\u0027 is not available due to init failure: Could not load conf for core hotelsimple: Can\u0027t load schema D:\\Solr\\solr-7.4.0\\server\\solr\\hotelsimple\\conf\\managed-schema: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\u003c/str\u003e\n  \u003cstr name=\"trace\"\u003eorg.apache.solr.core.SolrCoreInitializationException: SolrCore \u0027hotelsimple\u0027 is not available due to init failure: Could not load conf for core hotelsimple: Can\u0027t load schema D:\\Solr\\solr-7.4.0\\server\\solr\\hotelsimple\\conf\\managed-schema: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\r\n\tat org.apache.solr.core.CoreContainer.getCore(CoreContainer.java:1590)\r\n\tat org.apache.solr.servlet.HttpSolrCall.init(HttpSolrCall.java:249)\r\n\tat org.apache.solr.servlet.HttpSolrCall.call(HttpSolrCall.java:469)\r\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:377)\r\n\tat org.apache.solr.servlet.SolrDispatchFilter.doFilter(SolrDispatchFilter.java:323)\r\n\tat org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1634)\r\n\tat org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:146)\r\n\tat org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)\r\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:257)\r\n\tat org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1595)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:255)\r\n\tat org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1253)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:203)\r\n\tat org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)\r\n\tat org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1564)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:201)\r\n\tat org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1155)\r\n\tat org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:144)\r\n\tat org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:219)\r\n\tat org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:126)\r\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\r\n\tat org.eclipse.jetty.rewrite.handler.RewriteHandler.handle(RewriteHandler.java:335)\r\n\tat org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)\r\n\tat org.eclipse.jetty.server.Server.handle(Server.java:531)\r\n\tat org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:352)\r\n\tat org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:260)\r\n\tat org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:281)\r\n\tat org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)\r\n\tat org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:118)\r\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:333)\r\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:310)\r\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:168)\r\n\tat org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:132)\r\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:760)\r\n\tat org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:678)\r\n\tat java.lang.Thread.run(Unknown Source)\r\nCaused by: org.apache.solr.common.SolrException: Could not load conf for core hotelsimple: Can\u0027t load schema D:\\Solr\\solr-7.4.0\\server\\solr\\hotelsimple\\conf\\managed-schema: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\r\n\tat org.apache.solr.core.ConfigSetService.getConfig(ConfigSetService.java:97)\r\n\tat org.apache.solr.core.CoreContainer.getConfigSet(CoreContainer.java:1184)\r\n\tat org.apache.solr.core.CoreContainer.createFromDescriptor(CoreContainer.java:1131)\r\n\tat org.apache.solr.core.CoreContainer.lambda$load$13(CoreContainer.java:681)\r\n\tat com.codahale.metrics.InstrumentedExecutorService$InstrumentedCallable.call(InstrumentedExecutorService.java:197)\r\n\tat java.util.concurrent.FutureTask.run(Unknown Source)\r\n\tat org.apache.solr.common.util.ExecutorUtil$MDCAwareThreadPoolExecutor.lambda$execute$0(ExecutorUtil.java:209)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)\r\n\t... 1 more\r\nCaused by: org.apache.solr.common.SolrException: Can\u0027t load schema D:\\Solr\\solr-7.4.0\\server\\solr\\hotelsimple\\conf\\managed-schema: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\r\n\tat org.apache.solr.schema.IndexSchema.readSchema(IndexSchema.java:582)\r\n\tat org.apache.solr.schema.IndexSchema.\u0026lt;init\u0026gt;(IndexSchema.java:179)\r\n\tat org.apache.solr.schema.ManagedIndexSchema.\u0026lt;init\u0026gt;(ManagedIndexSchema.java:105)\r\n\tat org.apache.solr.schema.ManagedIndexSchemaFactory.create(ManagedIndexSchemaFactory.java:173)\r\n\tat org.apache.solr.schema.ManagedIndexSchemaFactory.create(ManagedIndexSchemaFactory.java:45)\r\n\tat org.apache.solr.schema.IndexSchemaFactory.buildIndexSchema(IndexSchemaFactory.java:75)\r\n\tat org.apache.solr.core.ConfigSetService.createIndexSchema(ConfigSetService.java:119)\r\n\tat org.apache.solr.core.ConfigSetService.getConfig(ConfigSetService.java:92)\r\n\t... 9 more\r\nCaused by: org.apache.solr.common.SolrException: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\r\n\tat org.apache.solr.core.Config.\u0026lt;init\u0026gt;(Config.java:154)\r\n\tat org.apache.solr.core.Config.\u0026lt;init\u0026gt;(Config.java:90)\r\n\tat org.apache.solr.schema.IndexSchema.readSchema(IndexSchema.java:442)\r\n\t... 16 more\r\nCaused by: org.xml.sax.SAXParseException; systemId: solrres:/managed-schema; lineNumber: 444; columnNumber: 59; 元素类型 \"field\" 必须后跟属性规范 \"\u0026gt;\" 或 \"/\u0026gt;\"。\r\n\tat com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.seekCloseOfStartTag(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.scanStartElement(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLNSDocumentScannerImpl.next(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.parsers.DOMParser.parse(Unknown Source)\r\n\tat com.sun.org.apache.xerces.internal.jaxp.DocumentBuilderImpl.parse(Unknown Source)\r\n\tat org.apache.solr.core.Config.\u0026lt;init\u0026gt;(Config.java:143)\r\n\t... 18 more\r\n\u003c/str\u003e\n  \u003cint name=\"code\"\u003e500\u003c/int\u003e\n\u003c/lst\u003e\n\u003c/response\u003e\n","MojoryToken":"b4ed2871857b46ebb2f86dbd030f1592"}}||||||报错路径:   在 SolrNet.Impl.SolrConnection.Get(String relativeUrl, IEnumerable`1 parameters)
+   在 SolrNet.Impl.SolrQueryExecuter`1.Execute(ISolrQuery q, QueryOptions options)
+   在 SolrNet.Impl.SolrBasicServer`1.Query(ISolrQuery query, QueryOptions options)
+   在 SolrNet.Impl.SolrServer`1.Query(ISolrQuery query, QueryOptions options)
+   在 SolrNet.Impl.SolrServer`1.Query(ISolrQuery q)
+   在 Mzl.DAL.CTripHotel.SolrDAL.SolrApi.Query[TType](String queryString, String coreName) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.DAL.CTripHotel\SolrDAL\SolrApi.cs:行号 38
+   在 Mzl.DAL.CTripHotel.SolrDAL.CTripHotelDesDal.GetHotelSimple(String cityCode) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.DAL.CTripHotel\SolrDAL\CTripHotelDesDal.cs:行号 55
+   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripGeoController.QueryHotels(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripGeoController.cs:行号 65
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-07-26 17:42:05,576 - Api异常信息:{"Data":null,"Flag":{"Code":-99,"Message":"Unexpected character encountered while parsing value: 无. Path \u0027\u0027, line 0, position 0.","MojoryToken":"6dd24a5758ba47458961a73cd951a685"}}||||||报错路径:   在 Newtonsoft.Json.JsonTextReader.ParseValue()
+   在 Newtonsoft.Json.JsonTextReader.ReadInternal()
+   在 Newtonsoft.Json.JsonTextReader.Read()
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   在 Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   在 Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   在 Mzl.Common.JsonHelper.JsonHelper.DeserializeJsonToObject[T](String json) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Common\JsonHelper\JsonHelper.cs:行号 41
+   在 Mzl.Proxy.Hotel.CTrip.Token.GetToken() 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy.Hotel.CTrip\Token.cs:行号 44
+   在 Mzl.Proxy.Hotel.CTrip.HotelApiAccess.RequestInterface[T](T req, String mtd) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy.Hotel.CTrip\HotelApiAccess.cs:行号 43
+   在 Mzl.Proxy.Hotel.CTrip.HotelApiAccess.QueryObj[TReq,TRes](TReq req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy.Hotel.CTrip\HotelApiAccess.cs:行号 30
+   在 Mzl.Proxy.Hotel.CTrip.Query.HotelLowPrice.QueryObj(LowPriceReqEntity req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy.Hotel.CTrip\Query\HotelLowPrice.cs:行号 15
+   在 Mzl.Bll.Hotel.CtripHotel.HotelInfoServiceBLL.QuerySimpleHotelList(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Bll.Hotel\CtripHotel\HotelInfoServiceBLL.cs:行号 42
+   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripHotelInfoController.QueryHotelList(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripHotelInfoController.cs:行号 32
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-07-26 17:56:59,416 - Api异常信息:{"Data":null,"Flag":{"Code":-99,"Message":"值不能为 null。\r\n参数名: source","MojoryToken":"6dd24a5758ba47458961a73cd951a685"}}||||||报错路径:   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Mzl.Bll.Hotel.CtripHotel.HotelInfoServiceBLL.QuerySimpleHotelList(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Bll.Hotel\CtripHotel\HotelInfoServiceBLL.cs:行号 43
+   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripHotelInfoController.QueryHotelList(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripHotelInfoController.cs:行号 32
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-07-26 17:58:35,058 - Api异常信息:{"Data":null,"Flag":{"Code":-99,"Message":"值不能为 null。\r\n参数名: source","MojoryToken":"6dd24a5758ba47458961a73cd951a685"}}||||||报错路径:   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Mzl.Bll.Hotel.CtripHotel.HotelInfoServiceBLL.QuerySimpleHotelList(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Bll.Hotel\CtripHotel\HotelInfoServiceBLL.cs:行号 43
+   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripHotelInfoController.QueryHotelList(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripHotelInfoController.cs:行号 32
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-07-26 18:05:21,096 - Api异常信息:{"Data":null,"Flag":{"Code":-99,"Message":"Cannot deserialize the current JSON array (e.g. [1,2,3]) into type \u0027Mzl.EntityModel.Proxy.CTripHotel.SearchHotelLowPrice.NumEntity\u0027 because the type requires a JSON object (e.g. {\"name\":\"value\"}) to deserialize correctly.\r\nTo fix this error either change the JSON to a JSON object (e.g. {\"name\":\"value\"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List\u003cT\u003e that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.\r\nPath \u0027NumEntity\u0027, line 1, position 120.","MojoryToken":"6dd24a5758ba47458961a73cd951a685"}}||||||报错路径:   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureArrayContract(JsonReader reader, Type objectType, JsonContract contract)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   在 Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   在 Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   在 Mzl.Common.JsonHelper.JsonHelper.DeserializeJsonToObject[T](String json) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Common\JsonHelper\JsonHelper.cs:行号 41
+   在 Mzl.Proxy.Hotel.CTrip.HotelApiAccess.QueryObj[TReq,TRes](TReq req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy.Hotel.CTrip\HotelApiAccess.cs:行号 37
+   在 Mzl.Proxy.Hotel.CTrip.Query.HotelLowPrice.QueryObj(LowPriceReqEntity req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy.Hotel.CTrip\Query\HotelLowPrice.cs:行号 15
+   在 Mzl.Bll.Hotel.CtripHotel.HotelInfoServiceBLL.QuerySimpleHotelList(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Bll.Hotel\CtripHotel\HotelInfoServiceBLL.cs:行号 42
+   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripHotelInfoController.QueryHotelList(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripHotelInfoController.cs:行号 32
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()
+2018-07-26 18:19:51,023 - Api异常信息:{"Data":null,"Flag":{"Code":-99,"Message":"Cannot deserialize the current JSON array (e.g. [1,2,3]) into type \u0027Mzl.EntityModel.Proxy.CTripHotel.SearchHotelLowPrice.NumEntity\u0027 because the type requires a JSON object (e.g. {\"name\":\"value\"}) to deserialize correctly.\r\nTo fix this error either change the JSON to a JSON object (e.g. {\"name\":\"value\"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List\u003cT\u003e that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.\r\nPath \u0027NumEntity\u0027, line 1, position 120.","MojoryToken":"6dd24a5758ba47458961a73cd951a685"}}||||||报错路径:   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureArrayContract(JsonReader reader, Type objectType, JsonContract contract)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateList(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, Object existingValue, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateValueInternal(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   在 Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   在 Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   在 Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   在 Mzl.Common.JsonHelper.JsonHelper.DeserializeJsonToObject[T](String json) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Common\JsonHelper\JsonHelper.cs:行号 41
+   在 Mzl.Proxy.Hotel.CTrip.HotelApiAccess.QueryObj[TReq,TRes](TReq req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy.Hotel.CTrip\HotelApiAccess.cs:行号 37
+   在 Mzl.Proxy.Hotel.CTrip.Query.HotelLowPrice.QueryObj(LowPriceReqEntity req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Proxy.Hotel.CTrip\Query\HotelLowPrice.cs:行号 15
+   在 Mzl.Bll.Hotel.CtripHotel.HotelInfoServiceBLL.QuerySimpleHotelList(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Bll.Hotel\CtripHotel\HotelInfoServiceBLL.cs:行号 42
+   在 Mzl.Mojory.WebApi.Controllers.CTripHotel.CTripHotelInfoController.QueryHotelList(CTripHotelSimpleReqViewModel req) 位置 E:\Mzl\branches20170920\Mzl.Code\Mzl.Mojory.WebApi\Controllers\CTripHotel\CTripHotelInfoController.cs:行号 32
+   在 lambda_method(Closure , Object , Object[] )
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.<>c__DisplayClass10.<GetExecutor>b__9(Object instance, Object[] methodParameters)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ActionExecutor.Execute(Object instance, Object[] arguments)
+   在 System.Web.Http.Controllers.ReflectedHttpActionDescriptor.ExecuteAsync(HttpControllerContext controllerContext, IDictionary`2 arguments, CancellationToken cancellationToken)
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ApiControllerActionInvoker.<InvokeActionAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Web.Http.Filters.ActionFilterAttribute.<CallOnActionExecutedAsync>d__5.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.ActionFilterAttribute.<ExecuteActionFilterAsyncCore>d__0.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ActionFilterResult.<ExecuteAsync>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Filters.AuthorizationFilterAttribute.<ExecuteAuthorizationFilterAsyncCore>d__2.MoveNext()
+--- 引发异常的上一位置中堆栈跟踪的末尾 ---
+   在 System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   在 System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   在 System.Web.Http.Controllers.ExceptionFilterResult.<ExecuteAsync>d__0.MoveNext()

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TrainCallBack>
+
+  <HoldSeatCallBack>
+    http://180.169.11.178:8083/api/MojoryApi/TrainCallBack/HoldSeatCallBack
+  </HoldSeatCallBack>
+
+  <PrintTicketCallBack >
+    http://180.169.11.178:8083/api/MojoryApi/TrainCallBack/PrintTicketCallBack
+  </PrintTicketCallBack>
+
+  <RefundCallBack >
+    http://180.169.11.178:8083/api/MojoryApi/TrainCallBack/RefundCallBack
+  </RefundCallBack>
+
+  <ModHoldSeatCallBack>
+    http://180.169.11.178:8083/api/MojoryApi/TrainCallBack/ModHoldSeatCallBack
+  </ModHoldSeatCallBack>
+
+
+  <ModPrintTicketCallBack>
+    http://180.169.11.178:8083/api/MojoryApi/TrainCallBack/ModPrintTicketCallBack
+  </ModPrintTicketCallBack>
+
+  <TraGrabTicketCallBack>
+    http://180.169.11.178:8083/api/MojoryApi/TraGrabTicketCallBack/GrabTicketCallBack
+  </TraGrabTicketCallBack>
+
+</TrainCallBack>
+
+

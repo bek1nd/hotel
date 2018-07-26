@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF93B392-9C9A-4D81-AA67-388AED097E1A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mzl.Application</RootNamespace>
+    <AssemblyName>Mzl.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\Mzl.Library\3DLL\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Unity\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Mzl.Library\3DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\Domain\AccountDomain.cs" />
+    <Compile Include="Account\Factory\AccountDomainFactory.cs" />
+    <Compile Include="Common\CheckCorpAccountPowerApplication.cs" />
+    <Compile Include="Common\DoTestApplication.cs" />
+    <Compile Include="CTripHotel\CTripHotelInfoApplication.cs" />
+    <Compile Include="CTripHotel\QueryCityCNApplication.cs" />
+    <Compile Include="Customer\AddContactAddressApplication.cs" />
+    <Compile Include="Customer\AddContactApplication.cs" />
+    <Compile Include="Customer\AddCorpAduitCustomerRelationApplication.cs" />
+    <Compile Include="Customer\AddCorpAduitDepartmentRelationApplication.cs" />
+    <Compile Include="Customer\AddCorpAduitProjectRelationApplication.cs" />
+    <Compile Include="Customer\AddPolicyCustomerRelationApplication.cs" />
+    <Compile Include="Customer\AddPolicyDepartmentRelationApplication.cs" />
+    <Compile Include="Common\AuditOrderApplication.cs" />
+    <Compile Include="Common\AuthorizationApplication.cs" />
+    <Compile Include="Customer\AddPolicyProjectRelationApplication.cs" />
+    <Compile Include="Customer\CorpIndividuationApplication.cs" />
+    <Compile Include="Customer\DeleteCorpAduitConfigApplication.cs" />
+    <Compile Include="Customer\DoAduitOrderApplication.cs" />
+    <Compile Include="Customer\EditContactApplication.cs" />
+    <Compile Include="Customer\GetAduitOrderApplication.cs" />
+    <Compile Include="Customer\GetAppMessageApplication.cs" />
+    <Compile Include="Customer\GetAppOpinionListApplication.cs" />
+    <Compile Include="Customer\GetCorpAduitConfigApplication.cs" />
+    <Compile Include="Customer\GetCorpAduitCustomerApplication.cs" />
+    <Compile Include="Customer\GetCorpBookingDepartListApplication.cs" />
+    <Compile Include="Customer\GetCorpPolicyCustomerApplication.cs" />
+    <Compile Include="Customer\GetCorpPolicyDepartmentApplication.cs" />
+    <Compile Include="Common\GetInsuranceProductApplication.cs" />
+    <Compile Include="Common\GetTravelListApplication.cs" />
+    <Compile Include="Customer\AddAppOpinionApplication.cs" />
+    <Compile Include="Customer\CustomerLoginOutApplication.cs" />
+    <Compile Include="Customer\GetCorpPolicyProjectApplication.cs" />
+    <Compile Include="Customer\GetCorpPolicyReasonApplication.cs" />
+    <Compile Include="Customer\GetCustomerInfoApplication.cs" />
+    <Compile Include="Customer\MaintainCorpAduitConfigApplication.cs" />
+    <Compile Include="Customer\MatchCorpPolicyAndAduitApplication.cs" />
+    <Compile Include="Customer\MobileBindApplication.cs" />
+    <Compile Include="Customer\PostIdentificationApplication.cs" />
+    <Compile Include="Customer\SearchContactsApplication.cs" />
+    <Compile Include="Customer\SearchPassengersApplication.cs" />
+    <Compile Include="Customer\SendAppMessageApplication.cs" />
+    <Compile Include="Customer\CustomerLoginApplication.cs" />
+    <Compile Include="Customer\Domain\CorporationDomain.cs" />
+    <Compile Include="Customer\Domain\CustomerDomain.cs" />
+    <Compile Include="Customer\Factory\CorporationDomainFactory.cs" />
+    <Compile Include="Customer\Factory\CustomerDomainFactory.cs" />
+    <Compile Include="Customer\SetCorpBookingDepartListApplication.cs" />
+    <Compile Include="Customer\TravelReportApplication.cs" />
+    <Compile Include="Customer\UpdateCustomerApplication.cs" />
+    <Compile Include="Customer\UpdateCustomerPwdApplication.cs" />
+    <Compile Include="Flight\AddFltDomesticModApplyApplication.cs" />
+    <Compile Include="Flight\AddFltDomesticRetApplyApplication.cs" />
+    <Compile Include="Flight\AddOrderApplication.cs" />
+    <Compile Include="Common\GetAuditOrderListApplication.cs" />
+    <Compile Include="Flight\CancelFltModApplyApplication.cs" />
+    <Compile Include="Flight\CancelFltOrderApplication.cs" />
+    <Compile Include="Flight\CancelFltRetApplyApplication.cs" />
+    <Compile Include="Flight\ComfireOrderApplication.cs" />
+    <Compile Include="Flight\ConfirmModAuditPriceApplication.cs" />
+    <Compile Include="Flight\ConfirmRetAuditPriceApplication.cs" />
+    <Compile Include="Flight\CopyFltDomesticOrderApplication.cs" />
+    <Compile Include="Flight\GetFltDomesticModApplyViewApplication.cs" />
+    <Compile Include="Flight\GetFltDomesticRetApplyViewApplication.cs" />
+    <Compile Include="Flight\GetNotUseTicketNoListApplication.cs" />
+    <Compile Include="Flight\GetUnAvailablePassengerApplication.cs" />
+    <Compile Include="Flight\QueryFlightModApplyApplication.cs" />
+    <Compile Include="Flight\QueryFlightDomesticOrderApplication.cs" />
+    <Compile Include="Flight\QueryFlightDomesticOrderListApplication.cs" />
+    <Compile Include="Flight\QueryFlightModApplyListApplication.cs" />
+    <Compile Include="Flight\QueryFlightRetApplyApplication.cs" />
+    <Compile Include="Flight\QueryFlightRetApplyListApplication.cs" />
+    <Compile Include="Flight\SearchAirportApplication.cs" />
+    <Compile Include="Flight\SearchFlightApplication.cs" />
+    <Compile Include="Flight\SearchModFlightApplication.cs" />
+    <Compile Include="Flight\SplitFltOrderApplication.cs" />
+    <Compile Include="Hotel\CopyHotelOrderApplication.cs" />
+    <Compile Include="Hotel\CTrip\CTripHotelInfoApplication.cs" />
+    <Compile Include="Hotel\CTrip\QueryCityListApplication.cs" />
+    <Compile Include="Hotel\GetHotelOrderInfoApplication.cs" />
+    <Compile Include="Hotel\QueryHotelCityApplication.cs" />
+    <Compile Include="Hotel\QueryHotelDetailApplication.cs" />
+    <Compile Include="Hotel\QueryHotelListApplication.cs" />
+    <Compile Include="MapperConfig\ApplicationMapperConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register\RegisterCustomerApplication.cs" />
+    <Compile Include="Token\Domain\TokenDomain.cs" />
+    <Compile Include="Token\Factory\TokenDomainFactory.cs" />
+    <Compile Include="Tool\GetB2TFlightNoApplication.cs" />
+    <Compile Include="Train\AddTraOrderApplication.cs" />
+    <Compile Include="Train\ConfirmTraHoldSeatApplication.cs" />
+    <Compile Include="Train\ConfirmTraOrderViewApplication.cs" />
+    <Compile Include="Train\CopyTraOrderApplication.cs" />
+    <Compile Include="Train\GetTraOrderDetailApplication.cs" />
+    <Compile Include="Train\GrabTicket\AddGrabTicketApplication.cs" />
+    <Compile Include="Train\GrabTicket\CancelGrabTicketApplication.cs" />
+    <Compile Include="Train\GrabTicket\GetGrabTicketNoticeApplication.cs" />
+    <Compile Include="Train\GrabTicket\GetTraGrabTicketListApplication.cs" />
+    <Compile Include="Train\Order\Analysis\AnalysisBasic.cs" />
+    <Compile Include="Train\Order\Analysis\AnalysisContext.cs" />
+    <Compile Include="Train\Order\Analysis\AnalysisDate.cs" />
+    <Compile Include="Train\Order\Analysis\AnalysisPassenger.cs" />
+    <Compile Include="Train\Order\Analysis\AnalysisStation.cs" />
+    <Compile Include="Train\Order\Analysis\AnalysisTime.cs" />
+    <Compile Include="Train\Order\Analysis\AnalysisTrainNo.cs" />
+    <Compile Include="Train\Order\Domain\OrderDomain.cs" />
+    <Compile Include="Train\Order\Domain\ServerDomain.cs" />
+    <Compile Include="Train\Order\Factory\HoldSeatFactory.cs" />
+    <Compile Include="Train\Order\Factory\MakeUpFactory.cs" />
+    <Compile Include="Train\Order\Factory\ModHoldSeatFactory.cs" />
+    <Compile Include="Train\Order\Factory\ModPrintTicketFactory.cs" />
+    <Compile Include="Train\Order\Factory\OrderCancelFactory.cs" />
+    <Compile Include="Train\Order\Factory\OrderConfirmFactory.cs" />
+    <Compile Include="Train\Order\Factory\OrderDomainFactory.cs" />
+    <Compile Include="Train\Order\Factory\OrderInfoFactory.cs" />
+    <Compile Include="Train\Order\Factory\OrderSubmitFactory.cs" />
+    <Compile Include="Train\Order\Factory\PrintTicketFactory.cs" />
+    <Compile Include="Train\Order\Factory\QueryTrainFactory.cs" />
+    <Compile Include="Train\Order\Factory\RefundTicketFactory.cs" />
+    <Compile Include="Train\Order\Factory\RequestCancelFactory.cs" />
+    <Compile Include="Train\Order\Factory\RequestChangeFactory.cs" />
+    <Compile Include="Train\Order\Factory\RequestConfirmFactory.cs" />
+    <Compile Include="Train\Order\Factory\TicketRefundFactory.cs" />
+    <Compile Include="Train\Order\Factory\TrainInfoFactory.cs" />
+    <Compile Include="Train\SearchTrainApplication.cs" />
+    <Compile Include="Train\SplitTraOrderApplication.cs" />
+    <Compile Include="XingA\XingAGetDataApplication.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mzl.BLL.Common\Mzl.BLL.Common.csproj">
+      <Project>{4EC7524E-EFC2-4DC5-B966-9F52F08778FE}</Project>
+      <Name>Mzl.BLL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.BLL.Customer\Mzl.BLL.Customer.csproj">
+      <Project>{A91DF0D7-0729-4EA9-8564-84BFDEE7F32A}</Project>
+      <Name>Mzl.BLL.Customer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.BLL.Flight\Mzl.BLL.Flight.csproj">
+      <Project>{efba9f50-a0cd-451a-85d6-aec58cdb2a2f}</Project>
+      <Name>Mzl.BLL.Flight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Bll.Hotel\Mzl.Bll.Hotel.csproj">
+      <Project>{74d5a18d-1bbf-41d3-8702-b799f924297b}</Project>
+      <Name>Mzl.Bll.Hotel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.BLL.Register\Mzl.BLL.Register.csproj">
+      <Project>{25cc7468-45d7-4cd4-9291-78cf00a5087d}</Project>
+      <Name>Mzl.BLL.Register</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.BLL.Token\Mzl.BLL.Token.csproj">
+      <Project>{D4199D03-6988-401C-A851-95E60DE879DE}</Project>
+      <Name>Mzl.BLL.Token</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.BLL.Tool\Mzl.BLL.Tool.csproj">
+      <Project>{9141f96c-d995-4654-93d2-22a5bb677439}</Project>
+      <Name>Mzl.BLL.Tool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.BLL.Train\Mzl.BLL.Train.csproj">
+      <Project>{b2e25487-f9c9-4a98-8842-d70dbea1cb2a}</Project>
+      <Name>Mzl.BLL.Train</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Common\Mzl.Common.csproj">
+      <Project>{11a12f6e-033f-4a70-a053-193fced4403e}</Project>
+      <Name>Mzl.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.DomainModel\Mzl.DomainModel.csproj">
+      <Project>{b49c4dbc-6bcd-4697-9a1d-490099b0e376}</Project>
+      <Name>Mzl.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Framework\Mzl.Framework.csproj">
+      <Project>{6A2875C0-EBBD-4ADC-AA08-B796F986F996}</Project>
+      <Name>Mzl.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IApplication\Mzl.IApplication.csproj">
+      <Project>{971a1185-9788-4f7d-9e50-15264d955d5c}</Project>
+      <Name>Mzl.IApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBLL.Common\Mzl.IBLL.Common.csproj">
+      <Project>{D75FA6BC-F280-43DB-913A-7D3AFD0DDEA5}</Project>
+      <Name>Mzl.IBLL.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBLL.Customer\Mzl.IBLL.Customer.csproj">
+      <Project>{BD3C0BED-C810-459B-82FA-C440F8E1C55D}</Project>
+      <Name>Mzl.IBLL.Customer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBLL.Flight\Mzl.IBLL.Flight.csproj">
+      <Project>{52d6f2a5-67a2-4f2c-9feb-b511bd08f883}</Project>
+      <Name>Mzl.IBLL.Flight</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBll.Hotel\Mzl.IBll.Hotel.csproj">
+      <Project>{F94CD323-8BDF-4BD0-8781-7AE982E3BE7F}</Project>
+      <Name>Mzl.IBll.Hotel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBLL.Register\Mzl.IBLL.Register.csproj">
+      <Project>{8e0d76d6-9516-4096-9d1e-2a74533ee46d}</Project>
+      <Name>Mzl.IBLL.Register</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBLL.Token\Mzl.IBLL.Token.csproj">
+      <Project>{AF5C56CA-5FD9-46CD-B6C7-898BDC65E16D}</Project>
+      <Name>Mzl.IBLL.Token</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBLL.Tool\Mzl.IBLL.Tool.csproj">
+      <Project>{1c4623e1-ee60-4c64-98f5-4be4e2e75e07}</Project>
+      <Name>Mzl.IBLL.Tool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBLL.Train\Mzl.IBLL.Train.csproj">
+      <Project>{324e5106-8dd1-4e70-abca-01020b24a73b}</Project>
+      <Name>Mzl.IBLL.Train</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBLL.XingA\Mzl.IBLL.XingA.csproj">
+      <Project>{fc631a12-6b96-4f05-a830-079405197192}</Project>
+      <Name>Mzl.IBLL.XingA</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.UIModel\Mzl.UIModel.csproj">
+      <Project>{ECFDE3DA-694F-4333-8E1A-BE2477746BDE}</Project>
+      <Name>Mzl.UIModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

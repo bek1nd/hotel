@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B2E25487-F9C9-4A98-8842-D70DBEA1CB2A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mzl.BLL.Train</RootNamespace>
+    <AssemblyName>Mzl.BLL.Train</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseMaintenance\Bll\Tra12306AccountBll.cs" />
+    <Compile Include="BaseMaintenance\Factory\Tra12306AccountBllFactory.cs" />
+    <Compile Include="GetTraSendAppMessageContentServiceBll.cs" />
+    <Compile Include="GrabTicket\AddTraGrabTicketServiceBll.cs" />
+    <Compile Include="GrabTicket\CancelTraGrabTicketServiceBll.cs" />
+    <Compile Include="GrabTicket\GetGrabTicketNoticeServiceBll.cs" />
+    <Compile Include="GrabTicket\GetTraGrabTicketListServiceBll.cs" />
+    <Compile Include="GrabTicket\KongTieInterface\RequestGrabTicketCancelBll.cs" />
+    <Compile Include="GrabTicket\KongTieInterface\RequestGrabTicketBll.cs" />
+    <Compile Include="GrabTicket\KongTieInterface\RequestGrabTicketServiceBll.cs" />
+    <Compile Include="GrabTicket\KongTieInterface\ResponseAsyncGrabTicketServiceBll.cs" />
+    <Compile Include="GrabTicket\UpdateTraGrabTicketStatusServiceBll.cs" />
+    <Compile Include="Order\AddTraOrderBll.cs" />
+    <Compile Include="Order\AddTraOrderServiceBll.cs" />
+    <Compile Include="Order\BLL\CheckSameTravelBll.cs" />
+    <Compile Include="Order\BLL\TraModOrderBLL.cs" />
+    <Compile Include="Order\BLL\TraModOrderDetailBLL.cs" />
+    <Compile Include="Order\BLL\TraOrderBLL.cs" />
+    <Compile Include="Order\BLL\TraOrderDetailBLL.cs" />
+    <Compile Include="Order\BLL\TraOrderLogBLL.cs" />
+    <Compile Include="Order\BLL\TraOrderStatusBLL.cs" />
+    <Compile Include="Order\BLL\TraPassengerBLL.cs" />
+    <Compile Include="Order\CancelTraOrderServiceBll.cs" />
+    <Compile Include="Order\CopyTraOrderServiceBll.cs" />
+    <Compile Include="Order\Factory\CheckSameTravelBllFactory.cs" />
+    <Compile Include="Order\Factory\TraModOrderBLLFactory.cs" />
+    <Compile Include="Order\Factory\TraModOrderDetailBLLFactory.cs" />
+    <Compile Include="Order\Factory\TraOrderBLLFactory.cs" />
+    <Compile Include="Order\Factory\TraOrderDetailBLLFactory.cs" />
+    <Compile Include="Order\Factory\TraOrderLogBLLFactory.cs" />
+    <Compile Include="Order\Factory\TraOrderStatusBLLFactory.cs" />
+    <Compile Include="Order\Factory\TraPassengerBLLFactory.cs" />
+    <Compile Include="Order\GetTraOrderBll.cs" />
+    <Compile Include="Order\GetTraOrderDetailServiceBll.cs" />
+    <Compile Include="Order\GetTraOrderListServiceBll.cs" />
+    <Compile Include="Order\GetTraOrderServiceBll.cs" />
+    <Compile Include="Order\SplitTraOrderServiceBll.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestInterface\RequestCancelOrderServiceBll.cs" />
+    <Compile Include="RequestInterface\RequestHoldSeatServiceBll.cs" />
+    <Compile Include="RequestInterface\RequestInterfaceHelper.cs" />
+    <Compile Include="RequestInterface\RequestKongTieCancelOrderBll.cs" />
+    <Compile Include="RequestInterface\RequestKongTieHoldSeatBll.cs" />
+    <Compile Include="RequestInterface\RequestKongTiePrintTicketBll.cs" />
+    <Compile Include="RequestInterface\RequestPrintTicketServiceBll.cs" />
+    <Compile Include="Search\SearchContainPolicyTrainBll.cs" />
+    <Compile Include="Search\SearchKongTieTrainBll.cs" />
+    <Compile Include="Search\SearchTrainServiceBll.cs" />
+    <Compile Include="Server\BLL\HoldSeatServerBLL.cs" />
+    <Compile Include="Server\BLL\ModHoldSeatServerBLL.cs" />
+    <Compile Include="Server\BLL\ModPrintTicketServerBLL.cs" />
+    <Compile Include="Server\BLL\OrderConfirmServerBLL.cs" />
+    <Compile Include="Server\BLL\SearchOrderInfoServerBLL.cs" />
+    <Compile Include="Server\BLL\OrderSubmitServerBLL.cs" />
+    <Compile Include="Server\BLL\PrintTicketServerBLL.cs" />
+    <Compile Include="Server\BLL\RefundTicketServerBLL.cs" />
+    <Compile Include="Server\BLL\RequestCancelServerBLL.cs" />
+    <Compile Include="Server\BLL\RequestChangeServerBLL.cs" />
+    <Compile Include="Server\BLL\RequestConfirmServerBLL.cs" />
+    <Compile Include="Server\BLL\TicketRefundServerBLL.cs" />
+    <Compile Include="Server\BLL\TrainInfoServerBLL.cs" />
+    <Compile Include="Server\BLL\TraInterFaceOrderServerBLL.cs" />
+    <Compile Include="Server\BLL\OrderCancelResponseBLL.cs" />
+    <Compile Include="Server\BLL\OrderCancelServerBLL.cs" />
+    <Compile Include="Server\BLL\TraOrderOperateServerBLL.cs" />
+    <Compile Include="Server\Factory\RequestChangeServerBLLFactory.cs" />
+    <Compile Include="Server\Factory\SearchOrderInfoServerBLLFactoty.cs" />
+    <Compile Include="Server\Factory\RequesConfirmServerBLLFactory.cs" />
+    <Compile Include="Server\Factory\HoldSeatServerBLLFactory.cs" />
+    <Compile Include="Server\BLL\QueryTrainServerBLL.cs" />
+    <Compile Include="Server\Factory\ModHoldSeatServerBLLFactory.cs" />
+    <Compile Include="Server\Factory\ModPrintTicketServerBLLFactory.cs" />
+    <Compile Include="Server\Factory\OrderCancelServerBLLFactory.cs" />
+    <Compile Include="Server\Factory\OrderConfirmServerBLLFactoty.cs" />
+    <Compile Include="Server\Factory\OrderSubmitServerBLLFactoty.cs" />
+    <Compile Include="Server\Factory\PrintTicketServerBLLFactory.cs" />
+    <Compile Include="Server\Factory\QueryTrainServerBLLFactory.cs" />
+    <Compile Include="Server\Factory\RefundTicketServerBLLFactory.cs" />
+    <Compile Include="Server\Factory\RequestCancelServerBLLFactory.cs" />
+    <Compile Include="Server\Factory\TicketRefundServerBLLFactoty.cs" />
+    <Compile Include="Server\Factory\TrainInfoServerBLLFactory.cs" />
+    <Compile Include="Server\Factory\TraInterFaceOrderServerBLLFactory.cs" />
+    <Compile Include="Server\Factory\TraOrderOperateServerBLLFactory.cs" />
+    <Compile Include="TrainWebAccount\Get12306AccountServiceBll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mzl.Common\Mzl.Common.csproj">
+      <Project>{11A12F6E-033F-4A70-A053-193FCED4403E}</Project>
+      <Name>Mzl.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.DAL.Train\Mzl.DAL.Train.csproj">
+      <Project>{65D85042-CFBE-42D2-BF8B-CE326F3EEBF0}</Project>
+      <Name>Mzl.DAL.Train</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.DomainModel\Mzl.DomainModel.csproj">
+      <Project>{b49c4dbc-6bcd-4697-9a1d-490099b0e376}</Project>
+      <Name>Mzl.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Framework\Mzl.Framework.csproj">
+      <Project>{6A2875C0-EBBD-4ADC-AA08-B796F986F996}</Project>
+      <Name>Mzl.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IBLL.Train\Mzl.IBLL.Train.csproj">
+      <Project>{324e5106-8dd1-4e70-abca-01020b24a73b}</Project>
+      <Name>Mzl.IBLL.Train</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IDAL.Train\Mzl.IDAL.Train.csproj">
+      <Project>{f49a5088-d2fd-43e8-a21c-b3d8191b832f}</Project>
+      <Name>Mzl.IDAL.Train</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Model\Mzl.EntityModel.csproj">
+      <Project>{598a15a2-c70e-4c3a-9303-f9324c7a5c0f}</Project>
+      <Name>Mzl.EntityModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Proxy\Mzl.Proxy.csproj">
+      <Project>{01a0068e-262d-4003-9078-7f66cf8e9bc7}</Project>
+      <Name>Mzl.Proxy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

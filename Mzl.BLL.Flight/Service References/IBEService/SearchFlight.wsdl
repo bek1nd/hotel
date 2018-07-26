@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SearchFiight">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dport" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aport" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tackOffTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchAirlineNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="corpID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFiightResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchFiightResult" type="tns:ArrayOfFlt_SearchFlightModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfFlt_SearchFlightModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Flt_SearchFlightModel" nillable="true" type="tns:Flt_SearchFlightModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Flt_SearchFlightModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RPH" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AirlineNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FlightNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AirlineDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TackOffDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TackOffTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TackOffDateAdd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArrivalsDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArrivalsTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ArrivalsDateAdd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Meal" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MealID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DportCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AportCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DportName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DportName_EN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AportName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AportName_EN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DportCityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DportCityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AportCityName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AportCityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OilFee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxFee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StarAirPortson" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndAirPortson" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PassBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PassByInt" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="AirType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="YPrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CPrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FPrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SharedFlightNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsShared" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="DetailList" type="tns:ArrayOfFlt_SearchFlightDetailModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFlt_SearchFlightDetailModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Flt_SearchFlightDetailModel" nillable="true" type="tns:Flt_SearchFlightDetailModel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Flt_SearchFlightDetailModel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sequence" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Class" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClassDesc_EN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FatherClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FacePrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalePrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BaseFacePrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BaseFacePriceType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeatNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RuleDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FRate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxFee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OilFee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModDes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EndDes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RetDes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="isMod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="isEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="isRet" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriceType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriceTypeDes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceFee" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NightServicefee" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ServiceFeeType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsViolate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ViolateNPolicyValL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ViolateNPolicyValLDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ViolateNPolicyValT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ViolateNPolicyValTDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ViolateNPolicyValR" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ViolateNPolicyValRDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ViolateNPolicyValY" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ViolateNPolicyValYDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="B2GRuleId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="B2GFareBasis" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="HasB2GPrice" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchFiightOffLine">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dport" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aport" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tackOffTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchAirlineNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="corpID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFiightOffLineResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchFiightOffLineResult" type="tns:ArrayOfFlt_SearchFlightModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFiight_ZHX">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dport" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aport" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tackOffTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchAirlineNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="corpID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchFiight_ZHXResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchFiight_ZHXResult" type="tns:ArrayOfFlt_SearchFlightModel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoIBEPnrSeat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orderid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="oid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoIBEPnrSeatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DoIBEPnrSeatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoIBEPnrSeatByCorp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="orderid" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="oid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoIBEPnrSeatByCorpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DoIBEPnrSeatByCorpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePnr">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pnr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeletePnrResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeletePnrResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RAWOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ins" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserPwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RAWOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RAWOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoPatA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dport" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aport" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="flightNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="airType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="airClass" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="tackOffTime" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="arrivalTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="cityCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DoPatAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DoPatAResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfFlt_SearchFlightModel" nillable="true" type="tns:ArrayOfFlt_SearchFlightModel" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="decimal" type="s:decimal" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SearchFiightSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchFiight" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiightSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchFiightResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiightOffLineSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchFiightOffLine" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiightOffLineSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchFiightOffLineResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiight_ZHXSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchFiight_ZHX" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiight_ZHXSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchFiight_ZHXResponse" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatSoapIn">
+    <wsdl:part name="parameters" element="tns:DoIBEPnrSeat" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatSoapOut">
+    <wsdl:part name="parameters" element="tns:DoIBEPnrSeatResponse" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatByCorpSoapIn">
+    <wsdl:part name="parameters" element="tns:DoIBEPnrSeatByCorp" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatByCorpSoapOut">
+    <wsdl:part name="parameters" element="tns:DoIBEPnrSeatByCorpResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePnrSoapIn">
+    <wsdl:part name="parameters" element="tns:DeletePnr" />
+  </wsdl:message>
+  <wsdl:message name="DeletePnrSoapOut">
+    <wsdl:part name="parameters" element="tns:DeletePnrResponse" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:RAWOrder" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:RAWOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="DoPatASoapIn">
+    <wsdl:part name="parameters" element="tns:DoPatA" />
+  </wsdl:message>
+  <wsdl:message name="DoPatASoapOut">
+    <wsdl:part name="parameters" element="tns:DoPatAResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiightHttpGetIn">
+    <wsdl:part name="dport" type="s:string" />
+    <wsdl:part name="aport" type="s:string" />
+    <wsdl:part name="tackOffTime" type="s:string" />
+    <wsdl:part name="searchAirlineNo" type="s:string" />
+    <wsdl:part name="corpID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiightHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFlt_SearchFlightModel" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiightOffLineHttpGetIn">
+    <wsdl:part name="dport" type="s:string" />
+    <wsdl:part name="aport" type="s:string" />
+    <wsdl:part name="tackOffTime" type="s:string" />
+    <wsdl:part name="searchAirlineNo" type="s:string" />
+    <wsdl:part name="corpID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiightOffLineHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFlt_SearchFlightModel" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiight_ZHXHttpGetIn">
+    <wsdl:part name="dport" type="s:string" />
+    <wsdl:part name="aport" type="s:string" />
+    <wsdl:part name="tackOffTime" type="s:string" />
+    <wsdl:part name="searchAirlineNo" type="s:string" />
+    <wsdl:part name="corpID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiight_ZHXHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFlt_SearchFlightModel" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatHttpGetIn">
+    <wsdl:part name="orderid" type="s:string" />
+    <wsdl:part name="oid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatByCorpHttpGetIn">
+    <wsdl:part name="orderid" type="s:string" />
+    <wsdl:part name="oid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatByCorpHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePnrHttpGetIn">
+    <wsdl:part name="pnr" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePnrHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderHttpGetIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="ins" type="s:string" />
+    <wsdl:part name="UserPwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DoPatAHttpGetIn">
+    <wsdl:part name="dport" type="s:string" />
+    <wsdl:part name="aport" type="s:string" />
+    <wsdl:part name="flightNo" type="s:string" />
+    <wsdl:part name="airType" type="s:string" />
+    <wsdl:part name="airClass" type="s:string" />
+    <wsdl:part name="tackOffTime" type="s:string" />
+    <wsdl:part name="arrivalTime" type="s:string" />
+    <wsdl:part name="cityCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DoPatAHttpGetOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiightHttpPostIn">
+    <wsdl:part name="dport" type="s:string" />
+    <wsdl:part name="aport" type="s:string" />
+    <wsdl:part name="tackOffTime" type="s:string" />
+    <wsdl:part name="searchAirlineNo" type="s:string" />
+    <wsdl:part name="corpID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiightHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFlt_SearchFlightModel" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiightOffLineHttpPostIn">
+    <wsdl:part name="dport" type="s:string" />
+    <wsdl:part name="aport" type="s:string" />
+    <wsdl:part name="tackOffTime" type="s:string" />
+    <wsdl:part name="searchAirlineNo" type="s:string" />
+    <wsdl:part name="corpID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiightOffLineHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFlt_SearchFlightModel" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiight_ZHXHttpPostIn">
+    <wsdl:part name="dport" type="s:string" />
+    <wsdl:part name="aport" type="s:string" />
+    <wsdl:part name="tackOffTime" type="s:string" />
+    <wsdl:part name="searchAirlineNo" type="s:string" />
+    <wsdl:part name="corpID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SearchFiight_ZHXHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfFlt_SearchFlightModel" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatHttpPostIn">
+    <wsdl:part name="orderid" type="s:string" />
+    <wsdl:part name="oid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatByCorpHttpPostIn">
+    <wsdl:part name="orderid" type="s:string" />
+    <wsdl:part name="oid" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DoIBEPnrSeatByCorpHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePnrHttpPostIn">
+    <wsdl:part name="pnr" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DeletePnrHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderHttpPostIn">
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="ins" type="s:string" />
+    <wsdl:part name="UserPwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="DoPatAHttpPostIn">
+    <wsdl:part name="dport" type="s:string" />
+    <wsdl:part name="aport" type="s:string" />
+    <wsdl:part name="flightNo" type="s:string" />
+    <wsdl:part name="airType" type="s:string" />
+    <wsdl:part name="airClass" type="s:string" />
+    <wsdl:part name="tackOffTime" type="s:string" />
+    <wsdl:part name="arrivalTime" type="s:string" />
+    <wsdl:part name="cityCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DoPatAHttpPostOut">
+    <wsdl:part name="Body" element="tns:decimal" />
+  </wsdl:message>
+  <wsdl:portType name="SearchFlightSoap">
+    <wsdl:operation name="SearchFiight">
+      <wsdl:input message="tns:SearchFiightSoapIn" />
+      <wsdl:output message="tns:SearchFiightSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiightOffLine">
+      <wsdl:input message="tns:SearchFiightOffLineSoapIn" />
+      <wsdl:output message="tns:SearchFiightOffLineSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiight_ZHX">
+      <wsdl:input message="tns:SearchFiight_ZHXSoapIn" />
+      <wsdl:output message="tns:SearchFiight_ZHXSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeat">
+      <wsdl:input message="tns:DoIBEPnrSeatSoapIn" />
+      <wsdl:output message="tns:DoIBEPnrSeatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeatByCorp">
+      <wsdl:input message="tns:DoIBEPnrSeatByCorpSoapIn" />
+      <wsdl:output message="tns:DoIBEPnrSeatByCorpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePnr">
+      <wsdl:input message="tns:DeletePnrSoapIn" />
+      <wsdl:output message="tns:DeletePnrSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <wsdl:input message="tns:RAWOrderSoapIn" />
+      <wsdl:output message="tns:RAWOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoPatA">
+      <wsdl:input message="tns:DoPatASoapIn" />
+      <wsdl:output message="tns:DoPatASoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SearchFlightHttpGet">
+    <wsdl:operation name="SearchFiight">
+      <wsdl:input message="tns:SearchFiightHttpGetIn" />
+      <wsdl:output message="tns:SearchFiightHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiightOffLine">
+      <wsdl:input message="tns:SearchFiightOffLineHttpGetIn" />
+      <wsdl:output message="tns:SearchFiightOffLineHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiight_ZHX">
+      <wsdl:input message="tns:SearchFiight_ZHXHttpGetIn" />
+      <wsdl:output message="tns:SearchFiight_ZHXHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeat">
+      <wsdl:input message="tns:DoIBEPnrSeatHttpGetIn" />
+      <wsdl:output message="tns:DoIBEPnrSeatHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeatByCorp">
+      <wsdl:input message="tns:DoIBEPnrSeatByCorpHttpGetIn" />
+      <wsdl:output message="tns:DoIBEPnrSeatByCorpHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePnr">
+      <wsdl:input message="tns:DeletePnrHttpGetIn" />
+      <wsdl:output message="tns:DeletePnrHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <wsdl:input message="tns:RAWOrderHttpGetIn" />
+      <wsdl:output message="tns:RAWOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoPatA">
+      <wsdl:input message="tns:DoPatAHttpGetIn" />
+      <wsdl:output message="tns:DoPatAHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="SearchFlightHttpPost">
+    <wsdl:operation name="SearchFiight">
+      <wsdl:input message="tns:SearchFiightHttpPostIn" />
+      <wsdl:output message="tns:SearchFiightHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiightOffLine">
+      <wsdl:input message="tns:SearchFiightOffLineHttpPostIn" />
+      <wsdl:output message="tns:SearchFiightOffLineHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiight_ZHX">
+      <wsdl:input message="tns:SearchFiight_ZHXHttpPostIn" />
+      <wsdl:output message="tns:SearchFiight_ZHXHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeat">
+      <wsdl:input message="tns:DoIBEPnrSeatHttpPostIn" />
+      <wsdl:output message="tns:DoIBEPnrSeatHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeatByCorp">
+      <wsdl:input message="tns:DoIBEPnrSeatByCorpHttpPostIn" />
+      <wsdl:output message="tns:DoIBEPnrSeatByCorpHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePnr">
+      <wsdl:input message="tns:DeletePnrHttpPostIn" />
+      <wsdl:output message="tns:DeletePnrHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <wsdl:input message="tns:RAWOrderHttpPostIn" />
+      <wsdl:output message="tns:RAWOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DoPatA">
+      <wsdl:input message="tns:DoPatAHttpPostIn" />
+      <wsdl:output message="tns:DoPatAHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SearchFlightSoap" type="tns:SearchFlightSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SearchFiight">
+      <soap:operation soapAction="http://tempuri.org/SearchFiight" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiightOffLine">
+      <soap:operation soapAction="http://tempuri.org/SearchFiightOffLine" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiight_ZHX">
+      <soap:operation soapAction="http://tempuri.org/SearchFiight_ZHX" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeat">
+      <soap:operation soapAction="http://tempuri.org/DoIBEPnrSeat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeatByCorp">
+      <soap:operation soapAction="http://tempuri.org/DoIBEPnrSeatByCorp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePnr">
+      <soap:operation soapAction="http://tempuri.org/DeletePnr" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <soap:operation soapAction="http://tempuri.org/RAWOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoPatA">
+      <soap:operation soapAction="http://tempuri.org/DoPatA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SearchFlightSoap12" type="tns:SearchFlightSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SearchFiight">
+      <soap12:operation soapAction="http://tempuri.org/SearchFiight" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiightOffLine">
+      <soap12:operation soapAction="http://tempuri.org/SearchFiightOffLine" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiight_ZHX">
+      <soap12:operation soapAction="http://tempuri.org/SearchFiight_ZHX" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeat">
+      <soap12:operation soapAction="http://tempuri.org/DoIBEPnrSeat" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeatByCorp">
+      <soap12:operation soapAction="http://tempuri.org/DoIBEPnrSeatByCorp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePnr">
+      <soap12:operation soapAction="http://tempuri.org/DeletePnr" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <soap12:operation soapAction="http://tempuri.org/RAWOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoPatA">
+      <soap12:operation soapAction="http://tempuri.org/DoPatA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SearchFlightHttpGet" type="tns:SearchFlightHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="SearchFiight">
+      <http:operation location="/SearchFiight" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiightOffLine">
+      <http:operation location="/SearchFiightOffLine" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiight_ZHX">
+      <http:operation location="/SearchFiight_ZHX" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeat">
+      <http:operation location="/DoIBEPnrSeat" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeatByCorp">
+      <http:operation location="/DoIBEPnrSeatByCorp" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePnr">
+      <http:operation location="/DeletePnr" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <http:operation location="/RAWOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoPatA">
+      <http:operation location="/DoPatA" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SearchFlightHttpPost" type="tns:SearchFlightHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="SearchFiight">
+      <http:operation location="/SearchFiight" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiightOffLine">
+      <http:operation location="/SearchFiightOffLine" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchFiight_ZHX">
+      <http:operation location="/SearchFiight_ZHX" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeat">
+      <http:operation location="/DoIBEPnrSeat" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoIBEPnrSeatByCorp">
+      <http:operation location="/DoIBEPnrSeatByCorp" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePnr">
+      <http:operation location="/DeletePnr" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <http:operation location="/RAWOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DoPatA">
+      <http:operation location="/DoPatA" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SearchFlight">
+    <wsdl:port name="SearchFlightSoap" binding="tns:SearchFlightSoap">
+      <soap:address location="http://192.168.1.117:8088/Flight/SearchFlight.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SearchFlightSoap12" binding="tns:SearchFlightSoap12">
+      <soap12:address location="http://192.168.1.117:8088/Flight/SearchFlight.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SearchFlightHttpGet" binding="tns:SearchFlightHttpGet">
+      <http:address location="http://192.168.1.117:8088/Flight/SearchFlight.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SearchFlightHttpPost" binding="tns:SearchFlightHttpPost">
+      <http:address location="http://192.168.1.117:8088/Flight/SearchFlight.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,5 @@
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Library\bin\Debug\Mzl.Library.dll
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Library\bin\Debug\Mzl.Library.pdb
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Library\obj\Debug\Mzl.Library.csproj.CoreCompileInputs.cache
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Library\obj\Debug\Mzl.Library.dll
+E:\Mzl\branches20170920\Mzl.Code\Mzl.Library\obj\Debug\Mzl.Library.pdb

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<sqlMap namespace="StudentInfo" xmlns="http://ibatis.apache.org/mapping"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <alias>
+    <typeAlias alias="Tra_CallBackLog_Original" type="Mzl.Model.Train.Server.Tra_CallBackLog_OriginalEntity,Mzl.Model.Train.Server" />
+  </alias>
+  <resultMaps>
+    <resultMap id="Tra_CallBackLog_OriginalResult" class="Tra_CallBackLog_OriginalEntity">
+      <result property="LogContent" column="LogContent"/>
+      <result property="LogTime" column="LogTime"/>
+      <result property="LogCreator" column="LogCreator"/>
+      <result property="LogType" column="LogType"/>
+    </resultMap>
+  </resultMaps>
+  <statements>
+    <insert id="Insert" parameterClass="Tra_CallBackLog_OriginalEntity" resultClass="int">
+      INSERT INTO [Tra_CallBackLog_Original]([LogContent],[LogTime],[LogCreator],[LogType])
+      VALUES(#LogContent#,#LogTime#,#LogCreator#,#LogType#)
+      <selectKey property="StuNo" resultClass="int" type="post" >
+        SELECT @@identity AS StuNo
+      </selectKey>
+    </insert>
+    <delete id="Delete" parameterClass="Int32">
+      UPDATE [student_tb]
+      SET [stuName] = #StuName#,[stuSex] = #StuSex#,[stuAge] = #StuAge#,[stuSeat] = #StuSeat#,[stuAddress] = #StuAddress#
+      WHERE [stuNo]=#StuNo#
+    </delete>
+    <update id="Update" parameterClass="StudentInfo">
+      UPDATE [student_tb]
+      SET [stuName] = #StuName#,[stuSex] = #StuSex#,[stuAge] = #StuAge#,[stuSeat] = #StuSeat#,[stuAddress] = #StuAddress#
+      WHERE [stuNo]=#StuNo#
+    </update>    
+    <select id="Get" parameterClass="Int32" resultMap="StudentResult">
+      select * from [student_tb] where stuNo=#StuNo#
+    </select>    
+    <select id="List" parameterClass="map" resultMap="StudentResult">
+      select * from [student_tb]
+    </select>
+  </statements>
+</sqlMap>

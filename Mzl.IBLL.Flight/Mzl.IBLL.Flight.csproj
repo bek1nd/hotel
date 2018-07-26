@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{52D6F2A5-67A2-4F2C-9FEB-B511BD08F883}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mzl.IBLL.Flight</RootNamespace>
+    <AssemblyName>Mzl.IBLL.Flight</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Mzl.Library\3DLL\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddOrderAbstractContext.cs" />
+    <Compile Include="AuditOrder\IAuditFltModApplyBll.cs" />
+    <Compile Include="AuditOrder\IAuditFltOrderBll.cs" />
+    <Compile Include="AuditOrder\IAuditFltOrderServiceBll.cs" />
+    <Compile Include="AuditOrder\IAuditFltRetApplyBll.cs" />
+    <Compile Include="AuditOrder\IAuditFltTypeOrderBll.cs" />
+    <Compile Include="AuditOrder\IGetAuditFltModApplyListBll.cs" />
+    <Compile Include="AuditOrder\IGetAuditFltOrderListBll.cs" />
+    <Compile Include="AuditOrder\IGetAuditFltOrderListServiceBll.cs" />
+    <Compile Include="AuditOrder\IGetAuditFltRetApplyListBll.cs" />
+    <Compile Include="AuditOrder\IGetAuditFltTypeOrderListBll.cs" />
+    <Compile Include="AuditOrder\IValidataFltOrderAuditBll.cs" />
+    <Compile Include="BaseInfo\IGetCityForFlightServiceBll.cs" />
+    <Compile Include="CopyOrder\ICopyFltDomesticOrderServiceBll.cs" />
+    <Compile Include="DomesticRetMod\IAddFltDomesticRetApplyServiceBll.cs" />
+    <Compile Include="DomesticRetMod\ICancelRetModOrderServiceBll.cs" />
+    <Compile Include="DomesticRetMod\IConfirmModAuditPriceServiceBll.cs" />
+    <Compile Include="DomesticRetMod\IConfirmRetAuditPriceServiceBll.cs" />
+    <Compile Include="DomesticRetMod\IGetFlighRefundOrderBll.cs" />
+    <Compile Include="DomesticRetMod\IGetFlightRetModApplyBll.cs" />
+    <Compile Include="DomesticRetMod\IAddFltDomesticModApplyServiceBll.cs" />
+    <Compile Include="DomesticRetMod\IAddFltRetModApplyBll.cs" />
+    <Compile Include="DomesticRetMod\IGetFlightModOrderBll.cs" />
+    <Compile Include="DomesticRetMod\IGetFltDomesticModApplyViewServiceBll.cs" />
+    <Compile Include="DomesticRetMod\IGetFltDomesticRetApplyViewServiceBll.cs" />
+    <Compile Include="DomesticRetMod\IQueryFlightModApplyListServiceBll.cs" />
+    <Compile Include="DomesticRetMod\IQueryFlightModApplyServiceBll.cs" />
+    <Compile Include="DomesticRetMod\IQueryFlightRetApplyListServiceBll.cs" />
+    <Compile Include="DomesticRetMod\IQueryFlightRetApplyServiceBll.cs" />
+    <Compile Include="DomesticRetMod\IValidateModApplyBll.cs" />
+    <Compile Include="DomesticRetMod\IValidateRetApplyBll.cs" />
+    <Compile Include="IAddOrderBll.cs" />
+    <Compile Include="IAddOrderServiceBll.cs" />
+    <Compile Include="DomesticOrderAbstractValidate.cs" />
+    <Compile Include="ICancelFltOrderServiceBll.cs" />
+    <Compile Include="ICheckPassengerIsInWhiteListBll.cs" />
+    <Compile Include="IDoPnrNoBll.cs" />
+    <Compile Include="IGetClassNameBll.cs" />
+    <Compile Include="IGetFltOrderBll.cs" />
+    <Compile Include="IGetNotUseTicketNoListServiceBll.cs" />
+    <Compile Include="IGetPnrNoServiceBll.cs" />
+    <Compile Include="IGetUnAvailablePassengerServiceBll.cs" />
+    <Compile Include="IQueryFlightOrderListServiceBll.cs" />
+    <Compile Include="IQueryFlightOrderServiceBll.cs" />
+    <Compile Include="ISearchFlightServiceBll.cs" />
+    <Compile Include="IGetFltSendAppMessageContentServiceBll.cs" />
+    <Compile Include="IValidateOrderBll.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplitOrder\ISplitFltOrderServiceBll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mzl.DomainModel\Mzl.DomainModel.csproj">
+      <Project>{B49C4DBC-6BCD-4697-9A1D-490099B0E376}</Project>
+      <Name>Mzl.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Framework\Mzl.Framework.csproj">
+      <Project>{6A2875C0-EBBD-4ADC-AA08-B796F986F996}</Project>
+      <Name>Mzl.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Model\Mzl.EntityModel.csproj">
+      <Project>{598A15A2-C70E-4C3A-9303-F9324C7A5C0F}</Project>
+      <Name>Mzl.EntityModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

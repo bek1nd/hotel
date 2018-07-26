@@ -1,0 +1,1859 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mzl.Mojory.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForMediaType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Sets the sample directly for all actions with the specified media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetModelDescriptionGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the model description generator.
+            </summary>
+            <param name="config">The configuration.</param>
+            <returns>The <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator"/></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.ModelDescriptions.ModelDescription">
+            <summary>
+            Describes a type model.
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.ModelDescriptions.ModelDescriptionGenerator">
+            <summary>
+            将注释反射到页面上
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.ModelDescriptions.ModelNameAttribute">
+            <summary>
+            Use this attribute to change the name of the <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> generated for a type.
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.UriParameters">
+            <summary>
+            Gets or sets the <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.ModelDescriptions.ParameterDescription"/> collection that describes the URI parameters for the API.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.RequestDocumentation">
+            <summary>
+            Gets or sets the documentation for the request.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.RequestModelDescription">
+            <summary>
+            Gets or sets the <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the request body.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.RequestBodyParameters">
+            <summary>
+            Gets the request body parameter descriptions.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.ResourceDescription">
+            <summary>
+            Gets or sets the <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.ModelDescriptions.ModelDescription"/> that describes the resource.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.ResourceProperties">
+            <summary>
+            Gets the resource property descriptions.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories">
+            <summary>
+            Gets factories for the objects that the supported formatters will serialize as samples. Processed in order,
+            stopping when the factory successfully returns a non-<see langref="null"/> object.
+            </summary>
+            <remarks>
+            Collection includes just <see cref="M:Mzl.Mojory.WebApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)"/> initially. Use
+            <code>SampleObjectFactories.Insert(0, func)</code> to provide an override and
+            <code>SampleObjectFactories.Add(func)</code> to provide a fallback.</remarks>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,Mzl.Mojory.WebApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,Mzl.Mojory.WebApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create
+            one using <see cref="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.DefaultSampleObjectFactory(Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator,System.Type)"/> (which wraps an <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.ObjectGenerator"/>) and other
+            factories in <see cref="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjectFactories"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.ResolveHttpRequestMessageType(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Resolves the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The type.</returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},Mzl.Mojory.WebApi.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Creates a new <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.#ctor(Mzl.Mojory.WebApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,Mzl.Mojory.WebApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:Mzl.Mojory.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Mzl.Mojory.WebApi.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Config.ApiControllerExtensions">
+            <summary>
+            ApiController扩展方法
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Config.ApiControllerExtensions.GetToken(System.Web.Http.ApiController)">
+            <summary>
+            获取请求头中的MojoryToken信息
+            </summary>
+            <param name="api"></param>
+            <returns></returns>
+            
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Config.ApiControllerExtensions.GetCid(System.Web.Http.ApiController)">
+            <summary>
+            获取请求头中的Cid信息
+            </summary>
+            <param name="api"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Config.ApiControllerExtensions.GetOid(System.Web.Http.ApiController)">
+            <summary>
+            获取请求头中的Oid信息
+            </summary>
+            <param name="api"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Config.ApiControllerExtensions.CheckIsFromOnline(System.Web.Http.ApiController)">
+            <summary>
+            判断请求是否来自线上
+            </summary>
+            <param name="api"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Config.ApiControllerExtensions.GetOrderSource(System.Web.Http.ApiController)">
+            <summary>
+            获取订单来源
+            </summary>
+            <param name="api"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Config.MojoryDelegatingHandler.HttpMethodChangeHandler">
+            <summary>
+            自定义HttpMessageHandler，用于注册api消息管道中
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Config.MojoryExceptionFilterAttribute">
+            <summary>
+            自定义异常捕获Attribute
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Config.TokenAuthentication">
+            <summary>
+            Token权限验证
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Config.TokenAuthentication.OnAuthorization(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            重写拦截层
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Config.MojoryActionFilterAttribute">
+            <summary>
+            请求
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Config.MojoryActionFilterAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            请求之前
+            </summary>
+            <param name="actionContext"></param>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Common.AuditOrderController">
+            <summary>
+            审批
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.AuditOrderController.Audit(Mzl.UIModel.Common.AuditOrder.AuditOrderRequestViewModel)">
+            <summary>
+            审批
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Common.CheckCorpAccountPowerController">
+            <summary>
+            检查差旅网站帐号权限
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.CheckCorpAccountPowerController.CheckCorpAccountPower(Mzl.UIModel.Common.CheckAccount.CheckCorpAccountPowerRequestViewModel)">
+            <summary>
+            检查差旅网站帐号权限
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Common.GetAppMessageController">
+            <summary>
+            获取App消息信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.GetAppMessageController.GetUnReadMessageCount(Mzl.UIModel.Customer.AppMessage.GetUnReadMessageCountRequestViewModel)">
+            <summary>
+            获取未读的app消息数量
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.GetAppMessageController.GetUnReadMessage(Mzl.UIModel.Customer.AppMessage.GetAppMessageRequestViewModel)">
+            <summary>
+            获取未读的app消息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.GetAppMessageController.SetReadMessage(Mzl.UIModel.Customer.AppMessage.SetReadMessageRequestViewModel)">
+            <summary>
+            将消息设置已读
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Common.GetAppVisionController">
+            <summary>
+            获取APP允许版本号
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.GetAppVisionController.CheckAllAppVision(Mzl.UIModel.Common.Vision.CheckAppVisionRequestViewModel)">
+            <summary>
+            检查app允许版本号
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.GetInsuranceProductController.GetOnlineInsuranceProduct(Mzl.UIModel.Common.Insurance.InsuranceProductRequestViewModel)">
+            <summary>
+            获取线上保险信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Common.GetTravelListController">
+            <summary>
+            获取行程信息
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Common.SendAppMessageController">
+            <summary>
+            推送app消息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.SendAppMessageController.SendAppMessage">
+            <summary>
+            推送app消息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.SendAppMessageController.SendEmail">
+            <summary>
+            发送邮件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Common.SessionManageController">
+            <summary>
+            Session管理
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.SessionManageController.SetSession(Mzl.UIModel.Common.SessionManage.SetSessionRequestViewModel)">
+            <summary>
+            设置Session值
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.SessionManageController.GetSession(Mzl.UIModel.Common.SessionManage.GetSessionRequestViewModel)">
+            <summary>
+            获取Session值
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Common.UploadFileController">
+            <summary>
+            附件上传
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.UploadFileController.UploadFile">
+            <summary>
+            上传图片
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Common.GetAuditOrderListController">
+            <summary>
+            获取审批信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Common.GetAuditOrderListController.GetList(Mzl.UIModel.Common.AuditOrder.GetAuditOrderListRequestViewModel)">
+            <summary>
+            获取审批列表信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.AddAppOpinionController">
+            <summary>
+            添加app意见
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.AddAppOpinionController.AddMojoryAppOpinion(Mzl.UIModel.Customer.Customer.AppOpinionRequestViewModel)">
+            <summary>
+            添加差旅网站app意见
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.AddContactAddressController">
+            <summary>
+            添加送票地址
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.AddContactAddressController.AddContactAddress(Mzl.UIModel.Customer.Customer.AddContactAddressRequestViewModel)">
+            <summary>
+            添加送票地址
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.AddCorpAduitDepartmentRelationController">
+            <summary>
+            添加审批规则与部门关系
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.AddCorpAduitDepartmentRelationController.AddCorpAduitDepartmentRelation(Mzl.UIModel.Customer.CorpAduit.AddCorpAduitDepartmentRelationRequestViewModel)">
+            <summary>
+            添加审批规则与部门关系
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.AddCorpAduitCustomerRelationController">
+            <summary>
+            审批规则和员工进行关联
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.AddCorpAduitCustomerRelationController.AddAduitCustomerRelation(Mzl.UIModel.Customer.CorpAduit.AddCorpAduitCustomerRelationRequestViewModel)">
+            <summary>
+            添加审批规则和员工之间的关联
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.AddCorpAduitProjectRelationController">
+            <summary>
+            添加审批规则与项目成本中心关系
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.AddCorpAduitProjectRelationController.AddCorpAduitProjectRelation(Mzl.UIModel.Customer.CorpAduit.AddCorpAduitProjectRelationRequestViewModel)">
+            <summary>
+            添加审批规则与项目成本中心关系
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.AddPolicyCustomerRelationController">
+            <summary>
+            差旅政策和员工进行关联
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.AddPolicyCustomerRelationController.AddPolicyCustomerRelation(Mzl.UIModel.Customer.CorpPolicy.AddPolicyCustomerRelationRequestViewModel)">
+            <summary>
+            添加差旅政策和员工之间的关联
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.AddPolicyDepartmentRelationController">
+            <summary>
+            差旅政策和部门进行关联
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.AddPolicyDepartmentRelationController.AddPolicyDepartmentRelation(Mzl.UIModel.Customer.CorpPolicy.AddPolicyDepartmentRelationRequestViewModel)">
+            <summary>
+            添加差旅政策和部门之间的关联
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.AddContactController">
+            <summary>
+            新增联系人(临客)信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.AddContactController.AddContact(Mzl.UIModel.Customer.Customer.AddContactRequestViewModel)">
+            <summary>
+            新增联系人信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.AddPolicyProjectRelationController">
+            <summary>
+            差旅政策和项目进行关联
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.AddPolicyProjectRelationController.AddPolicyProjectRelation(Mzl.UIModel.Customer.CorpPolicy.AddPolicyProjectRelationRequestViewModel)">
+            <summary>
+            差旅政策和项目进行关联
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.CorpIndividuationController">
+            <summary>
+            公司订制信息设置
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.CorpIndividuationController.CorporationCustomMade(Mzl.UIModel.Customer.Corporation.GetCorpIndividuationRequestViewModel)">
+            <summary>
+            公司订制信息修改
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.DeleteCorpAduitConfigController">
+            <summary>
+            删除差旅审批规则
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.DeleteCorpAduitConfigController.DeleteCorpAduitConfig(Mzl.UIModel.Customer.CorpAduit.DeleteCorpAduitConfigRequestViewModel)">
+            <summary>
+            删除差旅审批规则
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.DoAduitOrderController">
+            <summary>
+            对审批单进行审批
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.DoAduitOrderController.DoAduitOrder(Mzl.UIModel.Customer.CorpAduit.DoAduitOrderRequestViewModel)">
+            <summary>
+            对审批单进行审批
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.EditContactController">
+            <summary>
+            修改联系人(临客)信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.EditContactController.EditContact(Mzl.UIModel.Customer.Customer.EditContactRequestViewModel)">
+            <summary>
+            修改联系人(临客)信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.GetAppOpinionListController">
+            <summary>
+            获取app意见列表
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.GetAuditOrderController">
+            <summary>
+            获取审批单信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.GetAuditOrderController.GetAuditOrderById(Mzl.UIModel.Customer.CorpAduit.GetAduitOrderRequestViewModel)">
+            <summary>
+            根据审批单号获取审批信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpAduitConfigController">
+            <summary>
+            差旅审批规则维护
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpAduitConfigController.GetCorpAduitConfigList(Mzl.UIModel.Customer.CorpAduit.GetCorpAduitConfigListRequestViewModel)">
+            <summary>
+            获取公司对应的审批规则
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpAduitConfigController.GetCorpAduitConfig(Mzl.UIModel.Customer.CorpAduit.GetCorpAduitConfigRequestViewModel)">
+            <summary>
+            获取id对应的审批规则
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.CustomerController">
+            <summary>
+            客户业务控制器
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.CustomerController.MojoryLogin(Mzl.UIModel.Customer.Login.LoginRequestViewModel)">
+            <summary>
+            差旅网站登录
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.CustomerController.AutoLogin(Mzl.UIModel.Customer.Customer.ClientInfoRequestViewModel)">
+            <summary>
+            自动登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.CustomerController.MojoryLoginOut">
+            <summary>
+            差旅网站登录注销
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.CustomerController.GetCustomerInfo">
+            <summary>
+            获取客户信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.CustomerController.SearchContactInfo(Mzl.UIModel.Train.Order.TraOrderRequestViewModel)">
+            <summary>
+            搜索联系人信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpAduitCustomerController">
+            <summary>
+            获取差旅客户部门信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpAduitCustomerController.GetCorpAduitCustomers(Mzl.UIModel.Customer.CorpAduit.GetCorpAduitCustomerRequestViewModel)">
+            <summary>
+            获取差旅客户的客户信息(包含是否对应政策)
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpBookingDepartListController">
+            <summary>
+            获取预订员的预定部门范围
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpBookingDepartListController.GetCorpBookingDepartList(Mzl.UIModel.Customer.Customer.GetCorpBookingDepartListRequestViewModel)">
+            <summary>
+            获取预订员的预定部门范围
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpPolicyAndAduitRuleController">
+            <summary>
+            获取待预定乘客的差旅政策和审批规则
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpPolicyAndAduitRuleController.GetCorpPolicyAndAduitRule(Mzl.UIModel.Customer.MatchCorpPolicyAndAduit.MatchCorpPolicyAndAduitRequestViewModel)">
+            <summary>
+            获取待预定乘客的差旅政策和审批规则
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpPolicyCustomerController">
+            <summary>
+            获取差旅客户部门信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpPolicyCustomerController.GetCorpPolicyCustomers(Mzl.UIModel.Customer.CorpPolicy.GetCorpPolicyCustomerRequestViewModel)">
+            <summary>
+            获取差旅客户的客户信息(包含是否对应政策)
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpPolicyDepartmentController">
+            <summary>
+            获取差旅政策对应的部门信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpPolicyDepartmentController.GetCorpPolicyDepartments(Mzl.UIModel.Customer.CorpPolicy.GetCorpDepartmentRequestViewModel)">
+            <summary>
+            获取差旅政策对应的部门信息(包含是否对应政策)
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpPolicyProjectController">
+            <summary>
+            获取差旅政策对应的项目成本中心信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpPolicyProjectController.GetCorpPolicyProjects(Mzl.UIModel.Customer.CorpPolicy.GetCorpPolicyProjectRequestViewModel)">
+            <summary>
+            获取差旅政策对应的项目成本中心信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpPolicyReasonController">
+            <summary>
+            获取差旅政策对应的原因信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.GetCorpPolicyReasonController.GetCorpPolicyReason(Mzl.UIModel.Customer.Corporation.GetCorpPolicyReasonRequestViewModel)">
+            <summary>
+            获取差旅政策对应的原因信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.GetCustomerInfoController">
+            <summary>
+            获取客户信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.GetCustomerInfoController.GetCustomerInfo(Mzl.UIModel.Customer.Customer.GetCustomerInfoRequestViewModel)">
+            <summary>
+            获取客户信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.MaintainCorpAduitConfigController">
+            <summary>
+            审批规则维护
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.MaintainCorpAduitConfigController.Add(Mzl.UIModel.Customer.CorpAduit.AddCorpAduitConfigRequestViewModel)">
+            <summary>
+            添加审批规则
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.MaintainCorpAduitConfigController.Update(Mzl.UIModel.Customer.CorpAduit.UpdateCorpAduitConfigRequestViewModel)">
+            <summary>
+            修改审批规则
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.SearchContactsController">
+            <summary>
+            查询联系人
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.SearchContactsController.SearchContacts(Mzl.UIModel.Customer.Customer.SearchContactsRequestViewModel)">
+            <summary>
+            查询联系人信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.SearchPassengersController">
+            <summary>
+            获取所有的待预定乘客信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.SearchPassengersController.SearchPassengers(Mzl.UIModel.Customer.Customer.SearchPassengersRequestViewModel)">
+            <summary>
+            获取所有的待预定乘客信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.SetCorpBookingDepartListController">
+            <summary>
+            设置差旅预定部门范围
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.SetCorpBookingDepartListController.SetCorpBookingDepartList(Mzl.UIModel.Customer.Customer.SetCorpBookingDepartListRequestViewModel)">
+            <summary>
+            设置差旅预定部门范围
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.UpdateCustomerController">
+            <summary>
+            修改客户信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.UpdateCustomerController.UpdateCustomerHeadPicture(Mzl.UIModel.Customer.Customer.UpdateCustomerHeadPictureRequestViewModel)">
+            <summary>
+            修改头像路径
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.UpdateCustomerController.UpdateCustomerInfo(Mzl.UIModel.Customer.Customer.UpdateCustomerInfoRequestViewModel)">
+            <summary>
+            修改客户基本信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Customer.UpdatePwdController">
+            <summary>
+            修改密码
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Customer.UpdatePwdController.UpdateMojoryCustomerPwd(Mzl.UIModel.Customer.Customer.UpdateCustomerPwdRequestViewModel)">
+            <summary>
+            更改差旅网站用户密码
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.AddFltDomesticModApplyController">
+            <summary>
+            添加国内机票改签申请
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.AddFltDomesticRetApplyController">
+            <summary>
+            添加退票申请api
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.AddFltDomesticRetApplyController.AddRetApply(Mzl.UIModel.Flight.AddRetApplyRequestViewModel)">
+            <summary>
+            添加退票申请
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.AddFltDomesticRetApplyController.UploadFile">
+            <summary>
+            上传图片
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.CancelFltCorpOrderController">
+            <summary>
+            取消差旅订单
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.CancelFltCorpOrderController.CancelOnlineOrder(Mzl.UIModel.Flight.CancelFltOrderRequestViewModel)">
+            <summary>
+            取消线上订单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.CancelFltModApplyController">
+            <summary>
+            取消改签申请
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.CancelFltModApplyController.CancelFltModApplyByWaitAuditStep(Mzl.UIModel.Flight.CancelFltModApplyRequestViewModel)">
+            <summary>
+            待核价确认阶段取消申请
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.CancelFltRetApplyController">
+            <summary>
+            取消退票申请
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.CancelFltRetApplyController.CancelFltRetApplyByWaitAuditStep(Mzl.UIModel.Flight.CancelFltRetApplyRequestViewModel)">
+            <summary>
+            待核价确认阶段取消退票申请
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.ConfirmRetApplyAuditPriceController">
+            <summary>
+            退票申请核价确认
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.ConfirmRetApplyAuditPriceController.ConfirmRetAuditPrice(Mzl.UIModel.Flight.ConfirmRetModAuditPriceRequestViewModel)">
+            <summary>
+            退票申请核价确认
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.CopyFltDomesticOrderController">
+            <summary>
+            复制国内机票订单
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.CopyFltDomesticOrderController.CopyCorpFltDomesticOrder(Mzl.UIModel.Flight.CopyOrder.CopyFltDomesticOrderRequestViewModel)">
+            <summary>
+            复制国内机票订单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.GetFltDomesticModApplyViewController">
+            <summary>
+            获取国内机票改签申请页面
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.GetFltDomesticModApplyViewController.GetModApply(Mzl.UIModel.Flight.GetModApplyRequestViewModel)">
+            <summary>
+            获取改签申请页面
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.AddFltDomesticOrderController">
+            <summary>
+            添加机票国内订单
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.AddFltDomesticOrderController.AddFltDomesticOrder(Mzl.UIModel.Flight.AddOrderRequestViewModel)">
+            <summary>
+            添加机票国内订单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.ComfireFlightOrderViewController">
+            <summary>
+            展示国内机票下单页面信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.ComfireFlightOrderViewController.ComfireOrderView(Mzl.UIModel.Flight.ComfireFlightOrderRequestViewModel)">
+            <summary>
+            展示下单页面信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.ConfirmModApplyAuditPriceController">
+            <summary>
+            改签申请核价确认
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.GetFltDomesticRetApplyViewController">
+            <summary>
+            获取国内机票退票申请页面
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.GetFltDomesticRetApplyViewController.GetRetApply(Mzl.UIModel.Flight.GetRetApplyRequestViewModel)">
+            <summary>
+            获取退票申请页面
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.GetNotUseTicketNoListController">
+            <summary>
+            获取未使用机票信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.GetNotUseTicketNoListController.GetNotUseNationTicketNoList(Mzl.UIModel.Flight.GetNotUseTicketNoQueryViewModel)">
+            <summary>
+            获取国内未使用机票信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightDomesticOrderController">
+            <summary>
+            机票订单详情
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightModApplyController">
+            <summary>
+            改签申请详情
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightModApplyListController">
+            <summary>
+            查询机票改签申请列表
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightModApplyListController.QueryFlightModApplyList(Mzl.UIModel.Flight.QueryFltModApplyListRequestViewModel)">
+            <summary>
+            查询机票改签申请列表
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightModApplyListController.ExportFlightOrderList(Mzl.UIModel.Flight.QueryFltModApplyListRequestViewModel)">
+            <summary>
+            导出机票订单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightDomesticOrderListController">
+            <summary>
+            查询机票订单列表
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightDomesticOrderListController.QueryFlightOrderList(Mzl.UIModel.Flight.QueryFltOrderListRequestViewModel)">
+            <summary>
+            查询机票订单列表
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightDomesticOrderListController.ExportFlightOrderList(Mzl.UIModel.Flight.QueryFltOrderListRequestViewModel)">
+            <summary>
+            导出机票订单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightRetApplyController">
+            <summary>
+            退票申请详情
+            </summary>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightRetApplyListController">
+            <summary>
+            机票退票申请列表
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightRetApplyListController.QueryFlightRetApplyList(Mzl.UIModel.Flight.QueryFltRetApplyListRequestViewModel)">
+            <summary>
+            查询机票退票申请列表
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.QueryFlightRetApplyListController.ExportFlightOrderList(Mzl.UIModel.Flight.QueryFltRetApplyListRequestViewModel)">
+            <summary>
+            导出机票订单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.SearchAirportController">
+            <summary>
+            查询机场信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.SearchAirportController.SearchAirport(Mzl.UIModel.Flight.SearchCityAirportRequestViewModel)">
+            <summary>
+            查询机场信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.SearchModFlightController">
+            <summary>
+            查询改签航班
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.SearchModFlightController.SearchFlight(Mzl.UIModel.Flight.SearchModFlightRequestViewModel)">
+            <summary>
+            查询改签航班
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.Corp.SearchFlightController">
+            <summary>
+            查询航班
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.Corp.SearchFlightController.SearchFlight(Mzl.UIModel.Flight.SearchFlightRequestViewModel)">
+            <summary>
+            查询航班
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.OA.GetUnAvailablePassengerController.GetUnAvailablePassengerList(Mzl.UIModel.Flight.GetUnAvailablePassengerRequestViewModel)">
+            <summary>
+            获取信息不可用的订单信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Flight.OA.SplitFltOrderController">
+            <summary>
+            拆分机票订单
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Flight.OA.SplitFltOrderController.SplitFltOrder(Mzl.UIModel.Flight.SplitOrder.SplitFltOrderRequestViewModel)">
+            <summary>
+            拆分机票订单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Hotel.CopyHotelOrderController">
+            <summary>
+            复制酒店订单
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Hotel.CopyHotelOrderController.CopyHotelOrder(Mzl.UIModel.Hotel.CopyOrder.CopyHotelOrderRequestViewModel)">
+            <summary>
+            复制酒店订单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Hotel.GetHotelOrderInfoController">
+            <summary>
+            获取酒店订单信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Hotel.GetHotelOrderInfoController.GetHotelOrderInfo(Mzl.UIModel.Hotel.GetOrderInfo.GetHotelOrderInfoRequestViewModel)">
+            <summary>
+            获取酒店订单信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Hotel.QueryHotelCityController">
+            <summary>
+            查询酒店城市信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Hotel.QueryHotelCityController.QueryHotelCity(Mzl.UIModel.Hotel.Elong.City.QueryHotelCityRequestViewModel)">
+            <summary>
+            查询酒店城市信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Hotel.QueryHotelDetailController">
+            <summary>
+            查询酒店详情信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Hotel.QueryHotelDetailController.QueryHotelDetail(Mzl.UIModel.Hotel.Elong.HotelInfo.QueryHotelDetailRequestViewModel)">
+            <summary>
+            查询酒店详情信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Hotel.QueryHotelListController">
+            <summary>
+            查询酒店信息列表
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Hotel.QueryHotelListController.QueryHotelList(Mzl.UIModel.Hotel.Elong.HotelInfo.QueryHotelInfoRequestViewModel)">
+            <summary>
+            查询酒店信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Register.RegisterController.RegisterCustomer(Mzl.UIModel.Register.RegisterViewModel)">
+            <summary>
+            用户登记
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Token.TokenController">
+            <summary>
+            获取Token的控制器
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Token.TokenController.GetToken">
+            <summary>
+            获取Token信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.Order.AddTraOrderController">
+            <summary>
+            添加订单
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.AddTraOrderController.AddTraOrder(Mzl.UIModel.Train.Order.AddTraOrderRequestViewModel)">
+            <summary>
+            添加火车订单
+            分为两个路线
+            1.走接口路线
+            2.不走接口路线（手动导单路线）
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.Order.ConfirmTraHoldSeatController">
+            <summary>
+            确认火车占位结果
+            同意占位：进行送审；有审批：成功后进行出票申请；没审批直接出票申请
+            不同意占位：取消第三方接口
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.ConfirmTraHoldSeatController.ConfirmTraHoldSeat(Mzl.UIModel.Train.Order.ConfirmTraHoldSeatRequestViewModel)">
+            <summary>
+            确认火车占位结果
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.Order.ConfirmTraOrderViewController">
+            <summary>
+            展示火车下单页面信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.ConfirmTraOrderViewController.ConfirmOrderView(Mzl.UIModel.Train.Order.ConfirmTraOrderRequestViewModel)">
+            <summary>
+            获取火车下单页面预设信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.Order.CopyTraOrderController">
+            <summary>
+            复制火车订单
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.CopyTraOrderController.CopyTraOrder(Mzl.UIModel.Train.Order.CopyOrder.CopyTraOrderRequestViewModel)">
+            <summary>
+            复制火车订单
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.Order.GetTraAppOrderDetailController">
+            <summary>
+            获取订单详情页面
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.GetTraAppOrderDetailController.GetTraOrderDetailInfo(Mzl.UIModel.Train.Order.OrderDetail.GetTraOrderDetailRequestViewModel)">
+            <summary>
+            获取订单详情页面
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.SplitTraOrderController.SplitTraOrder(Mzl.UIModel.Flight.SplitOrder.SplitTraOrderRequestViewModel)">
+            <summary>
+            火车订单拆分
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController">
+            <summary>
+            火车票业务
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.TraComfireOrderView(Mzl.UIModel.Train.Order.TraOrderRequestViewModel)">
+            <summary>
+            获取火车确认订单视图api
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.AddTraOrder(Mzl.DomainModel.Train.Order.TraAddOrderModel)">
+            <summary>
+            火车票新增订单api
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.OrderListView">
+            <summary>
+            火车票列表视图api
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.GetOrderList(Mzl.DomainModel.Train.Order.TraOrderListQueryModel)">
+            <summary>
+            订单列表查询api
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.ExportOrderList(Mzl.DomainModel.Train.Order.TraOrderListQueryModel)">
+            <summary>
+            火车票订单列表导出
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.GetOrderInfo(Mzl.UIModel.Train.Order.TraOrderRequestViewModel)">
+            <summary>
+            火车订单详情api
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.QueryTrainView">
+            <summary>
+            查询火车车次信息视图api
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.AutoAnalysis(Mzl.UIModel.Train.Order.TraOrderRequestViewModel)">
+            <summary>
+            自动解析12306订单格式
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.TraRetOrderView(Mzl.UIModel.Train.Order.TraOrderRequestViewModel)">
+            <summary>
+            火车票退票提交视图api
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.AddTraRetOrder(Mzl.DomainModel.Train.Order.TraAddRetModOrderModel)">
+            <summary>
+            创建火车票退票订单api
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.GetRetOrderList(Mzl.DomainModel.Train.Order.TraOrderListQueryModel)">
+            <summary>
+            退票订单列表查询api
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.ExportRetOrderList(Mzl.DomainModel.Train.Order.TraOrderListQueryModel)">
+            <summary>
+            火车票 退票列表导出
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.GetRetOrderInfo(Mzl.UIModel.Train.Order.TraOrderRequestViewModel)">
+            <summary>
+            退票订单详情api
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.RetOrderListView">
+            <summary>
+            火车票退票列表视图api
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.TraModOrderView(Mzl.UIModel.Train.Order.TraOrderRequestViewModel)">
+            <summary>
+            火车票改签提交视图api
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.AddTraModOrder(Mzl.DomainModel.Train.Order.TraAddRetModOrderModel)">
+            <summary>
+            创建火车票改签订单api
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.GetModOrderList(Mzl.DomainModel.Train.Order.TraModOrderListQueryModel)">
+            <summary>
+            改签订单列表api
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.ExportModOrderList(Mzl.DomainModel.Train.Order.TraModOrderListQueryModel)">
+            <summary>
+            改签订单导出
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.GetModOrderInfo(Mzl.UIModel.Train.Order.TraOrderRequestViewModel)">
+            <summary>
+            改签订单详情api
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.ModOrderListView">
+            <summary>
+            火车票改签列表视图api
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.TraOrderController.GetModFeeRate(Mzl.UIModel.Train.Order.TraOrderRequestViewModel)">
+            <summary>
+            获取改签费率
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.Order.SearchTrainController">
+            <summary>
+            查询火车行程信息
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Order.SearchTrainController.SearchTrain(Mzl.UIModel.Train.Search.SearchTrainRequestViewModel)">
+            <summary>
+            查询航班
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.CallBack.TrainCallBackController.HoldSeatCallBack">
+            <summary>
+            占座回调
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.CallBack.TrainCallBackController.PrintTicketCallBack">
+            <summary>
+            确认出票回调
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.CallBack.TrainCallBackController.RefundCallBack">
+            <summary>
+            退票回调
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.CallBack.TrainCallBackController.ModHoldSeatCallBack">
+            <summary>
+            改签占座回调
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.CallBack.TrainCallBackController.ModPrintTicketCallBack">
+            <summary>
+            改签出票回调
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.GrabTicket.TraCancelGrabTicketController">
+             <summary>
+            火车抢票取消
+             </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.GrabTicket.TraCancelGrabTicketController.CancelGrabTicket(Mzl.UIModel.Train.GrabTicket.CancelTraGrabTicketRequestViewModel)">
+            <summary>
+            取消抢票
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.GrabTicket.TraAddGrabTicketController">
+            <summary>
+            火车抢票提交
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.GrabTicket.TraAddGrabTicketController.AddGrabTicket(Mzl.UIModel.Train.GrabTicket.AddGrabTicketRequestViewModel)">
+            <summary>
+            添加抢票信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.GrabTicket.TraGrabTicketCallBackController">
+            <summary>
+            火车票抢票异步通知
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.GrabTicket.TraGrabTicketCallBackController.GrabTicketCallBack">
+            <summary>
+            接受火车票抢票异步通知
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.GrabTicket.TraGrabTicketListController">
+            <summary>
+            火车抢票列表
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.GrabTicket.TraGrabTicketListController.GetTraGrabTicketList(Mzl.UIModel.Train.GrabTicket.TraGrabTicketListRequestViewModel)">
+            <summary>
+            获取火车抢票信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.Train.MakeUp.TrainMakeUpController">
+            <summary>
+            火车票弥补服务Api
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.MakeUp.TrainMakeUpController.HoldSeateMakeUp">
+            <summary>
+            火车票占位弥补服务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.MakeUp.TrainMakeUpController.MakingPrintMakeUp">
+            <summary>
+            火车票正在出票弥补服务
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Server.OrderServerController.GetQueryTrain(Mzl.UIModel.Train.Search.SearchTrainRequestViewModel)">
+            <summary>
+            车票查询
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Server.OrderServerController.GetOrderSubmit(Mzl.UIModel.Search.TraOrderSubmitViewModel)">
+            <summary>
+            订单提交
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Server.OrderServerController.GetOrderCancel(Mzl.UIModel.Search.TraOrderCancelViewModel)">
+            <summary>
+            订单取消
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Server.OrderServerController.GetTrainInfo(Mzl.UIModel.Search.TraTrainInfoViewModel)">
+            <summary>
+            经停信息信息查询
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Server.OrderServerController.GetOrderConfirm(Mzl.UIModel.Search.TraOrderConfirmViewModel)">
+            <summary>
+            火车票确认出票
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Server.OrderServerController.GetTichetRefund(Mzl.UIModel.Train.Search.TraTicketRefundViewModel)">
+            <summary>
+            火车票线上退票
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Server.OrderServerController.QueryTraInterfaceOrderStatus(Mzl.UIModel.Train.Order.TraOrderRequestViewModel)">
+            <summary>
+            查询接口火车票状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Server.OrderServerController.GetRequestChange(Mzl.UIModel.Train.Search.TraRequestChangeViewModel)">
+            <summary>
+            火车票改签创建
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Server.OrderServerController.GetRequestCancel(Mzl.UIModel.Train.Search.TraRequestCancelViewModel)">
+            <summary>
+            火车票改签取消
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Server.OrderServerController.GetRequestConfirm(Mzl.UIModel.Train.Search.TraRequestConfirmViewModel)">
+            <summary>
+            火车票改签确认
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.Train.Server.OrderServerController.GetOrderInfo(Mzl.UIModel.Train.Search.TraSearchOrderInfoViewModel)">
+            <summary>
+            通过对方接口查询火车票信息
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Mzl.Mojory.WebApi.Controllers.XingANotices.XingADataController">
+            <summary>
+            行啊
+            </summary>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.XingANotices.XingADataController.InsertData(Mzl.DomainModel.XingA.BCTktRefundSynVO)">
+            <summary>
+            加密
+            </summary>
+            <param name="data">加密数据</param>
+            <returns>加密结果</returns>
+        </member>
+        <member name="M:Mzl.Mojory.WebApi.Controllers.XingANotices.XingADataController.DecryptData(Mzl.DomainModel.XingA.BCTktRefundSynVO)">
+            <summary>
+            解密数据并存储数据
+            </summary>
+            <param name="data">密文</param>
+            <returns>解密结果</returns>
+        </member>
+    </members>
+</doc>

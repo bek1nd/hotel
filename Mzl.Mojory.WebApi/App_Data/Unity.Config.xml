@@ -1,0 +1,1702 @@
+﻿<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration"/>
+  </configSections>
+  <unity>
+    <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration"/>
+    <containers>
+      <!-- 合作企业登记api-->
+      <container name="RegisterApi">
+        <register type="Mzl.IApplication.Register.IRegisterCustomerApplication, Mzl.IApplication" mapTo="Mzl.Application.Register.RegisterCustomerApplication, Mzl.Application"/>
+        <!--<register type="Mzl.IBLL.Register.IRegisterCustomer, Mzl.IBLL.Register" mapTo="Mzl.BLL.Register.RegisterCustomer, Mzl.BLL.Register"/>-->
+        <!--<register type="Mzl.IDAL.Register.IRegisterCustomer, Mzl.IDAL.Register" mapTo="Mzl.DAL.Register.RegisterCustomer, Mzl.DAL.Register"/>-->
+      </container>
+
+      <container name="MobileBindApi">
+        <register type="Mzl.IApplication.Customer.IMobileBindApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.MobileBindApplication, Mzl.Application" />
+        <register type="Mzl.IBLL.Customer.Customer.IMobileBindServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.MobileBindServiceBll, Mzl.BLL.Customer" />
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer" />
+      </container>
+
+      <!--国内机票-订单创建api-->
+      <container name="AddFltDomesticOrderApi">
+        <register type="Mzl.IApplication.Flight.IAddOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.AddOrderApplication, Mzl.Application"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取公司信息服务-->
+        <register type="Mzl.IBLL.Customer.Corp.IGetCorpServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Corp.GetCorpServiceBll, Mzl.BLL.Customer"/>
+        <!--获取乘机人客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCorpPassengerCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCorpPassengerCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.ContactInfo.IGetContactBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ContactInfo.GetContactBll, Mzl.BLL.Customer"/>
+        <!--新增机票订单服务-->
+        <register type="Mzl.IBLL.Flight.IAddOrderServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.AddCorpOrderServiceBll, Mzl.BLL.Flight"/>
+        <!--国内机票定位服务-->
+        <register type="Mzl.IBLL.Flight.IGetPnrNoServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetNationPnrNoServiceBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.IDoPnrNoBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DoIBEPnrNoBll, Mzl.BLL.Flight"/>
+        <!--新增国内机票订单业务-->
+        <register type="Mzl.IBLL.Flight.IAddOrderBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.AddDomesticOrderBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.IValidateOrderBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.ValidateOrderBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.AddOrderAbstractContext, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.OrderValidate.AddDomesticOrderContext, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.ICheckPassengerIsInWhiteListBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.CheckPassengerIsInWhiteListBll, Mzl.BLL.Flight"/>
+        <!--差旅送审服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.SubmitCorpAduitOrder.ISubmitCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.SubmitCorpAduitOrder.SubmitCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICorpAduitBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CorpAduitBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IAddSendAppMessageBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddSendAppMessageBll, Mzl.BLL.Customer"/>
+        <!--获取公司员工信息服务-->
+        <register type="Mzl.IBLL.Common.Operator.IGetOperatorServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.Operator.GetOperatorServiceBll, Mzl.BLL.Common"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderUnionDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderUnionDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltCorpCostCenterDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltCorpCostCenterDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ISendAppMessageDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.SendAppMessageDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Common.IOperatorDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.OperatorDal, Mzl.DAL.Common"/>
+      </container>
+
+      <!--国内机票-航班查询api-->
+      <container name="SearchFlightApi">
+        <register type="Mzl.IApplication.Flight.ISearchFlightApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.SearchFlightApplication, Mzl.Application"/>
+        <!--查询航班服务-->
+        <register type="Mzl.IBLL.Flight.ISearchFlightServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.SearchFlightServiceBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.ICheckPassengerIsInWhiteListBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.CheckPassengerIsInWhiteListBll, Mzl.BLL.Flight"/>
+        <!--获取差旅政策服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerCorpPolicyServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerCorpPolicyServiceBll, Mzl.BLL.Customer"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取乘客信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetPassengerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetPassengerServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyDetailConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyDetailConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IChoiceReasonDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ChoiceReasonDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-机场查询api-->
+      <container name="SearchAirportApi">
+        <register type="Mzl.IApplication.Flight.ISearchAirportApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.SearchAirportApplication, Mzl.Application"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+      </container>
+
+      <!--国内机票-订单创建页面api-->
+      <container name="ComfireFlightOrderViewApi">
+        <register type="Mzl.IApplication.Flight.IComfireOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.ComfireOrderApplication, Mzl.Application"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取公司信息服务-->
+        <register type="Mzl.IBLL.Customer.Corp.IGetCorpServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Corp.GetCorpServiceBll, Mzl.BLL.Customer"/>
+        <!--获取项目名称服务-->
+        <register type="Mzl.IBLL.Customer.ProjectName.IGetProjectNameServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ProjectName.GetProjectNameServiceBll, Mzl.BLL.Customer"/>
+        <!--查询保险产品服务-->
+        <register type="Mzl.IBLL.Common.Insurance.IGetInsuranceCompanyServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.Insurance.GetInsuranceCompanyServiceBll, Mzl.BLL.Common"/>
+        <!--获取成本中心服务-->
+        <register type="Mzl.IBLL.Customer.CostCenter.IGetCostCenterServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CostCenter.GetCostCenterServiceBll, Mzl.BLL.Customer"/>
+        <!--获取联系地址服务-->
+        <register type="Mzl.IBLL.Customer.ContactInfo.IGetContactAddressServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ContactInfo.GetContactAddressServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICostCenterDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CostCenterDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IProjectNameDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ProjectNameDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Common.IInsuranceCompanyDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.InsuranceCompanyDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactAddressDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactAddressDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigProjectDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigProjectDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-订单列表api-->
+      <container name="QueryFlightDomesticOrderListApi">
+        <register type="Mzl.IApplication.Flight.IQueryFlightOrderListApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.QueryFlightDomesticOrderListApplication, Mzl.Application"/>
+        <!--查询国内机票订单列表服务-->
+        <register type="Mzl.IBLL.Flight.IQueryFlightOrderListServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.QueryFlightOrderListServiceBll, Mzl.BLL.Flight"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取审批信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-订单详情api-->
+      <container name="QueryFlightDomesticOrderApi">
+        <register type="Mzl.IApplication.Flight.IQueryFlightOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.QueryFlightDomesticOrderApplication, Mzl.Application"/>
+        <!--查询机票订单服务-->
+        <register type="Mzl.IBLL.Flight.IQueryFlightOrderServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.QueryFlightOrderServiceBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.IGetClassNameBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetClassNameServiceBll, Mzl.BLL.Flight"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--查询保险产品服务-->
+        <register type="Mzl.IBLL.Common.Insurance.IGetInsuranceCompanyServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.Insurance.GetInsuranceCompanyServiceBll, Mzl.BLL.Common"/>
+        <!--获取项目名称服务-->
+        <register type="Mzl.IBLL.Customer.ProjectName.IGetProjectNameServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ProjectName.GetProjectNameServiceBll, Mzl.BLL.Customer"/>
+        <!--获取退票单服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IGetFlighRefundOrderBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.GetFlighRefundOrderBll, Mzl.BLL.Flight"/>
+        <!--获取该签单服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IGetFlightModOrderBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.GetFlightModOrderBll, Mzl.BLL.Flight"/>
+        <!--判断当前客人是否是当前订单的审批人服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICheckAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CheckAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--获取审批信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderUnionDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderUnionDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltCorpCostCenterDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltCorpCostCenterDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltClassNameDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltClassNameDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Common.IInsuranceCompanyDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.InsuranceCompanyDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IProjectNameDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ProjectNameDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltModOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltModOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltModFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltModFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltModPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltModPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltModTicketNoDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltModTicketNoDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltModOrderLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltModOrderLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRefundOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRefundOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRefundOrderDetailDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRefundOrderDetailDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigProjectDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigProjectDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-改签申请页面api-->
+      <container name="GetFltDomesticModApplyViewApi">
+        <register type="Mzl.IApplication.Flight.IGetFltDomesticModApplyViewApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.GetFltDomesticModApplyViewApplication, Mzl.Application"/>
+        <!--查询国内机票改签申请服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IGetFltDomesticModApplyViewServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.GetFltDomesticModApplyViewServiceBll, Mzl.BLL.Flight"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取舱等服务-->
+        <register type="Mzl.IBLL.Flight.IGetClassNameBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetClassNameServiceBll, Mzl.BLL.Flight"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltTicketNoDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltTicketNoDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltClassNameDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltClassNameDal, Mzl.DAL.Flight"/>
+      </container>
+
+      <!--国内机票-改签申请创建api-->
+      <container name="AddFltDomesticModApplyApi">
+        <register type="Mzl.IApplication.Flight.IAddFltDomesticModApplyApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.AddFltDomesticModApplyApplication, Mzl.Application"/>
+        <!--创建国内机票改签申请服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IAddFltDomesticModApplyServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.AddFltDomesticModApplyServiceBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IAddFltRetModApplyBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.AddFltRetModApplyBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IValidateModApplyBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.ValidateModApplyBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.AddOrderAbstractContext, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.OrderValidate.AddModRetApplyContext, Mzl.BLL.Flight"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取公司信息服务-->
+        <register type="Mzl.IBLL.Customer.Corp.IGetCorpServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Corp.GetCorpServiceBll, Mzl.BLL.Customer"/>
+        <!--获取公司员工信息服务 -->
+        <register type="Mzl.IBLL.Common.Operator.IGetOperatorServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.Operator.GetOperatorServiceBll, Mzl.BLL.Common"/>
+        <register type="Mzl.IDAL.Common.IOperatorDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.OperatorDal, Mzl.DAL.Common"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-改签航班查询api-->
+      <container name="SearchModFlightApi">
+        <register type="Mzl.IApplication.Flight.ISearchModFlightApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.SearchModFlightApplication, Mzl.Application"/>
+        <!--查询改签航班服务-->
+        <register type="Mzl.IBLL.Flight.ISearchFlightServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.SearchModFlightServiceBll, Mzl.BLL.Flight"/>
+        <!--获取差旅政策服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerCorpPolicyServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerCorpPolicyServiceBll, Mzl.BLL.Customer"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyDetailConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyDetailConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IChoiceReasonDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ChoiceReasonDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-改签申请列表api-->
+      <container name="QueryFlightModApplyListApi">
+        <register type="Mzl.IApplication.Flight.IQueryFlightModApplyListApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.QueryFlightModApplyListApplication, Mzl.Application"/>
+        <!--查询改签申请列表服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IQueryFlightModApplyListServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.QueryFlightModApplyListServiceBll, Mzl.BLL.Flight"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取审批信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-改签申请详情api-->
+      <container name="QueryFlightModApplyApi">
+        <register type="Mzl.IApplication.Flight.IQueryFlightModApplyApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.QueryFlightModApplyApplication, Mzl.Application"/>
+        <!--查询改签申请信息服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IQueryFlightModApplyServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.QueryFlightModApplyServiceBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IGetFlightRetModApplyBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.GetFlightRetModApplyBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IGetFlightModOrderBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.GetFlightModOrderBll, Mzl.BLL.Flight"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取差旅政策服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerCorpPolicyServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerCorpPolicyServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Flight.IGetClassNameBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetClassNameServiceBll, Mzl.BLL.Flight"/>
+        <!--判断当前客人是否是当前订单的审批人服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICheckAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CheckAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--获取审批信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltModOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltModOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltModFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltModFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltModPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltModPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltModTicketNoDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltModTicketNoDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltModOrderLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltModOrderLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyDetailConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyDetailConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IChoiceReasonDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ChoiceReasonDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltClassNameDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltClassNameDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+
+      </container>
+
+      <!--国内机票-差旅-改签核价api-->
+      <container name="ConfirmModApplyAuditPriceApi">
+        <register type="Mzl.IApplication.Flight.IConfirmModAuditPriceApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.ConfirmModAuditPriceApplication, Mzl.Application"/>
+        <!--改签核价服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IConfirmModAuditPriceServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.ConfirmModAuditPriceServiceBll, Mzl.BLL.Flight"/>
+        <!--差旅送审服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.SubmitCorpAduitOrder.ISubmitCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.SubmitCorpAduitOrder.SubmitCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICorpAduitBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CorpAduitBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IAddSendAppMessageBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddSendAppMessageBll, Mzl.BLL.Customer"/>
+        <!--获取公司员工信息服务 -->
+        <register type="Mzl.IBLL.Common.Operator.IGetOperatorServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.Operator.GetOperatorServiceBll, Mzl.BLL.Common"/>
+        <register type="Mzl.IDAL.Common.IOperatorDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.OperatorDal, Mzl.DAL.Common"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ISendAppMessageDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.SendAppMessageDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-退票申请页面api-->
+      <container name="GetFltDomesticRetApplyViewApi">
+        <register type="Mzl.IApplication.Flight.IGetFltDomesticRetApplyViewApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.GetFltDomesticRetApplyViewApplication, Mzl.Application"/>
+        <!--查询国内机票改签申请服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IGetFltDomesticRetApplyViewServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.GetFltDomesticRetApplyViewServiceBll, Mzl.BLL.Flight"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取舱等服务-->
+        <register type="Mzl.IBLL.Flight.IGetClassNameBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetClassNameServiceBll, Mzl.BLL.Flight"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltTicketNoDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltTicketNoDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltClassNameDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltClassNameDal, Mzl.DAL.Flight"/>
+      </container>
+
+      <!--国内机票-退票申请创建api-->
+      <container name="AddFltDomesticRetApplyApi">
+        <register type="Mzl.IApplication.Flight.IAddFltDomesticRetApplyApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.AddFltDomesticRetApplyApplication, Mzl.Application"/>
+        <!--创建国内机票退票申请服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IAddFltDomesticRetApplyServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.AddFltDomesticRetApplyServiceBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IAddFltRetModApplyBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.AddFltRetModApplyBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IValidateRetApplyBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.ValidateRetApplyBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.AddOrderAbstractContext, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.OrderValidate.AddModRetApplyContext, Mzl.BLL.Flight"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取公司信息服务-->
+        <register type="Mzl.IBLL.Customer.Corp.IGetCorpServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Corp.GetCorpServiceBll, Mzl.BLL.Customer"/>
+        <!--获取公司员工信息服务 -->
+        <register type="Mzl.IBLL.Common.Operator.IGetOperatorServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.Operator.GetOperatorServiceBll, Mzl.BLL.Common"/>
+       
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Common.IOperatorDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.OperatorDal, Mzl.DAL.Common"/>
+      </container>
+
+      <!--国内机票-退票申请列表api -->
+      <container name="QueryFlightRetApplyListApi">
+        <register type="Mzl.IApplication.Flight.IQueryFlightRetApplyListApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.QueryFlightRetApplyListApplication, Mzl.Application"/>
+        <!--查询改签申请列表服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IQueryFlightRetApplyListServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.QueryFlightRetApplyListServiceBll, Mzl.BLL.Flight"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取审批信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-退票申请详情api-->
+      <container name="QueryFlightRetApplyApi">
+        <register type="Mzl.IApplication.Flight.IQueryFlightRetApplyApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.QueryFlightRetApplyApplication, Mzl.Application"/>
+        <!--查询退票请信息服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IQueryFlightRetApplyServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.QueryFlightRetApplyServiceBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IGetFlightRetModApplyBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.GetFlightRetModApplyBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IGetFlighRefundOrderBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.GetFlighRefundOrderBll, Mzl.BLL.Flight"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取差旅政策服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerCorpPolicyServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerCorpPolicyServiceBll, Mzl.BLL.Customer"/>
+        <!--获取舱等服务-->
+        <register type="Mzl.IBLL.Flight.IGetClassNameBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetClassNameServiceBll, Mzl.BLL.Flight"/>
+        <!--判断当前客人是否是当前订单的审批人服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICheckAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CheckAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--获取机票类型待审批信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRefundOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRefundOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRefundOrderDetailDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRefundOrderDetailDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyDetailConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyDetailConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IChoiceReasonDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ChoiceReasonDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltClassNameDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltClassNameDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-差旅-退票核价api-->
+      <container name="ConfirmRetApplyAuditPriceApi">
+        <register type="Mzl.IApplication.Flight.IConfirmRetAuditPriceApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.ConfirmRetAuditPriceApplication, Mzl.Application"/>
+        <!--机票退票核价服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IConfirmRetAuditPriceServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.ConfirmRetAuditPriceServiceBll, Mzl.BLL.Flight"/>
+        <!--差旅送审服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.SubmitCorpAduitOrder.ISubmitCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.SubmitCorpAduitOrder.SubmitCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICorpAduitBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CorpAduitBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IAddSendAppMessageBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddSendAppMessageBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ISendAppMessageDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.SendAppMessageDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-差旅-待审批订单列表api-->
+      <container name="GetAuditOrderListApi">
+        <register type="Mzl.IApplication.Common.IGetAuditOrderListApplication, Mzl.IApplication" mapTo="Mzl.Application.Common.GetAuditOrderListApplication, Mzl.Application"/>
+        <!--获取机票类型待审批信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitOrderListServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitOrderListServiceBll, Mzl.BLL.Customer"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取舱等服务-->
+        <register type="Mzl.IBLL.Flight.IGetClassNameBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetClassNameServiceBll, Mzl.BLL.Flight"/>
+        <!--查询机票订单服务-->
+        <register type="Mzl.IBLL.Flight.IGetFltOrderBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetFltOrderBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.IGetFlightRetModApplyBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.GetFlightRetModApplyBll, Mzl.BLL.Flight"/>
+        <!--获取火车订单服务-->
+        <register type="Mzl.IBLL.Train.Order.IGetTraOrderServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.GetTraOrderServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.Order.IGetTraOrderBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.GetTraOrderBll, Mzl.BLL.Train"/>
+        <!--获取差旅政策服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerCorpPolicyServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerCorpPolicyServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltCorpCostCenterDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltCorpCostCenterDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderUnionDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderUnionDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltClassNameDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltClassNameDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyDetailConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyDetailConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IChoiceReasonDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ChoiceReasonDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderStatusDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderStatusDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDetailDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDetailDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraPassengerDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraPassengerDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderLogDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderLogDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraAddressDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraAddressDal, Mzl.DAL.Train"/>
+      </container>
+
+      <!--国内机票-差旅-待审批订单审批api-->
+      <container name="AuditOrderApi">
+        <register type="Mzl.IApplication.Common.IAuditOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Common.AuditOrderApplication, Mzl.Application"/>
+        <!--获取机票类型待审批信息服务-->
+        <register type="Mzl.IBLL.Flight.AuditOrder.IAuditFltOrderServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.AuditOrder.AuditFltOrderServiceBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.AuditOrder.IAuditFltOrderBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.AuditOrder.AuditFltOrderBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.AuditOrder.IAuditFltModApplyBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.AuditOrder.AuditFltModApplyBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.AuditOrder.IAuditFltRetApplyBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.AuditOrder.AuditFltRetApplyBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Flight.AuditOrder.IValidataFltOrderAuditBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.AuditOrder.AuditValidate.ValidataFltOrderAuditBll, Mzl.BLL.Flight"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--添加待发送消息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IAddSendAppMessageServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddSendAppMessageServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IAddSendAppMessageBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddSendAppMessageBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Customer.ISendAppMessageDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.SendAppMessageDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-差旅-未使用机票列表api-->
+      <container name="GetNotUseTicketNoListApi">
+        <register type="Mzl.IApplication.Flight.IGetNotUseTicketNoListApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.GetNotUseTicketNoListApplication, Mzl.Application"/>
+        <!--查询未使用机票列表服务-->
+        <register type="Mzl.IBLL.Flight.IGetNotUseTicketNoListServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetNotUseTicketNoListServiceBll, Mzl.BLL.Flight"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--保险-产品信息api-->
+      <container name="GetInsuranceProductApi">
+        <register type="Mzl.IApplication.Common.IGetInsuranceProductApplication, Mzl.IApplication" mapTo="Mzl.Application.Common.GetInsuranceProductApplication, Mzl.Application"/>
+        <!--查询保险产品服务-->
+        <register type="Mzl.IBLL.Common.Insurance.IGetInsuranceCompanyServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.Insurance.GetInsuranceCompanyServiceBll, Mzl.BLL.Common"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Common.IInsuranceCompanyDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.InsuranceCompanyDal, Mzl.DAL.Common"/>
+      </container>
+
+      <!--差旅-行程管理api-->
+      <container name="GetTravelListApi">
+        <register type="Mzl.IApplication.Common.IGetTravelListApplication, Mzl.IApplication" mapTo="Mzl.Application.Common.GetTravelListApplication, Mzl.Application"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--行程管理服务-->
+        <register type="Mzl.IBLL.Common.TravelManage.IGetTravelServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.TravelManage.GetTravelServiceBll, Mzl.BLL.Common"/>
+        <!--联系人服务-->
+        <register type="Mzl.IBLL.Customer.ContactInfo.IGetContactBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ContactInfo.GetContactBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-差旅-取消订单api-->
+      <container name="CancelFltCorpOrderApi">
+        <register type="Mzl.IApplication.Flight.ICancelFltOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.CancelFltOrderApplication, Mzl.Application"/>
+        <!--获取机票类型待审批信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--取消订单订单服务-->
+        <register type="Mzl.IBLL.Flight.ICancelFltOrderServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.CancelFltOrderServiceBll, Mzl.BLL.Flight"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--国内机票-差旅-核价待确认阶段取消改签申请api-->
+      <container name="CancelFltModApplyApi">
+        <register type="Mzl.IApplication.Flight.ICancelFltModApplyApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.CancelFltModApplyApplication, Mzl.Application"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--取消改签/退票申请服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.ICancelRetModOrderServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.CancelRetModOrderServiceBll, Mzl.BLL.Flight"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyLogDal, Mzl.DAL.Flight"/>
+      </container>
+
+      <!--国内机票-差旅-核价待确认阶段取消退票申请api-->
+      <container name="CancelFltRetApplyApi">
+        <register type="Mzl.IApplication.Flight.ICancelFltRetApplyApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.CancelFltRetApplyApplication, Mzl.Application"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--取消改签/退票申请服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.ICancelRetModOrderServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.CancelRetModOrderServiceBll, Mzl.BLL.Flight"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyLogDal, Mzl.DAL.Flight"/>
+      </container>
+
+      <!--差旅-APP推送消息api-->
+      <container name="SendAppMessageApi">
+        <register type="Mzl.IApplication.Customer.ISendAppMessageApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.SendAppMessageApplication, Mzl.Application"/>
+        <!--推送APP信息服务-->
+        <register type="Mzl.IBLL.Customer.SendAppMessage.ISendPrintTicketMessageServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.SendPrintTicketMessageServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.SendAppMessage.ISendAuditMessageServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.SendAuditMessageServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.SendAppMessage.ISendAuditResultMessageServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.SendAuditResultMessageServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.SendAppMessage.ISendAuditOrderCancelMessageServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.SendAuditOrderCancelMessageServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.SendAppMessage.ISendConfireAuditPriceMessageServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.SendConfireAuditPriceMessageServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.SendAppMessage.ISendRefundCustomerMessageServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.SendRefundCustomerMessageServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.SendAppMessage.ISendAppMessageBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.SendAppMessageBll, Mzl.BLL.Customer"/>
+        <!--新增不需要审核订单出票提醒-->
+        <register type="Mzl.IBLL.Customer.SendAppMessage.ISendPrintFltTicketEmailMyServiceBLL, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.SendPrintFltTicketEmailMyServiceBLL, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.SendAppMessage.IGetPrintFltTicketEmailMessageContentMyServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.GetPrintFltTicketEmailMessageContentMyServiceBll, Mzl.BLL.Customer"/>
+        <!--获取机票出票邮件信息服务-->
+        <register type="Mzl.IBLL.Customer.SendAppMessage.ISendPrintFltTicketEmailServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.SendPrintFltTicketEmailServiceBll, Mzl.BLL.Customer"/>
+        <!--获取审批单类型app推送信息服务-->
+        <register type="Mzl.IBLL.Customer.SendAppMessage.IGetAduitSendAppMessageContentServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.GetAduitSendAppMessageContentServiceBll, Mzl.BLL.Customer"/>
+        <!--获取待审批催促类型app推送信息服务-->
+        <register type="Mzl.IBLL.Customer.SendAppMessage.ISendAuditUrgeMessageServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.SendAuditUrgeMessageServiceBll, Mzl.BLL.Customer"/>
+        <!--获取机票类型app推送信息服务-->
+        <register type="Mzl.IBLL.Flight.IGetFltSendAppMessageContentServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetFltSendAppMessageContentServiceBll, Mzl.BLL.Flight"/>
+        <!--获取火车类型app推送信息服务-->
+        <register type="Mzl.IBLL.Train.IGetTraSendAppMessageContentServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.GetTraSendAppMessageContentServiceBll, Mzl.BLL.Train"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ISendAppMessageDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.SendAppMessageDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerAppClientIdDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerAppClientIdDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IAirPortDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.AirPortDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltModOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltModOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRefundOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRefundOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraModOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraModOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.DAL.ICustomerInfoDAL, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.DAL.CustomerInfoDAL, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.DAL.ICorporationDAL, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.DAL.CorporationDAL, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-获取差旅公司部门与政策和审批规则关系信息api-->
+      <container name="GetCorpPolicyDepartmentApi">
+        <register type="Mzl.IApplication.Customer.IGetCorpPolicyDepartmentApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.GetCorpPolicyDepartmentApplication, Mzl.Application"/>
+        <!--根据公司id获取对应的部门信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpDepartment.IGetCorpDepartmentBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpDepartment.GetCorpDepartmentBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.CorpDepartment.IGetCorpPolicyDepartmentServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpDepartment.GetCorpPolicyDepartmentServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-新增差旅政策与部门进行关联api-->
+      <container name="AddPolicyDepartmentRelationApi">
+        <register type="Mzl.IApplication.Customer.IAddPolicyDepartmentRelationApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.AddPolicyDepartmentRelationApplication, Mzl.Application"/>
+        <!--根据公司id获取对应的部门信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IAddPolicyDepartmentRelationServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddPolicyDepartmentRelationServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigCustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigCustomerDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-获取差旅公司员工信息与政策关系api-->
+      <container name="GetCorpPolicyCustomerApi">
+        <register type="Mzl.IApplication.Customer.IGetCorpPolicyCustomerApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.GetCorpPolicyCustomerApplication, Mzl.Application"/>
+        <!--根据公司id获取对应的客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCorpPolicyCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCorpPolicyCustomerServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigCustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigCustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-新增差旅政策与员工进行关联api-->
+      <container name="AddPolicyCustomerRelationApi">
+        <register type="Mzl.IApplication.Customer.IAddPolicyCustomerRelationApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.AddPolicyCustomerRelationApplication, Mzl.Application"/>
+        <!--根据公司id获取对应的部门信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IAddPolicyCustomerRelationServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddPolicyCustomerRelationServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigCustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigCustomerDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-获取差旅公司下的审批规则api-->
+      <container name="GetCorpAduitConfigApi">
+        <register type="Mzl.IApplication.Customer.IGetCorpAduitConfigApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.GetCorpAduitConfigApplication, Mzl.Application"/>
+        <!--获取差旅公司下的审批规则服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitConfigServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitConfigServiceBll, Mzl.BLL.Customer"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDetailDal, Mzl.DAL.Customer"/>
+
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-差旅公司审批规则维护api-->
+      <container name="MaintainCorpAduitConfigApi">
+        <register type="Mzl.IApplication.Customer.IMaintainCorpAduitConfigApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.MaintainCorpAduitConfigApplication, Mzl.Application"/>
+        <!--新增审批规则服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IAddCorpAduitConfigServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.AddCorpAduitConfigServiceBll, Mzl.BLL.Customer"/>
+        <!--修改审批规则服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IEditCorpAduitConfigServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.EditCorpAduitConfigServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDetailDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-新增差旅审批规则与部门进行关联api-->
+      <container name="AddCorpAduitDepartmentRelationApi">
+        <register type="Mzl.IApplication.Customer.IAddCorpAduitDepartmentRelationApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.AddCorpAduitDepartmentRelationApplication, Mzl.Application"/>
+        <!--根据公司id获取对应的部门信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IAddCorpAduitDepartmentRelationServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.AddCorpAduitDepartmentRelationServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigCustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigCustomerDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-获取差旅公司员工信息与审批规则关系api-->
+      <container name="GetCorpAduitCustomerApi">
+        <register type="Mzl.IApplication.Customer.IGetCorpAduitCustomerApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.GetCorpAduitCustomerApplication, Mzl.Application"/>
+        <!--根据公司id获取对应的客户信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitCustomerServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigCustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigCustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-新增审批规则与员工进行关联api-->
+      <container name="AddCorpAduitCustomerRelationApi">
+        <register type="Mzl.IApplication.Customer.IAddCorpAduitCustomerRelationApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.AddCorpAduitCustomerRelationApplication, Mzl.Application"/>
+        <!--根据公司id获取对应的部门信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IAddCorpAduitCustomerRelationServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.AddCorpAduitCustomerRelationServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigCustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigCustomerDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--行啊-数据推送api-->
+      <container name="XingADataApi">
+        <!--应用程序层-->
+        <register type="Mzl.IApplication.XingA.IXingAGetDataApplication, Mzl.IApplication" mapTo="Mzl.Application.XingA.XingAGetDataApplication, Mzl.Application"/>
+        <!--业务逻辑层-->
+        <register type="Mzl.IBLL.XingA.IXingAGetDataBll, Mzl.IBLL.XingA" mapTo="Mzl.BLL.XingA.XingAGetDataBll, Mzl.BLL.XingA"/>
+        <!--数据访问层-->
+        <register type="Mzl.IDAL.XingA.IXingAGetDataDal, Mzl.IDAL.XingA" mapTo="Mzl.DAL.XingA.XingAGetDataDal, Mzl.DAL.XingA"/>
+      </container>
+
+      <!--OA-获取信息不可用的订单列表api-->
+      <container name="GetUnAvailablePassengerApi">
+        <register type="Mzl.IApplication.Flight.IGetUnAvailablePassengerApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.GetUnAvailablePassengerApplication, Mzl.Application"/>
+        <!--查询国内机票订单列表服务-->
+        <register type="Mzl.IBLL.Flight.IGetUnAvailablePassengerServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetUnAvailablePassengerServiceBll, Mzl.BLL.Flight"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+      </container>
+
+      <!--Api授权验证-->
+      <container name="AuthorizationApi">
+        <register type="Mzl.IApplication.Common.IAuthorizationApplication, Mzl.IApplication" mapTo="Mzl.Application.Common.AuthorizationApplication, Mzl.Application"/>
+        <register type="Mzl.IBLL.Token.ICheckTokenServiceBll, Mzl.IBLL.Token" mapTo="Mzl.BLL.Token.CheckTokenServiceBll, Mzl.BLL.Token"/>
+        <register type="Mzl.IBLL.Token.ITokenBll, Mzl.IBLL.Token" mapTo="Mzl.BLL.Token.TokenBll, Mzl.BLL.Token"/>
+      </container>
+
+      <!--用户注销Api-->
+      <container name="MojoryLoginOutApi">
+        <register type="Mzl.IApplication.Customer.ICustomerLoginOutApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.CustomerLoginOutApplication, Mzl.Application"/>
+        <register type="Mzl.IBLL.Token.IDeleteTokenServiceBll, Mzl.IBLL.Token" mapTo="Mzl.BLL.Token.DeleteTokenServiceBll, Mzl.BLL.Token"/>
+        <register type="Mzl.IBLL.Token.ITokenBll, Mzl.IBLL.Token" mapTo="Mzl.BLL.Token.TokenBll, Mzl.BLL.Token"/>
+      </container>
+
+      <!--证件维护-->
+      <container name="PostIdentificationApi">
+        <!--Application-->
+        <register type="Mzl.IApplication.Customer.IPostIdentificationApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.PostIdentificationApplication, Mzl.Application" />
+        <!--BIZ-->
+        <register type="Mzl.IBLL.Customer.Customer.IPostIdentificationServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.PostIdentificationServiceBll, Mzl.BLL.Customer" />
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--火车-抢票提交api-->
+      <container name="TraAddGrabTicketApi">
+        <register type="Mzl.IApplication.Train.GrabTicket.IAddGrabTicketApplication, Mzl.IApplication" mapTo="Mzl.Application.Train.GrabTicket.AddGrabTicketApplication, Mzl.Application"/>
+        <register type="Mzl.IBLL.Train.GrabTicket.IAddTraGrabTicketServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.GrabTicket.AddTraGrabTicketServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.GrabTicket.IUpdateTraGrabTicketStatusServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.GrabTicket.UpdateTraGrabTicketStatusServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.GrabTicket.KongTieInterface.IRequestGrabTicketServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.GrabTicket.KongTieInterface.RequestGrabTicketServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.GrabTicket.KongTieInterface.IRequestGrabTicketBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.GrabTicket.KongTieInterface.RequestGrabTicketBll, Mzl.BLL.Train"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--添加火车订单服务-->
+        <register type="Mzl.IBLL.Train.Order.IAddTraOrderBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.AddTraOrderBll, Mzl.BLL.Train"/>
+
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+
+        <register type="Mzl.IDAL.Train.ITraOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderStatusDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderStatusDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDetailDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDetailDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraAddressDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraAddressDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderLogDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderLogDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraPassengerDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraPassengerDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraGrabTicketDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraGrabTicketDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraGrabTicketPassengerDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraGrabTicketPassengerDal, Mzl.DAL.Train"/>
+
+      </container>
+
+      <!--火车-取消抢票api-->
+      <container name="TraCancelGrabTicketApi">
+        <register type="Mzl.IApplication.Train.GrabTicket.ICancelGrabTicketApplication, Mzl.IApplication" mapTo="Mzl.Application.Train.GrabTicket.CancelGrabTicketApplication, Mzl.Application"/>
+        <register type="Mzl.IBLL.Train.GrabTicket.ICancelTraGrabTicketServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.GrabTicket.CancelTraGrabTicketServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.GrabTicket.KongTieInterface.IRequestGrabTicketCancelBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.GrabTicket.KongTieInterface.RequestGrabTicketCancelBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraGrabTicketDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraGrabTicketDal, Mzl.DAL.Train"/>
+      </container>
+
+      <!--火车-抢票异步回调api-->
+      <container name="TraGrabTicketCallBackApi">
+        <register type="Mzl.IApplication.Train.GrabTicket.IGetGrabTicketNoticeApplication, Mzl.IApplication" mapTo="Mzl.Application.Train.GrabTicket.GetGrabTicketNoticeApplication, Mzl.Application"/>
+        <register type="Mzl.IBLL.Train.GrabTicket.IGetGrabTicketNoticeServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.GrabTicket.GetGrabTicketNoticeServiceBll, Mzl.BLL.Train"/>
+        <!--获取空铁无忧异步抢票回调服务-->
+        <register type="Mzl.IBLL.Train.GrabTicket.KongTieInterface.IResponseAsyncGrabTicketServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.GrabTicket.KongTieInterface.ResponseAsyncGrabTicketServiceBll, Mzl.BLL.Train"/>
+        <!--添加火车订单服务-->
+        <register type="Mzl.IBLL.Train.Order.IAddTraOrderBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.AddTraOrderBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraGrabTicketDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraGrabTicketDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderStatusDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderStatusDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDetailDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDetailDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraPassengerDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraPassengerDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderLogDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderLogDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraInterFaceOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraInterFaceOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderOperateDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderOperateDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraAddressDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraAddressDal, Mzl.DAL.Train"/>
+      </container>
+
+      <!--火车-抢票列表信息api-->
+      <container name="TraGrabTicketListApi">
+        <register type="Mzl.IApplication.Train.GrabTicket.IGetTraGrabTicketListApplication, Mzl.IApplication" mapTo="Mzl.Application.Train.GrabTicket.GetTraGrabTicketListApplication, Mzl.Application"/>
+        <register type="Mzl.IBLL.Train.GrabTicket.IGetTraGrabTicketListServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.GrabTicket.GetTraGrabTicketListServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraGrabTicketPassengerDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraGrabTicketPassengerDal, Mzl.DAL.Train"/>
+      </container>
+
+      <!--差旅网站-修改密码api-->
+      <container name="UpdatePwdApi">
+        <register type="Mzl.IApplication.Customer.IUpdateCustomerPwdApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.UpdateCustomerPwdApplication, Mzl.Application"/>
+        <!--修改客户密码服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IUpdateCustomerPwdServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.UpdateCustomerPwdServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅app-添加app意见api-->
+      <container name="AddAppOpinionApi">
+        <register type="Mzl.IApplication.Customer.IAddAppOpinionApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.AddAppOpinionApplication, Mzl.Application"/>
+        <!--添加差旅网站app意见服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IAddAppOpinionServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddAppOpinionServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.IAppOpinionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.AppOpinionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.DAL.ICustomerInfoDAL, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.DAL.CustomerInfoDAL, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.DAL.ICorporationDAL, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.DAL.CorporationDAL, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--酒店-差旅-查询酒店城市api-->
+      <container name="QueryHotelCityApi">
+        <register type="Mzl.IApplication.Hotel.IQueryHotelCityApplication, Mzl.IApplication" mapTo="Mzl.Application.Hotel.QueryHotelCityApplication, Mzl.Application"/>
+        <!--查询艺龙酒店城市服务-->
+        <register type="Mzl.IBll.Hotel.ElongService.IQueryElongHotelCityServiceBll, Mzl.IBll.Hotel" mapTo="Mzl.Bll.Hotel.ElongService.QueryElongHotelCityServiceBll, Mzl.Bll.Hotel"/>
+        <!--Proxy-->
+        <register type="Mzl.Proxy.Hotel.Elong.StaticData.IHotelGeoService, Mzl.Proxy.Hotel.Elong" mapTo="Mzl.Proxy.Hotel.Elong.StaticData.HotelGeoService, Mzl.Proxy.Hotel.Elong"/>
+      </container>
+
+      <!--酒店-差旅-查询酒店列表api-->
+      <container name="QueryHotelListApi">
+        <register type="Mzl.IApplication.Hotel.IQueryHotelListApplication, Mzl.IApplication" mapTo="Mzl.Application.Hotel.QueryHotelListApplication, Mzl.Application"/>
+        <!--查询艺龙酒店列表服务-->
+        <register type="Mzl.IBll.Hotel.ElongService.IQueryElongHotelListService, Mzl.IBll.Hotel" mapTo="Mzl.Bll.Hotel.ElongService.QueryElongHotelListService, Mzl.Bll.Hotel"/>
+        <!--Proxy-->
+        <register type="Mzl.Proxy.Hotel.Elong.Query.IHotelListService, Mzl.Proxy.Hotel.Elong" mapTo="Mzl.Proxy.Hotel.Elong.Query.HotelListService, Mzl.Proxy.Hotel.Elong"/>
+      </container>
+      
+      <!--酒店-差旅-查询CTrip酒店城市api-->
+      <container name="CTripCityListApi">
+        <register type="Mzl.IApplication.Hotel.CTrip.IQueryCityListApplication,Mzl.IApplication" mapTo="Mzl.Application.Hotel.CTrip.QueryCityListApplication,Mzl.Application"/>
+        <!--查询携程酒店城市服务-->
+        <register type="Mzl.IBll.Hotel.CtripHotel.IQueryCityInofCN,Mzl.IBll.Hotel" mapTo="Mzl.Bll.Hotel.CtripHotel.QueryCityInofCN,Mzl.Bll.Hotel"/>
+        <!--DataBase-->
+        <register type="Mzl.IDAL.CTripHotel.StataicData,ICTripHotelCityCNDal" mapTo="Mzl.DAL.CTripHotel.StaticData,CTripHotelCityCNDal"/>
+      </container>
+
+      <!--酒店-差旅-查询酒店详情api-->
+      <container name="QueryHotelDetailApi">
+        <register type="Mzl.IApplication.Hotel.IQueryHotelDetailApplication, Mzl.IApplication" mapTo="Mzl.Application.Hotel.QueryHotelDetailApplication, Mzl.Application"/>
+        <!--查询艺龙酒店详情服务-->
+        <register type="Mzl.IBll.Hotel.ElongService.IQueryElongHotelDetailServiceBll, Mzl.IBll.Hotel" mapTo="Mzl.Bll.Hotel.ElongService.QueryElongHotelDetailServiceBll, Mzl.Bll.Hotel"/>
+        <!--Proxy-->
+        <register type="Mzl.Proxy.Hotel.Elong.Query.IHotelDetail, Mzl.Proxy.Hotel.Elong" mapTo="Mzl.Proxy.Hotel.Elong.Query.HotelDetail, Mzl.Proxy.Hotel.Elong"/>
+      </container>
+
+      <!--差旅-查询待预定乘客信息api-->
+      <container name="SearchPassengersApi">
+        <register type="Mzl.IApplication.Customer.ISearchPassengersApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.SearchPassengersApplication, Mzl.Application"/>
+        <!--获取乘客信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetPassengerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetPassengerServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-获取当前登录客户信息api-->
+      <container name="GetCustomerInfoApi">
+        <register type="Mzl.IApplication.Customer.IGetCustomerInfoApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.GetCustomerInfoApplication, Mzl.Application"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取联系人信息服务-->
+        <register type="Mzl.IBLL.Customer.ContactInfo.IGetContactServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ContactInfo.GetContactServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.ContactInfo.IGetContactBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ContactInfo.GetContactBll, Mzl.BLL.Customer"/>
+   
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-新增联系人信息api-->
+      <container name="AddContactApi">
+        <register type="Mzl.IApplication.Customer.IAddContactApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.AddContactApplication, Mzl.Application"/>
+        <!--新增联系人信息服务-->
+        <register type="Mzl.IBLL.Customer.ContactInfo.IAddContactServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ContactInfo.AddContactServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-修改联系人信息api-->
+      <container name="EditContactApi">
+        <register type="Mzl.IApplication.Customer.IEditContactApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.EditContactApplication, Mzl.Application"/>
+        <!--新增联系人信息服务-->
+        <register type="Mzl.IBLL.Customer.ContactInfo.IEditContactServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ContactInfo.EditContactServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-获取待预定乘客的差旅政策和审批规则api-->
+      <container name="GetCorpPolicyAndAduitRuleApi">
+        <register type="Mzl.IApplication.Customer.IMatchCorpPolicyAndAduitApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.MatchCorpPolicyAndAduitApplication, Mzl.Application"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取联系人信息服务-->
+        <register type="Mzl.IBLL.Customer.MatchCorpPolicyAndAduit.IMatchCorpPolicyAndAduitServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.MatchCorpPolicyAndAduit.MatchCorpPolicyAndAduitServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.MatchCorpPolicyAndAduit.IChangeInfoFactory, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.MatchCorpPolicyAndAduit.ChangeInfoFactory, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigCustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigCustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigCustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigCustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyDetailConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyDetailConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IProjectNameDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ProjectNameDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigProjectDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigProjectDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!---差旅-获取审批单详情api-->
+      <container name="GetAuditOrderApi">
+        <register type="Mzl.IApplication.Customer.IGetAduitOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.GetAduitOrderApplication, Mzl.Application"/>
+        <!--获取机票类型待审批信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--查询机场服务-->
+        <register type="Mzl.IBLL.Common.BaseInfo.IGetCityForFlightServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.BaseInfo.GetCityForFlightServiceBll, Mzl.BLL.Common"/>
+        <!--查询机票订单服务-->
+        <register type="Mzl.IBLL.Flight.IGetFltOrderBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetFltOrderBll, Mzl.BLL.Flight"/>
+        <!--获取舱等服务-->
+        <register type="Mzl.IBLL.Flight.IGetClassNameBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.GetClassNameServiceBll, Mzl.BLL.Flight"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltCorpCostCenterDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltCorpCostCenterDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderUnionDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderUnionDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltClassNameDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltClassNameDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Common.IAirPortDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.AirPortDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICityDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CityDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Common.ICountryDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.CountryDal, Mzl.DAL.Common"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-对审批单进行审批api-->
+      <container name="DoAduitOrderApi">
+        <register type="Mzl.IApplication.Customer.IDoAduitOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.DoAduitOrderApplication, Mzl.Application"/>
+        <!--对审批单进行审批服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IDoAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.DoAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICorpAduitBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CorpAduitBll, Mzl.BLL.Customer"/>
+        <!--取消机票订单服务-->
+        <register type="Mzl.IBLL.Flight.ICancelFltOrderServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.CancelFltOrderServiceBll, Mzl.BLL.Flight"/>
+        <!--取消改签/退票申请服务-->
+        <register type="Mzl.IBLL.Flight.DomesticRetMod.ICancelRetModOrderServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.DomesticRetMod.CancelRetModOrderServiceBll, Mzl.BLL.Flight"/>
+        <register type="Mzl.IBLL.Customer.Customer.IAddSendAppMessageBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddSendAppMessageBll, Mzl.BLL.Customer"/>
+        <!--取消火车订单服务-->
+        <register type="Mzl.IBLL.Train.Order.ICancelTraOrderServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.CancelTraOrderServiceBll, Mzl.BLL.Train"/>
+        <!--取消第三方火车订单服务-->
+        <register type="Mzl.IBLL.Train.RequestInterface.IRequestCancelOrderServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.RequestInterface.RequestCancelOrderServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.RequestInterface.IRequestCancelOrderBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.RequestInterface.RequestKongTieCancelOrderBll, Mzl.BLL.Train"/>
+        <!--发起第三方火车占位服务-->
+        <register type="Mzl.IBLL.Train.RequestInterface.IRequestPrintTicketServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.RequestInterface.RequestPrintTicketServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.RequestInterface.IRequestPrintTicketBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.RequestInterface.RequestKongTiePrintTicketBll, Mzl.BLL.Train"/>
+        <!--获取公司员工信息服务 -->
+        <register type="Mzl.IBLL.Common.Operator.IGetOperatorServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.Operator.GetOperatorServiceBll, Mzl.BLL.Common"/>
+        <register type="Mzl.IDAL.Common.IOperatorDal, Mzl.IDAL.Common" mapTo="Mzl.DAL.Common.OperatorDal, Mzl.DAL.Common"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModFlightApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModFlightApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Customer.ISendAppMessageDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.SendAppMessageDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderStatusDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderStatusDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderLogDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderLogDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraInterFaceOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraInterFaceOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderOperateDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderOperateDal, Mzl.DAL.Train"/>
+      </container>
+
+      <!--差旅-查询火车车次信息api-->
+      <container name="SearchTrainApi">
+        <register type="Mzl.IApplication.Train.ISearchTrainApplication, Mzl.IApplication" mapTo="Mzl.Application.Train.SearchTrainApplication, Mzl.Application"/>
+        <!--查询火车车次信息服务-->
+        <register type="Mzl.IBLL.Train.Search.ISearchTrainServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Search.SearchTrainServiceBll, Mzl.BLL.Train"/>
+        <!--获取差旅政策服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerCorpPolicyServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerCorpPolicyServiceBll, Mzl.BLL.Customer"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyDetailConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyDetailConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IChoiceReasonDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ChoiceReasonDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-火车下单页面预设信息api-->
+      <container name="ConfirmTraOrderViewApi">
+        <register type="Mzl.IApplication.Train.IConfirmTraOrderViewApplication, Mzl.IApplication" mapTo="Mzl.Application.Train.ConfirmTraOrderViewApplication, Mzl.Application"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取公司信息服务-->
+        <register type="Mzl.IBLL.Customer.Corp.IGetCorpServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Corp.GetCorpServiceBll, Mzl.BLL.Customer"/>
+        <!--获取项目名称服务-->
+        <register type="Mzl.IBLL.Customer.ProjectName.IGetProjectNameServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ProjectName.GetProjectNameServiceBll, Mzl.BLL.Customer"/>
+        <!--获取12306帐号服务-->
+        <register type="Mzl.IBLL.Train.TrainWebAccount.IGet12306AccountServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.TrainWebAccount.Get12306AccountServiceBll, Mzl.BLL.Train"/>
+        <!--获取服务费服务-->
+        <register type="Mzl.IBLL.Customer.ServiceFee.IGetServiceFeeServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ServiceFee.GetServiceFeeServiceBll, Mzl.BLL.Customer"/>
+        <!--获取成本中服务-->
+        <register type="Mzl.IBLL.Customer.CostCenter.IGetCostCenterServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CostCenter.GetCostCenterServiceBll, Mzl.BLL.Customer"/>
+        <!--获取联系地址服务-->
+        <register type="Mzl.IBLL.Customer.ContactInfo.IGetContactAddressServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ContactInfo.GetContactAddressServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IProjectNameDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ProjectNameDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Train.ITra12306AccountDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.Tra12306AccountDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Customer.ServiceFee.IServiceFeeConfigDetailsDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ServiceFee.ServiceFeeConfigDetailsDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICostCenterDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CostCenterDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactAddressDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactAddressDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigProjectDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigProjectDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-火车创建订单api-->
+      <container name="AddTraOrderApi">
+        <register type="Mzl.IApplication.Train.IAddTraOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Train.AddTraOrderApplication, Mzl.Application"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取公司信息服务-->
+        <register type="Mzl.IBLL.Customer.Corp.IGetCorpServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Corp.GetCorpServiceBll, Mzl.BLL.Customer"/>
+        <!--创建火车订单服务-->
+        <register type="Mzl.IBLL.Train.Order.IAddTraOrderServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.AddTraOrderServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.Order.IAddTraOrderBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.AddTraOrderBll, Mzl.BLL.Train"/>
+        <!--发起占位服务-->
+        <register type="Mzl.IBLL.Train.RequestInterface.IRequestHoldSeatServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.RequestInterface.RequestHoldSeatServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.RequestInterface.IRequestHoldSeatBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.RequestInterface.RequestKongTieHoldSeatBll, Mzl.BLL.Train"/>
+        <!--差旅送审服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.SubmitCorpAduitOrder.ISubmitCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.SubmitCorpAduitOrder.SubmitCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICorpAduitBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CorpAduitBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IAddSendAppMessageBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddSendAppMessageBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IProjectNameDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ProjectNameDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderStatusDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderStatusDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDetailDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDetailDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraPassengerDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraPassengerDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderLogDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderLogDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraAddressDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraAddressDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraInterFaceOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraInterFaceOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderOperateDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderOperateDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ISendAppMessageDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.SendAppMessageDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-火车占位确认api-->
+      <container name="ConfirmTraHoldSeatApi">
+        <register type="Mzl.IApplication.Train.IConfirmTraHoldSeatApplication, Mzl.IApplication" mapTo="Mzl.Application.Train.ConfirmTraHoldSeatApplication, Mzl.Application"/>
+        <!--获取火车订单服务-->
+        <register type="Mzl.IBLL.Train.Order.IGetTraOrderServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.GetTraOrderServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.Order.IGetTraOrderBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.GetTraOrderBll, Mzl.BLL.Train"/>
+        <!--发起第三方火车占位服务-->
+        <register type="Mzl.IBLL.Train.RequestInterface.IRequestPrintTicketServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.RequestInterface.RequestPrintTicketServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.RequestInterface.IRequestPrintTicketBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.RequestInterface.RequestKongTiePrintTicketBll, Mzl.BLL.Train"/>
+        <!--取消火车订单服务-->
+        <register type="Mzl.IBLL.Train.Order.ICancelTraOrderServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.CancelTraOrderServiceBll, Mzl.BLL.Train"/>
+        <!--取消第三方火车订单服务-->
+        <register type="Mzl.IBLL.Train.RequestInterface.IRequestCancelOrderServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.RequestInterface.RequestCancelOrderServiceBll, Mzl.BLL.Train"/>
+        <register type="Mzl.IBLL.Train.RequestInterface.IRequestCancelOrderBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.RequestInterface.RequestKongTieCancelOrderBll, Mzl.BLL.Train"/>
+        <!--差旅送审服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.SubmitCorpAduitOrder.ISubmitCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.SubmitCorpAduitOrder.SubmitCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICorpAduitBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CorpAduitBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IAddSendAppMessageBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddSendAppMessageBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IProjectNameDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ProjectNameDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderStatusDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderStatusDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDetailDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDetailDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraPassengerDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraPassengerDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderLogDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderLogDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraAddressDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraAddressDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraInterFaceOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraInterFaceOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderOperateDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderOperateDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ISendAppMessageDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.SendAppMessageDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-获取差旅政策对应的原因信息api-->
+      <container name="GetCorpPolicyReasonApi">
+        <register type="Mzl.IApplication.Customer.IGetCorpPolicyReasonApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.GetCorpPolicyReasonApplication, Mzl.Application"/>
+        <!--获取差旅政策服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerCorpPolicyServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerCorpPolicyServiceBll, Mzl.BLL.Customer"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyDetailConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyDetailConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IChoiceReasonDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ChoiceReasonDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-火车订单详情api-->
+      <container name="GetTraAppOrderDetailApi">
+        <register type="Mzl.IApplication.Train.IGetTraOrderDetailApplication, Mzl.IApplication" mapTo="Mzl.Application.Train.GetTraOrderDetailApplication, Mzl.Application"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取公司信息服务-->
+        <register type="Mzl.IBLL.Customer.Corp.IGetCorpServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Corp.GetCorpServiceBll, Mzl.BLL.Customer"/>
+        <!--获取火车订单详情服务-->
+        <register type="Mzl.IBLL.Train.Order.IGetTraOrderDetailServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.GetTraOrderDetailServiceBll, Mzl.BLL.Train"/>
+        <!--判断当前客人是否是当前订单的审批人服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICheckAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CheckAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--获取审批信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IGetCorpAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.GetCorpAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactIdentificationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactIdentificationDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.IProjectNameDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ProjectNameDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderStatusDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderStatusDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDetailDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDetailDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraPassengerDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraPassengerDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderLogDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderLogDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraAddressDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraAddressDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraInterFaceOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraInterFaceOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderOperateDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderOperateDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraModOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraModOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraModOrderDetailDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraModOrderDetailDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!---差旅报表视图-->
+      <container name="TravelReportApi">
+        <register type="Mzl.IApplication.Customer.ITravelReportApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.TravelReportApplication, Mzl.Application"/>
+        <register type="Mzl.IBLL.Customer.Customer.ITravelReportServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.TravelReportServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ITravelReportAirlineCountDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.TravelReportAirlineCountDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!---公司个性化配置-->
+      <container name="CorpIndividuationApi">
+        <register type="Mzl.IApplication.Customer.ICorpIndividuationApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.CorpIndividuationApplication, Mzl.Application"/>
+        <register type="Mzl.IBLL.Customer.Corp.IGetCorpServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Corp.GetCorpServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+      </container>
+      
+      <!---查询联系人api-->
+      <container name="SearchContactsApi">
+        <register type="Mzl.IApplication.Customer.ISearchContactsApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.SearchContactsApplication, Mzl.Application"/>
+        <!---查询联系人-->
+        <register type="Mzl.IBLL.Customer.ContactInfo.ISearchContactsServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ContactInfo.SearchContactsServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.ContactInfo.IGetContactBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ContactInfo.GetContactBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!---添加送票地址api-->
+      <container name="AddContactAddressApi">
+        <register type="Mzl.IApplication.Customer.IAddContactAddressApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.AddContactAddressApplication, Mzl.Application"/>
+        <!---添加送票地址-->
+        <register type="Mzl.IBLL.Customer.ContactInfo.IAddContactAddressServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ContactInfo.AddContactAddressServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactAddressDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactAddressDal, Mzl.DAL.Customer"/>
+      </container>
+
+
+      <!---检查差旅网站帐号权限api-->
+      <container name="CheckCorpAccountPowerApi">
+        <register type="Mzl.IApplication.Common.ICheckCorpAccountPowerApplication, Mzl.IApplication" mapTo="Mzl.Application.Common.CheckCorpAccountPowerApplication, Mzl.Application"/>
+        <!---检查差旅网站帐号-->
+        <register type="Mzl.IBLL.Common.CheckAccount.ICheckCorpAccountPowerServiceBll, Mzl.IBLL.Common" mapTo="Mzl.BLL.Common.CheckAccount.CheckCorpAccountPowerServiceBll, Mzl.BLL.Common"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!---复制国内机票订单api-->
+      <container name="CopyFltDomesticOrderApi">
+        <register type="Mzl.IApplication.Flight.ICopyFltDomesticOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.CopyFltDomesticOrderApplication, Mzl.Application"/>
+        <!---复制国内机票订单服务-->
+        <register type="Mzl.IBLL.Flight.CopyOrder.ICopyFltDomesticOrderServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.CopyOrder.CopyCorpFltDomesticOrderServiceBll, Mzl.BLL.Flight"/>
+        <!---复制审批单服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICopyAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CopyAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderUnionDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderUnionDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltCorpCostCenterDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltCorpCostCenterDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltTicketNoDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltTicketNoDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltRetModApplyDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltRetModApplyDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!---复制火车订单api-->
+      <container name="CopyTraOrderApi">
+        <register type="Mzl.IApplication.Train.ICopyTraOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Train.CopyTraOrderApplication, Mzl.Application"/>
+        <!---复制火车订单服务-->
+        <register type="Mzl.IBLL.Train.Order.ICopyTraOrderServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.CopyTraOrderServiceBll, Mzl.BLL.Train"/>
+        <!---复制审批单服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICopyAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CopyAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Train.ITraOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderStatusDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderStatusDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDetailDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDetailDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderLogDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderLogDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraPassengerDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraPassengerDal, Mzl.DAL.Train"/>
+
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+      </container>
+
+
+      <!---复制酒店订单api-->
+      <container name="CopyHotelOrderApi">
+        <register type="Mzl.IApplication.Hotel.ICopyHotelOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Hotel.CopyHotelOrderApplication, Mzl.Application"/>
+        <!---复制酒店订单服务-->
+        <register type="Mzl.IBll.Hotel.CopyOrder.ICopyHotelOrderServiceBll, Mzl.IBll.Hotel" mapTo="Mzl.Bll.Hotel.CopyOrder.CopyHotelOrderServiceBll, Mzl.Bll.Hotel"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Hotel.IHolOrderDal, Mzl.IDAL.Hotel" mapTo="Mzl.DAL.Hotel.HolOrderDal, Mzl.DAL.Hotel"/>
+        <register type="Mzl.IDAL.Hotel.IHolOrderDetailDal, Mzl.IDAL.Hotel" mapTo="Mzl.DAL.Hotel.HolOrderDetailDal, Mzl.DAL.Hotel"/>
+        <register type="Mzl.IDAL.Hotel.IHolOrderLogDal, Mzl.IDAL.Hotel" mapTo="Mzl.DAL.Hotel.HolOrderLogDal, Mzl.DAL.Hotel"/>
+        <register type="Mzl.IDAL.Hotel.IHolRefundDal, Mzl.IDAL.Hotel" mapTo="Mzl.DAL.Hotel.HolRefundDal, Mzl.DAL.Hotel"/>
+      </container>
+
+      <!--获取酒店订单api-->
+      <container name="GetHotelOrderInfoApi">
+        <register type="Mzl.IApplication.Hotel.IGetHotelOrderInfoApplication, Mzl.IApplication" mapTo="Mzl.Application.Hotel.GetHotelOrderInfoApplication, Mzl.Application"/>
+        <!---获取酒店订单服务-->
+        <register type="Mzl.IBll.Hotel.GetOrderInfo.IGetHotelOrderInfoServiceBll, Mzl.IBll.Hotel" mapTo="Mzl.Bll.Hotel.GetOrderInfo.GetHotelOrderInfoServiceBll, Mzl.Bll.Hotel"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Hotel.IHolOrderDal, Mzl.IDAL.Hotel" mapTo="Mzl.DAL.Hotel.HolOrderDal, Mzl.DAL.Hotel"/>
+        <register type="Mzl.IDAL.Hotel.IHolOrderDetailDal, Mzl.IDAL.Hotel" mapTo="Mzl.DAL.Hotel.HolOrderDetailDal, Mzl.DAL.Hotel"/>
+      </container>
+
+      <!---拆分机票订单api-->
+      <container name="SplitFltOrderApi">
+        <register type="Mzl.IApplication.Flight.ISplitFltOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Flight.SplitFltOrderApplication, Mzl.Application"/>
+        <!---拆分机票订单服务-->
+        <register type="Mzl.IBLL.Flight.SplitOrder.ISplitFltOrderServiceBll, Mzl.IBLL.Flight" mapTo="Mzl.BLL.Flight.SplitOrder.SplitFltOrderServiceBll, Mzl.BLL.Flight"/>
+        <!---复制审批单服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.ICopyAduitOrderServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.CopyAduitOrderServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Flight.IFltOrderDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltFlightDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltFlightDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltPassengerDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltPassengerDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderUnionDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderUnionDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltCorpCostCenterDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltCorpCostCenterDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Flight.IFltOrderLogDal, Mzl.IDAL.Flight" mapTo="Mzl.DAL.Flight.FltOrderLogDal, Mzl.DAL.Flight"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅网站-修改客户信息api-->
+      <container name="UpdateCustomerApi">
+        <register type="Mzl.IApplication.Customer.IUpdateCustomerApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.UpdateCustomerApplication, Mzl.Application"/>
+        <!--修改客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IUpdateCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.UpdateCustomerServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+      </container>
+      <!---火车订单拆单api-->
+      <container name="SplitTraOrderApi">
+        <register type="Mzl.IApplication.Train.ISplitTraOrderApplication, Mzl.IApplication" mapTo="Mzl.Application.Train.SplitTraOrderApplication, Mzl.Application"/>
+        <!---火车订单拆单服务-->
+        <register type="Mzl.IBLL.Train.Order.ISplitTraOrderServiceBll, Mzl.IBLL.Train" mapTo="Mzl.BLL.Train.Order.SplitTraOrderServiceBll, Mzl.BLL.Train"/>
+
+        <!--DAL-->
+        <register type="Mzl.IDAL.Train.ITraOrderDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderStatusDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderStatusDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderDetailDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderDetailDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraOrderLogDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraOrderLogDal, Mzl.DAL.Train"/>
+        <register type="Mzl.IDAL.Train.ITraPassengerDal, Mzl.IDAL.Train" mapTo="Mzl.DAL.Train.TraPassengerDal, Mzl.DAL.Train"/>
+
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderDetailDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderFlowDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderFlowDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitOrderLogDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitOrderLogDal, Mzl.DAL.Customer"/>
+      </container>
+    
+      <!--差旅-新增差旅政策与项目成本中心进行关联api-->
+      <container name="AddPolicyProjectRelationApi">
+        <register type="Mzl.IApplication.Customer.IAddPolicyProjectRelationApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.AddPolicyProjectRelationApplication, Mzl.Application"/>
+        <register type="Mzl.IBLL.Customer.Customer.IAddPolicyProjectRelationServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddPolicyProjectRelationServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigProjectDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-添加审批规则与项目成本中心关系api-->
+      <container name="AddCorpAduitProjectRelationApi">
+        <register type="Mzl.IApplication.Customer.IAddCorpAduitProjectRelationApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.AddCorpAduitProjectRelationApplication, Mzl.Application"/>
+        <register type="Mzl.IBLL.Customer.Customer.IAddCorpAduitProjectRelationServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.AddCorpAduitProjectRelationServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigProjectDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-获取差旅项目成本中心与政策和审批规则关系信息api-->
+      <container name="GetCorpPolicyProjectApi">
+        <register type="Mzl.IApplication.Customer.IGetCorpPolicyProjectApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.GetCorpPolicyProjectApplication, Mzl.Application"/>
+        <!--根据公司id获取对应的项目信息服务-->
+        <register type="Mzl.IBLL.Customer.ProjectName.IGetProjectNameServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.ProjectName.GetProjectNameServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer" />
+        <register type="Mzl.IDAL.Customer.Corporation.IProjectNameDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.ProjectNameDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpPolicyConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpPolicyConfigProjectDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigProjectDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigProjectDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-获取app推送信息api-->
+      <container name="GetAppMessageApi">
+        <register type="Mzl.IApplication.Customer.IGetAppMessageApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.GetAppMessageApplication, Mzl.Application"/>
+        <register type="Mzl.IBLL.Customer.SendAppMessage.IGetAppMessageServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.SendAppMessage.GetAppMessageServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ISendAppMessageDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.SendAppMessageDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-删除差旅审批规则api-->
+      <container name="DeleteCorpAduitConfigApi">
+        <register type="Mzl.IApplication.Customer.IDeleteCorpAduitConfigApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.DeleteCorpAduitConfigApplication, Mzl.Application"/>
+        <!--维护审批规则服务-->
+        <register type="Mzl.IBLL.Customer.CorpAduit.IEditCorpAduitConfigServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpAduit.EditCorpAduitConfigServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpAduitConfigDetailDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpAduitConfigDetailDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--差旅-获取预定部门范围信息api-->
+      <container name="GetCorpBookingDepartListApi">
+        <register type="Mzl.IApplication.Customer.IGetCorpBookingDepartListApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.GetCorpBookingDepartListApplication, Mzl.Application"/>
+        <!--获取客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.Customer.IGetCustomerBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetCustomerBll, Mzl.BLL.Customer"/>
+        <!--获取预定部门范围信息服务-->
+        <register type="Mzl.IBLL.Customer.CorpDepartment.IGetCorpBookingDepartListServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpDepartment.GetCorpBookingDepartListServiceBll, Mzl.BLL.Customer"/>
+        <register type="Mzl.IBLL.Customer.CorpDepartment.IGetCorpDepartmentBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.CorpDepartment.GetCorpDepartmentBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Corporation.ICorpDepartmentDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorpDepartmentDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Corporation.ICorporationDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Corporation.CorporationDal, Mzl.DAL.Customer"/>
+      </container>
+      
+      <!--差旅网站-设置预定部门范围信息api-->
+      <container name="SetCorpBookingDepartListApi">
+        <register type="Mzl.IApplication.Customer.ISetCorpBookingDepartListApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.SetCorpBookingDepartListApplication, Mzl.Application"/>
+        <!--修改客户信息服务-->
+        <register type="Mzl.IBLL.Customer.Customer.IUpdateCustomerServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.UpdateCustomerServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.ContactInfo.IContactDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.ContactInfo.ContactDal, Mzl.DAL.Customer"/>
+        <register type="Mzl.IDAL.Customer.Customer.ICustomerUnionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.CustomerUnionDal, Mzl.DAL.Customer"/>
+      </container>
+      <!--OA反馈列表展示-->
+      <container name="GetAppOpinionListApi">
+        <register type="Mzl.IApplication.Customer.IGetAppOpinionListApplication, Mzl.IApplication" mapTo="Mzl.Application.Customer.GetAppOpinionListApplication, Mzl.Application"/>
+        <!--获取意见反馈列表 分页-->
+        <register type="Mzl.IBLL.Customer.Customer.IGetAppOpinionListServiceBll, Mzl.IBLL.Customer" mapTo="Mzl.BLL.Customer.Customer.GetAppOpinionListServiceBll, Mzl.BLL.Customer"/>
+        <!--DAL-->
+        <register type="Mzl.IDAL.Customer.Customer.IAppOpinionDal, Mzl.IDAL.Customer" mapTo="Mzl.DAL.Customer.Customer.AppOpinionDal, Mzl.DAL.Customer"/>
+      </container>
+
+      <!--泛型接口注入示例api-->
+      <container name="DoTestApi">
+        <register type="Mzl.IApplication.Common.IDoTestApplication[AuditOrderResponseViewModel], Mzl.IApplication" mapTo="Mzl.Application.Common.DoTestApplication, Mzl.Application"/>
+      </container>
+      
+      
+      <!-- 携程酒店注入-->
+      <container name="CTripGeoApi">
+        <register type="Mzl.IApplication.CTripHotel.IQueryCityCNApplication, Mzl.IApplication"  mapTo="Mzl.Application.CTripHotel.QueryCityCNApplication, Mzl.Application"/>
+        <register type="Mzl.IBll.Hotel.CtripHotel.IQueryCityInofCNBll, Mzl.IBll.Hotel" mapTo="Mzl.Bll.Hotel.CtripHotel.QueryCityInofCNBll, Mzl.Bll.Hotel"/>
+        <register type="Mzl.IDAL.CTripHotel.StaticData.ICTripHotelCityCNDal, Mzl.IDAL.CTripHotel" mapTo="Mzl.DAL.CTripHotel.StaticData.CTripHotelCityCNDal, Mzl.DAL.CTripHotel"/>
+        <register type="Mzl.IApplication.CTripHotel.ICTripHotelInfoApplication,Mzl.IApplication" mapTo="Mzl.Application.CTripHotel.CTripHotelInfoApplication,Mzl.Application"/>
+        <register type="Mzl.IBll.Hotel.CtripHotel.SolrService.IHotelInfoService,Mzl.IBll.Hotel" mapTo="Mzl.Bll.Hotel.CtripHotel.SolrService.HotelInfoService,Mzl.Bll.Hotel"/>
+        <register type="Mzl.IDAL.CTripHotel.SolrDAL.ICTripHotelDesDal,Mzl.IDAL.CTripHotel" mapTo="Mzl.DAL.CTripHotel.SolrDAL.CTripHotelDesDal,Mzl.DAL.CTripHotel"/>
+      </container>
+      
+      <!--携程酒店查询-->
+      <container name="CTripHotelInfoApi">
+        <register type="Mzl.IDAL.CTripHotel.SolrDAL.ICTripHotelDesDal,Mzl.IDAL.CTripHotel" mapTo="Mzl.DAL.CTripHotel.SolrDAL.CTripHotelDesDal,Mzl.DAL.CTripHotel"/>
+        <register type="Mzl.IBll.Hotel.CtripHotel.IHotelInfoServiceBLL,Mzl.IBll.Hotel" mapTo="Mzl.Bll.Hotel.CtripHotel.HotelInfoServiceBLL,Mzl.Bll.Hotel"/>
+        <register type="Mzl.Proxy.Hotel.CTrip.Query.IHotelLowPrice,Mzl.Proxy.Hotel.CTrip" mapTo="Mzl.Proxy.Hotel.CTrip.Query.HotelLowPrice,Mzl.Proxy.Hotel.CTrip"/>
+        <register type="Mzl.Proxy.Hotel.CTrip.Query.IHotelDesInfo,Mzl.Proxy.Hotel.CTrip" mapTo="Mzl.Proxy.Hotel.CTrip.Query.HotelDesInfo,Mzl.Proxy.Hotel.CTrip"/>
+      </container>
+      
+    </containers>
+    
+    <aliases>
+      <add  alias="AuditOrderResponseViewModel" type="Mzl.UIModel.Common.AuditOrder.AuditOrderResponseViewModel, Mzl.UIModel" />
+    </aliases>
+  </unity>
+</configuration>

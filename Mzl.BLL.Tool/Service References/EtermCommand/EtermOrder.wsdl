@@ -1,0 +1,2027 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s1="http://tempuri.org/AbstractTypes" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AVOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="start_city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrive_city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AVOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AVOrderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FDOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="start_city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="arrive_city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="airline" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FDOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FDOrderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FFOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="airline" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="date" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FFOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FFOrderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SDOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="air_info" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="person_info" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tktl_minutes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SDOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SDOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XEPNROrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pnr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xeticketed" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="XEPNROrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="XEPNROrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ETDZOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pnr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="officecode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customercode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="printid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="args" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ETDZOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ETDZOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TSSOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="mode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TSSOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TSSOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PRINVOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ittn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="officecode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PRINVOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PRINVOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VTINVOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ittn" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="officecode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VTINVOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VTINVOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RTOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pnr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="hk" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="get_ticket" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="get_price" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RTOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RTOrderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RTOrderMyUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pnr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserPwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RTOrderMyUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RTOrderMyUserResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RTUOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pnr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RTUOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RTUOrderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PATOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pnr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PATOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PATOrderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PATOrderByCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pnr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="clientCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PATOrderByCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PATOrderByCodeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PATOrderNoCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pnr" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PATOrderNoCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PATOrderNoCodeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PATEXOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="air_info" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="officecode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="allprice" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apply" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PATEXOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PATEXOrderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DETROrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DETROrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DETROrderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DETNOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ticket" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DETNOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DETNOrderResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RAWOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ins" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RAWOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RAWOrderResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RAWOrder255">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ins" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RAWOrder255Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RAWOrder255Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RAWOrderRT">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ins" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RAWOrderRTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RAWOrderRTResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RAWOrderDETR">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ins" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RAWOrderDETRResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RAWOrderDETRResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+    <s:schema targetNamespace="http://tempuri.org/AbstractTypes">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:complexType name="StringArray">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="String" type="s:string" />
+            </s:sequence>
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AVOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:AVOrder" />
+  </wsdl:message>
+  <wsdl:message name="AVOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:AVOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="FDOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:FDOrder" />
+  </wsdl:message>
+  <wsdl:message name="FDOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:FDOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="FFOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:FFOrder" />
+  </wsdl:message>
+  <wsdl:message name="FFOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:FFOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="SDOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:SDOrder" />
+  </wsdl:message>
+  <wsdl:message name="SDOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:SDOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="XEPNROrderSoapIn">
+    <wsdl:part name="parameters" element="tns:XEPNROrder" />
+  </wsdl:message>
+  <wsdl:message name="XEPNROrderSoapOut">
+    <wsdl:part name="parameters" element="tns:XEPNROrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ETDZOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:ETDZOrder" />
+  </wsdl:message>
+  <wsdl:message name="ETDZOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:ETDZOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="TSSOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:TSSOrder" />
+  </wsdl:message>
+  <wsdl:message name="TSSOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:TSSOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PRINVOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:PRINVOrder" />
+  </wsdl:message>
+  <wsdl:message name="PRINVOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:PRINVOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="VTINVOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:VTINVOrder" />
+  </wsdl:message>
+  <wsdl:message name="VTINVOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:VTINVOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:RTOrder" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:RTOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderMyUserSoapIn">
+    <wsdl:part name="parameters" element="tns:RTOrderMyUser" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderMyUserSoapOut">
+    <wsdl:part name="parameters" element="tns:RTOrderMyUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="RTUOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:RTUOrder" />
+  </wsdl:message>
+  <wsdl:message name="RTUOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:RTUOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:PATOrder" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:PATOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderByCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:PATOrderByCode" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderByCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:PATOrderByCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderNoCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:PATOrderNoCode" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderNoCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:PATOrderNoCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="PATEXOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:PATEXOrder" />
+  </wsdl:message>
+  <wsdl:message name="PATEXOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:PATEXOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="DETROrderSoapIn">
+    <wsdl:part name="parameters" element="tns:DETROrder" />
+  </wsdl:message>
+  <wsdl:message name="DETROrderSoapOut">
+    <wsdl:part name="parameters" element="tns:DETROrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="DETNOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:DETNOrder" />
+  </wsdl:message>
+  <wsdl:message name="DETNOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:DETNOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:RAWOrder" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:RAWOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrder255SoapIn">
+    <wsdl:part name="parameters" element="tns:RAWOrder255" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrder255SoapOut">
+    <wsdl:part name="parameters" element="tns:RAWOrder255Response" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderRTSoapIn">
+    <wsdl:part name="parameters" element="tns:RAWOrderRT" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderRTSoapOut">
+    <wsdl:part name="parameters" element="tns:RAWOrderRTResponse" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderDETRSoapIn">
+    <wsdl:part name="parameters" element="tns:RAWOrderDETR" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderDETRSoapOut">
+    <wsdl:part name="parameters" element="tns:RAWOrderDETRResponse" />
+  </wsdl:message>
+  <wsdl:message name="AVOrderHttpGetIn">
+    <wsdl:part name="start_city" type="s:string" />
+    <wsdl:part name="arrive_city" type="s:string" />
+    <wsdl:part name="date" type="s:string" />
+    <wsdl:part name="args" type="s1:StringArray" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AVOrderHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="FDOrderHttpGetIn">
+    <wsdl:part name="start_city" type="s:string" />
+    <wsdl:part name="arrive_city" type="s:string" />
+    <wsdl:part name="date" type="s:string" />
+    <wsdl:part name="airline" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FDOrderHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="FFOrderHttpGetIn">
+    <wsdl:part name="airline" type="s:string" />
+    <wsdl:part name="date" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FFOrderHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SDOrderHttpGetIn">
+    <wsdl:part name="air_info" type="s:string" />
+    <wsdl:part name="person_info" type="s:string" />
+    <wsdl:part name="tktl_minutes" type="s:string" />
+    <wsdl:part name="args" type="s1:StringArray" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SDOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="XEPNROrderHttpGetIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="xeticketed" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XEPNROrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ETDZOrderHttpGetIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="officecode" type="s:string" />
+    <wsdl:part name="customercode" type="s:string" />
+    <wsdl:part name="printid" type="s:string" />
+    <wsdl:part name="args" type="s1:StringArray" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ETDZOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TSSOrderHttpGetIn">
+    <wsdl:part name="ticket" type="s:string" />
+    <wsdl:part name="mode" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TSSOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PRINVOrderHttpGetIn">
+    <wsdl:part name="ticket" type="s:string" />
+    <wsdl:part name="ittn" type="s:string" />
+    <wsdl:part name="officecode" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PRINVOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VTINVOrderHttpGetIn">
+    <wsdl:part name="ticket" type="s:string" />
+    <wsdl:part name="ittn" type="s:string" />
+    <wsdl:part name="officecode" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VTINVOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderHttpGetIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="hk" type="s:string" />
+    <wsdl:part name="get_ticket" type="s:string" />
+    <wsdl:part name="get_price" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderMyUserHttpGetIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="UserPwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderMyUserHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="RTUOrderHttpGetIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RTUOrderHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderHttpGetIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderByCodeHttpGetIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="clientCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderByCodeHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderNoCodeHttpGetIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderNoCodeHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PATEXOrderHttpGetIn">
+    <wsdl:part name="air_info" type="s:string" />
+    <wsdl:part name="officecode" type="s:string" />
+    <wsdl:part name="allprice" type="s:string" />
+    <wsdl:part name="apply" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PATEXOrderHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="DETROrderHttpGetIn">
+    <wsdl:part name="ticket" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DETROrderHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="DETNOrderHttpGetIn">
+    <wsdl:part name="ticket" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DETNOrderHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderHttpGetIn">
+    <wsdl:part name="ins" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrder255HttpGetIn">
+    <wsdl:part name="ins" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrder255HttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderRTHttpGetIn">
+    <wsdl:part name="ins" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderRTHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderDETRHttpGetIn">
+    <wsdl:part name="ins" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderDETRHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="AVOrderHttpPostIn">
+    <wsdl:part name="start_city" type="s:string" />
+    <wsdl:part name="arrive_city" type="s:string" />
+    <wsdl:part name="date" type="s:string" />
+    <wsdl:part name="args" type="s1:StringArray" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AVOrderHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="FDOrderHttpPostIn">
+    <wsdl:part name="start_city" type="s:string" />
+    <wsdl:part name="arrive_city" type="s:string" />
+    <wsdl:part name="date" type="s:string" />
+    <wsdl:part name="airline" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FDOrderHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="FFOrderHttpPostIn">
+    <wsdl:part name="airline" type="s:string" />
+    <wsdl:part name="date" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FFOrderHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="SDOrderHttpPostIn">
+    <wsdl:part name="air_info" type="s:string" />
+    <wsdl:part name="person_info" type="s:string" />
+    <wsdl:part name="tktl_minutes" type="s:string" />
+    <wsdl:part name="args" type="s1:StringArray" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SDOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="XEPNROrderHttpPostIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="xeticketed" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="XEPNROrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ETDZOrderHttpPostIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="officecode" type="s:string" />
+    <wsdl:part name="customercode" type="s:string" />
+    <wsdl:part name="printid" type="s:string" />
+    <wsdl:part name="args" type="s1:StringArray" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ETDZOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="TSSOrderHttpPostIn">
+    <wsdl:part name="ticket" type="s:string" />
+    <wsdl:part name="mode" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="TSSOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="PRINVOrderHttpPostIn">
+    <wsdl:part name="ticket" type="s:string" />
+    <wsdl:part name="ittn" type="s:string" />
+    <wsdl:part name="officecode" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PRINVOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VTINVOrderHttpPostIn">
+    <wsdl:part name="ticket" type="s:string" />
+    <wsdl:part name="ittn" type="s:string" />
+    <wsdl:part name="officecode" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VTINVOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderHttpPostIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="hk" type="s:string" />
+    <wsdl:part name="get_ticket" type="s:string" />
+    <wsdl:part name="get_price" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderMyUserHttpPostIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="UserPwd" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RTOrderMyUserHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="RTUOrderHttpPostIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RTUOrderHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderHttpPostIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderByCodeHttpPostIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+    <wsdl:part name="clientCode" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderByCodeHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderNoCodeHttpPostIn">
+    <wsdl:part name="pnr" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PATOrderNoCodeHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="PATEXOrderHttpPostIn">
+    <wsdl:part name="air_info" type="s:string" />
+    <wsdl:part name="officecode" type="s:string" />
+    <wsdl:part name="allprice" type="s:string" />
+    <wsdl:part name="apply" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="PATEXOrderHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="DETROrderHttpPostIn">
+    <wsdl:part name="ticket" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DETROrderHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="DETNOrderHttpPostIn">
+    <wsdl:part name="ticket" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="DETNOrderHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderHttpPostIn">
+    <wsdl:part name="ins" type="s:string" />
+    <wsdl:part name="id" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrder255HttpPostIn">
+    <wsdl:part name="ins" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrder255HttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderRTHttpPostIn">
+    <wsdl:part name="ins" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderRTHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderDETRHttpPostIn">
+    <wsdl:part name="ins" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RAWOrderDETRHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:portType name="EtermOrderSoap">
+    <wsdl:operation name="AVOrder">
+      <wsdl:input message="tns:AVOrderSoapIn" />
+      <wsdl:output message="tns:AVOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FDOrder">
+      <wsdl:input message="tns:FDOrderSoapIn" />
+      <wsdl:output message="tns:FDOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FFOrder">
+      <wsdl:input message="tns:FFOrderSoapIn" />
+      <wsdl:output message="tns:FFOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SDOrder">
+      <wsdl:input message="tns:SDOrderSoapIn" />
+      <wsdl:output message="tns:SDOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XEPNROrder">
+      <wsdl:input message="tns:XEPNROrderSoapIn" />
+      <wsdl:output message="tns:XEPNROrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ETDZOrder">
+      <wsdl:input message="tns:ETDZOrderSoapIn" />
+      <wsdl:output message="tns:ETDZOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TSSOrder">
+      <wsdl:input message="tns:TSSOrderSoapIn" />
+      <wsdl:output message="tns:TSSOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PRINVOrder">
+      <wsdl:input message="tns:PRINVOrderSoapIn" />
+      <wsdl:output message="tns:PRINVOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VTINVOrder">
+      <wsdl:input message="tns:VTINVOrderSoapIn" />
+      <wsdl:output message="tns:VTINVOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTOrder">
+      <wsdl:input message="tns:RTOrderSoapIn" />
+      <wsdl:output message="tns:RTOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTOrderMyUser">
+      <wsdl:input message="tns:RTOrderMyUserSoapIn" />
+      <wsdl:output message="tns:RTOrderMyUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTUOrder">
+      <wsdl:input message="tns:RTUOrderSoapIn" />
+      <wsdl:output message="tns:RTUOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATOrder">
+      <wsdl:input message="tns:PATOrderSoapIn" />
+      <wsdl:output message="tns:PATOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderByCode">
+      <wsdl:input message="tns:PATOrderByCodeSoapIn" />
+      <wsdl:output message="tns:PATOrderByCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderNoCode">
+      <wsdl:input message="tns:PATOrderNoCodeSoapIn" />
+      <wsdl:output message="tns:PATOrderNoCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATEXOrder">
+      <wsdl:input message="tns:PATEXOrderSoapIn" />
+      <wsdl:output message="tns:PATEXOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DETROrder">
+      <wsdl:input message="tns:DETROrderSoapIn" />
+      <wsdl:output message="tns:DETROrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DETNOrder">
+      <wsdl:input message="tns:DETNOrderSoapIn" />
+      <wsdl:output message="tns:DETNOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <wsdl:input message="tns:RAWOrderSoapIn" />
+      <wsdl:output message="tns:RAWOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder255">
+      <wsdl:input message="tns:RAWOrder255SoapIn" />
+      <wsdl:output message="tns:RAWOrder255SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderRT">
+      <wsdl:input message="tns:RAWOrderRTSoapIn" />
+      <wsdl:output message="tns:RAWOrderRTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderDETR">
+      <wsdl:input message="tns:RAWOrderDETRSoapIn" />
+      <wsdl:output message="tns:RAWOrderDETRSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="EtermOrderHttpGet">
+    <wsdl:operation name="AVOrder">
+      <wsdl:input message="tns:AVOrderHttpGetIn" />
+      <wsdl:output message="tns:AVOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FDOrder">
+      <wsdl:input message="tns:FDOrderHttpGetIn" />
+      <wsdl:output message="tns:FDOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FFOrder">
+      <wsdl:input message="tns:FFOrderHttpGetIn" />
+      <wsdl:output message="tns:FFOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SDOrder">
+      <wsdl:input message="tns:SDOrderHttpGetIn" />
+      <wsdl:output message="tns:SDOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XEPNROrder">
+      <wsdl:input message="tns:XEPNROrderHttpGetIn" />
+      <wsdl:output message="tns:XEPNROrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ETDZOrder">
+      <wsdl:input message="tns:ETDZOrderHttpGetIn" />
+      <wsdl:output message="tns:ETDZOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TSSOrder">
+      <wsdl:input message="tns:TSSOrderHttpGetIn" />
+      <wsdl:output message="tns:TSSOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PRINVOrder">
+      <wsdl:input message="tns:PRINVOrderHttpGetIn" />
+      <wsdl:output message="tns:PRINVOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VTINVOrder">
+      <wsdl:input message="tns:VTINVOrderHttpGetIn" />
+      <wsdl:output message="tns:VTINVOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTOrder">
+      <wsdl:input message="tns:RTOrderHttpGetIn" />
+      <wsdl:output message="tns:RTOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTOrderMyUser">
+      <wsdl:input message="tns:RTOrderMyUserHttpGetIn" />
+      <wsdl:output message="tns:RTOrderMyUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTUOrder">
+      <wsdl:input message="tns:RTUOrderHttpGetIn" />
+      <wsdl:output message="tns:RTUOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATOrder">
+      <wsdl:input message="tns:PATOrderHttpGetIn" />
+      <wsdl:output message="tns:PATOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderByCode">
+      <wsdl:input message="tns:PATOrderByCodeHttpGetIn" />
+      <wsdl:output message="tns:PATOrderByCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderNoCode">
+      <wsdl:input message="tns:PATOrderNoCodeHttpGetIn" />
+      <wsdl:output message="tns:PATOrderNoCodeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATEXOrder">
+      <wsdl:input message="tns:PATEXOrderHttpGetIn" />
+      <wsdl:output message="tns:PATEXOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DETROrder">
+      <wsdl:input message="tns:DETROrderHttpGetIn" />
+      <wsdl:output message="tns:DETROrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DETNOrder">
+      <wsdl:input message="tns:DETNOrderHttpGetIn" />
+      <wsdl:output message="tns:DETNOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <wsdl:input message="tns:RAWOrderHttpGetIn" />
+      <wsdl:output message="tns:RAWOrderHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder255">
+      <wsdl:input message="tns:RAWOrder255HttpGetIn" />
+      <wsdl:output message="tns:RAWOrder255HttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderRT">
+      <wsdl:input message="tns:RAWOrderRTHttpGetIn" />
+      <wsdl:output message="tns:RAWOrderRTHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderDETR">
+      <wsdl:input message="tns:RAWOrderDETRHttpGetIn" />
+      <wsdl:output message="tns:RAWOrderDETRHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="EtermOrderHttpPost">
+    <wsdl:operation name="AVOrder">
+      <wsdl:input message="tns:AVOrderHttpPostIn" />
+      <wsdl:output message="tns:AVOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FDOrder">
+      <wsdl:input message="tns:FDOrderHttpPostIn" />
+      <wsdl:output message="tns:FDOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FFOrder">
+      <wsdl:input message="tns:FFOrderHttpPostIn" />
+      <wsdl:output message="tns:FFOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SDOrder">
+      <wsdl:input message="tns:SDOrderHttpPostIn" />
+      <wsdl:output message="tns:SDOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="XEPNROrder">
+      <wsdl:input message="tns:XEPNROrderHttpPostIn" />
+      <wsdl:output message="tns:XEPNROrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ETDZOrder">
+      <wsdl:input message="tns:ETDZOrderHttpPostIn" />
+      <wsdl:output message="tns:ETDZOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TSSOrder">
+      <wsdl:input message="tns:TSSOrderHttpPostIn" />
+      <wsdl:output message="tns:TSSOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PRINVOrder">
+      <wsdl:input message="tns:PRINVOrderHttpPostIn" />
+      <wsdl:output message="tns:PRINVOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VTINVOrder">
+      <wsdl:input message="tns:VTINVOrderHttpPostIn" />
+      <wsdl:output message="tns:VTINVOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTOrder">
+      <wsdl:input message="tns:RTOrderHttpPostIn" />
+      <wsdl:output message="tns:RTOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTOrderMyUser">
+      <wsdl:input message="tns:RTOrderMyUserHttpPostIn" />
+      <wsdl:output message="tns:RTOrderMyUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RTUOrder">
+      <wsdl:input message="tns:RTUOrderHttpPostIn" />
+      <wsdl:output message="tns:RTUOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATOrder">
+      <wsdl:input message="tns:PATOrderHttpPostIn" />
+      <wsdl:output message="tns:PATOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderByCode">
+      <wsdl:input message="tns:PATOrderByCodeHttpPostIn" />
+      <wsdl:output message="tns:PATOrderByCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderNoCode">
+      <wsdl:input message="tns:PATOrderNoCodeHttpPostIn" />
+      <wsdl:output message="tns:PATOrderNoCodeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PATEXOrder">
+      <wsdl:input message="tns:PATEXOrderHttpPostIn" />
+      <wsdl:output message="tns:PATEXOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DETROrder">
+      <wsdl:input message="tns:DETROrderHttpPostIn" />
+      <wsdl:output message="tns:DETROrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DETNOrder">
+      <wsdl:input message="tns:DETNOrderHttpPostIn" />
+      <wsdl:output message="tns:DETNOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <wsdl:input message="tns:RAWOrderHttpPostIn" />
+      <wsdl:output message="tns:RAWOrderHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder255">
+      <wsdl:input message="tns:RAWOrder255HttpPostIn" />
+      <wsdl:output message="tns:RAWOrder255HttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderRT">
+      <wsdl:input message="tns:RAWOrderRTHttpPostIn" />
+      <wsdl:output message="tns:RAWOrderRTHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderDETR">
+      <wsdl:input message="tns:RAWOrderDETRHttpPostIn" />
+      <wsdl:output message="tns:RAWOrderDETRHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EtermOrderSoap" type="tns:EtermOrderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AVOrder">
+      <soap:operation soapAction="http://tempuri.org/AVOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FDOrder">
+      <soap:operation soapAction="http://tempuri.org/FDOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FFOrder">
+      <soap:operation soapAction="http://tempuri.org/FFOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SDOrder">
+      <soap:operation soapAction="http://tempuri.org/SDOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XEPNROrder">
+      <soap:operation soapAction="http://tempuri.org/XEPNROrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ETDZOrder">
+      <soap:operation soapAction="http://tempuri.org/ETDZOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TSSOrder">
+      <soap:operation soapAction="http://tempuri.org/TSSOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PRINVOrder">
+      <soap:operation soapAction="http://tempuri.org/PRINVOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VTINVOrder">
+      <soap:operation soapAction="http://tempuri.org/VTINVOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTOrder">
+      <soap:operation soapAction="http://tempuri.org/RTOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTOrderMyUser">
+      <soap:operation soapAction="http://tempuri.org/RTOrderMyUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTUOrder">
+      <soap:operation soapAction="http://tempuri.org/RTUOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrder">
+      <soap:operation soapAction="http://tempuri.org/PATOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderByCode">
+      <soap:operation soapAction="http://tempuri.org/PATOrderByCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderNoCode">
+      <soap:operation soapAction="http://tempuri.org/PATOrderNoCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATEXOrder">
+      <soap:operation soapAction="http://tempuri.org/PATEXOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DETROrder">
+      <soap:operation soapAction="http://tempuri.org/DETROrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DETNOrder">
+      <soap:operation soapAction="http://tempuri.org/DETNOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <soap:operation soapAction="http://tempuri.org/RAWOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder255">
+      <soap:operation soapAction="http://tempuri.org/RAWOrder255" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderRT">
+      <soap:operation soapAction="http://tempuri.org/RAWOrderRT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderDETR">
+      <soap:operation soapAction="http://tempuri.org/RAWOrderDETR" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EtermOrderSoap12" type="tns:EtermOrderSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AVOrder">
+      <soap12:operation soapAction="http://tempuri.org/AVOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FDOrder">
+      <soap12:operation soapAction="http://tempuri.org/FDOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FFOrder">
+      <soap12:operation soapAction="http://tempuri.org/FFOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SDOrder">
+      <soap12:operation soapAction="http://tempuri.org/SDOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XEPNROrder">
+      <soap12:operation soapAction="http://tempuri.org/XEPNROrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ETDZOrder">
+      <soap12:operation soapAction="http://tempuri.org/ETDZOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TSSOrder">
+      <soap12:operation soapAction="http://tempuri.org/TSSOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PRINVOrder">
+      <soap12:operation soapAction="http://tempuri.org/PRINVOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VTINVOrder">
+      <soap12:operation soapAction="http://tempuri.org/VTINVOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTOrder">
+      <soap12:operation soapAction="http://tempuri.org/RTOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTOrderMyUser">
+      <soap12:operation soapAction="http://tempuri.org/RTOrderMyUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTUOrder">
+      <soap12:operation soapAction="http://tempuri.org/RTUOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrder">
+      <soap12:operation soapAction="http://tempuri.org/PATOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderByCode">
+      <soap12:operation soapAction="http://tempuri.org/PATOrderByCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderNoCode">
+      <soap12:operation soapAction="http://tempuri.org/PATOrderNoCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATEXOrder">
+      <soap12:operation soapAction="http://tempuri.org/PATEXOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DETROrder">
+      <soap12:operation soapAction="http://tempuri.org/DETROrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DETNOrder">
+      <soap12:operation soapAction="http://tempuri.org/DETNOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <soap12:operation soapAction="http://tempuri.org/RAWOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder255">
+      <soap12:operation soapAction="http://tempuri.org/RAWOrder255" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderRT">
+      <soap12:operation soapAction="http://tempuri.org/RAWOrderRT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderDETR">
+      <soap12:operation soapAction="http://tempuri.org/RAWOrderDETR" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EtermOrderHttpGet" type="tns:EtermOrderHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="AVOrder">
+      <http:operation location="/AVOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FDOrder">
+      <http:operation location="/FDOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FFOrder">
+      <http:operation location="/FFOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SDOrder">
+      <http:operation location="/SDOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XEPNROrder">
+      <http:operation location="/XEPNROrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ETDZOrder">
+      <http:operation location="/ETDZOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TSSOrder">
+      <http:operation location="/TSSOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PRINVOrder">
+      <http:operation location="/PRINVOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VTINVOrder">
+      <http:operation location="/VTINVOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTOrder">
+      <http:operation location="/RTOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTOrderMyUser">
+      <http:operation location="/RTOrderMyUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTUOrder">
+      <http:operation location="/RTUOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrder">
+      <http:operation location="/PATOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderByCode">
+      <http:operation location="/PATOrderByCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderNoCode">
+      <http:operation location="/PATOrderNoCode" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATEXOrder">
+      <http:operation location="/PATEXOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DETROrder">
+      <http:operation location="/DETROrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DETNOrder">
+      <http:operation location="/DETNOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <http:operation location="/RAWOrder" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder255">
+      <http:operation location="/RAWOrder255" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderRT">
+      <http:operation location="/RAWOrderRT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderDETR">
+      <http:operation location="/RAWOrderDETR" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="EtermOrderHttpPost" type="tns:EtermOrderHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="AVOrder">
+      <http:operation location="/AVOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FDOrder">
+      <http:operation location="/FDOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FFOrder">
+      <http:operation location="/FFOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SDOrder">
+      <http:operation location="/SDOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="XEPNROrder">
+      <http:operation location="/XEPNROrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ETDZOrder">
+      <http:operation location="/ETDZOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TSSOrder">
+      <http:operation location="/TSSOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PRINVOrder">
+      <http:operation location="/PRINVOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VTINVOrder">
+      <http:operation location="/VTINVOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTOrder">
+      <http:operation location="/RTOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTOrderMyUser">
+      <http:operation location="/RTOrderMyUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RTUOrder">
+      <http:operation location="/RTUOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrder">
+      <http:operation location="/PATOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderByCode">
+      <http:operation location="/PATOrderByCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATOrderNoCode">
+      <http:operation location="/PATOrderNoCode" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PATEXOrder">
+      <http:operation location="/PATEXOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DETROrder">
+      <http:operation location="/DETROrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DETNOrder">
+      <http:operation location="/DETNOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder">
+      <http:operation location="/RAWOrder" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrder255">
+      <http:operation location="/RAWOrder255" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderRT">
+      <http:operation location="/RAWOrderRT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RAWOrderDETR">
+      <http:operation location="/RAWOrderDETR" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EtermOrder">
+    <wsdl:port name="EtermOrderSoap" binding="tns:EtermOrderSoap">
+      <soap:address location="http://192.168.1.117:8088/Flight/EtermOrder.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EtermOrderSoap12" binding="tns:EtermOrderSoap12">
+      <soap12:address location="http://192.168.1.117:8088/Flight/EtermOrder.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EtermOrderHttpGet" binding="tns:EtermOrderHttpGet">
+      <http:address location="http://192.168.1.117:8088/Flight/EtermOrder.asmx" />
+    </wsdl:port>
+    <wsdl:port name="EtermOrderHttpPost" binding="tns:EtermOrderHttpPost">
+      <http:address location="http://192.168.1.117:8088/Flight/EtermOrder.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

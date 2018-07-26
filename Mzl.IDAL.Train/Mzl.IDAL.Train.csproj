@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F49A5088-D2FD-43E8-A21C-B3D8191B832F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mzl.IDAL.Train</RootNamespace>
+    <AssemblyName>Mzl.IDAL.Train</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseMaintenance\DAL\ITra12306AccountDal.cs" />
+    <Compile Include="BaseMaintenance\DAL\ITraAddressDAL.cs" />
+    <Compile Include="BaseMaintenance\Factory\ITra12306AccountDalFactory.cs" />
+    <Compile Include="ITra12306AccountDal.cs" />
+    <Compile Include="ITraAddressDal.cs" />
+    <Compile Include="ITraGrabTicketDal.cs" />
+    <Compile Include="ITraGrabTicketPassengerDal.cs" />
+    <Compile Include="ITraInterFaceOrderDal.cs" />
+    <Compile Include="ITraModOrderDal.cs" />
+    <Compile Include="ITraModOrderDetailDal.cs" />
+    <Compile Include="ITraOrderDal.cs" />
+    <Compile Include="ITraOrderDetailDal.cs" />
+    <Compile Include="ITraOrderLogDal.cs" />
+    <Compile Include="ITraOrderOperateDal.cs" />
+    <Compile Include="ITraOrderStatusDal.cs" />
+    <Compile Include="ITraPassengerDal.cs" />
+    <Compile Include="Order\DAL\ICheckSameTravelDal.cs" />
+    <Compile Include="Order\DAL\ITraModOrderDAL.cs" />
+    <Compile Include="Order\DAL\ITraModOrderDetailDAL.cs" />
+    <Compile Include="Order\DAL\ITraOrderDAL.cs" />
+    <Compile Include="Order\DAL\ITraOrderDetailDAL.cs" />
+    <Compile Include="Order\DAL\ITraOrderListDAL.cs" />
+    <Compile Include="Order\DAL\ITraOrderLogDAL.cs" />
+    <Compile Include="Order\DAL\ITraOrderStatusDAL.cs" />
+    <Compile Include="Order\DAL\ITraPassengerDAL.cs" />
+    <Compile Include="BaseMaintenance\Factory\ITraAddressDALFactory.cs" />
+    <Compile Include="Order\Factory\ITraModOrderDALFactory.cs" />
+    <Compile Include="Order\Factory\ITraModOrderDetailDALFactory.cs" />
+    <Compile Include="Order\Factory\ITraOrderDALFactory.cs" />
+    <Compile Include="Order\Factory\ITraOrderDetailDALFactory.cs" />
+    <Compile Include="Order\Factory\ITraOrderListDALFactory.cs" />
+    <Compile Include="Order\Factory\ITraOrderLogDALFactory.cs" />
+    <Compile Include="Order\Factory\ITraOrderStatusDALFactory.cs" />
+    <Compile Include="Order\Factory\ITraPassengerDALFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\DAL\IHoldSeatServerDAL.cs" />
+    <Compile Include="Server\DAL\ITraInterFaceOrderServerDAL.cs" />
+    <Compile Include="Server\DAL\IModPrintTicketServerDAL.cs" />
+    <Compile Include="Server\DAL\ITraOrderOperateServerDAL.cs" />
+    <Compile Include="Server\DAL\IPrintTicketServerDAL.cs" />
+    <Compile Include="Server\DAL\IModHoldSeatServerDAL.cs" />
+    <Compile Include="Server\DAL\IRefundTicketServerDAL.cs" />
+    <Compile Include="Server\Factory\IHoldSeatServerDALFactory.cs" />
+    <Compile Include="Server\Factory\IModHoldSeatServerDALFactory.cs" />
+    <Compile Include="Server\Factory\IModPrintTicketServerDALFactory.cs" />
+    <Compile Include="Server\Factory\IPrintTicketServerDALFactory.cs" />
+    <Compile Include="Server\Factory\IRefundTicketServerDALFactory.cs" />
+    <Compile Include="Server\Factory\ITraInterFaceOrderServerDALFactory.cs" />
+    <Compile Include="Server\Factory\ITraOrderOperateServerDALFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mzl.Common\Mzl.Common.csproj">
+      <Project>{11A12F6E-033F-4A70-A053-193FCED4403E}</Project>
+      <Name>Mzl.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Framework\Mzl.Framework.csproj">
+      <Project>{6A2875C0-EBBD-4ADC-AA08-B796F986F996}</Project>
+      <Name>Mzl.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Model\Mzl.EntityModel.csproj">
+      <Project>{598A15A2-C70E-4C3A-9303-F9324C7A5C0F}</Project>
+      <Name>Mzl.EntityModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

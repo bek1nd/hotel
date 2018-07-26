@@ -1,0 +1,80 @@
+﻿using Mzl.IApplication.Base;
+using Mzl.IApplication.Train.Order.Domain;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Mzl.IApplication.Train.Order.Factory
+{
+    public interface IOrderDomainFactory : IBaseDomainFactory<IOrderDomain>
+    {
+        /// <summary>
+        /// 创建火车订单对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateAddOrderDomainObj();
+        /// <summary>
+        /// 创建订单列表对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateOrderListDomainObj();
+        /// <summary>
+        /// 创建退票列表对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateRetOrderListDomainObj();
+        /// <summary>
+        /// 创建火车票订单详情对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateOrderInfoDomainObj();
+        /// <summary>
+        /// 创建火车退票信息提交视图对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateAddRetOrderViewDomainObj();
+        /// <summary>
+        /// 创建添加火车退票单对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateAddRetOrderDomainObj();
+        /// <summary>
+        /// 创建火车改签信息提交视图对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateAddModOrderViewDomainObj();
+        /// <summary>
+        /// 创建添加火车改签单对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateAddModOrderDomainObj();
+
+        /// <summary>
+        /// 创建更新火车详情信息对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateUpdateOrderDomainObj();
+        /// <summary>
+        /// 创建改签订单列表对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateModOrderListDomainObj();
+        /// <summary>
+        /// 创建获取改签订单详情对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateModOrderInfoDomainObj();
+        /// <summary>
+        /// 创建从app获取订单详情对象
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain CreateAppOrderInfoDomainObj();
+        /// <summary>
+        /// 创建获取12306帐号信息
+        /// </summary>
+        /// <returns></returns>
+        IOrderDomain Create12306AccountDomainObj();
+    }
+}

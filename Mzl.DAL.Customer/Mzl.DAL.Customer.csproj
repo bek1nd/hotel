@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06C69BAC-E000-45B8-B632-8EE5C7C6A666}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mzl.DAL.Customer</RootNamespace>
+    <AssemblyName>Mzl.DAL.Customer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\Mzl.Library\3DLL\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\Mzl.Library\3DLL\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContactInfo\ContactAddressDal.cs" />
+    <Compile Include="ContactInfo\ContactDal.cs" />
+    <Compile Include="ContactInfo\ContactIdentificationDal.cs" />
+    <Compile Include="ContactInfo\DAL\ContactIdentificationInfoDAL.cs" />
+    <Compile Include="ContactInfo\DAL\ContactInfoDAL.cs" />
+    <Compile Include="ContactInfo\Factory\ContactIdentificationInfoDALFactory.cs" />
+    <Compile Include="ContactInfo\Factory\ContactInfoDALFactory.cs" />
+    <Compile Include="Corporation\ChoiceReasonDal.cs" />
+    <Compile Include="Corporation\CorpAduitConfigCustomerDal.cs" />
+    <Compile Include="Corporation\CorpAduitConfigDal.cs" />
+    <Compile Include="Corporation\CorpAduitConfigDepartmentDal.cs" />
+    <Compile Include="Corporation\CorpAduitConfigDetailDal.cs" />
+    <Compile Include="Corporation\CorpAduitConfigProjectDal.cs" />
+    <Compile Include="Corporation\CorpAduitOrderDal.cs" />
+    <Compile Include="Corporation\CorpAduitOrderDetailDal.cs" />
+    <Compile Include="Corporation\CorpAduitOrderFlowDal.cs" />
+    <Compile Include="Corporation\CorpAduitOrderLogDal.cs" />
+    <Compile Include="Corporation\CorpDepartmentDal.cs" />
+    <Compile Include="Corporation\CorporationDal.cs" />
+    <Compile Include="Corporation\CorpPolicyConfigCustomerDal.cs" />
+    <Compile Include="Corporation\CorpPolicyConfigDal.cs" />
+    <Compile Include="Corporation\CorpPolicyConfigDepartmentDal.cs" />
+    <Compile Include="Corporation\CorpPolicyConfigProjectDal.cs" />
+    <Compile Include="Corporation\CorpPolicyDetailConfigDal.cs" />
+    <Compile Include="Corporation\CostCenterDal.cs" />
+    <Compile Include="Corporation\DAL\CorpDepartmentDAL.cs" />
+    <Compile Include="Corporation\DAL\CorporationDAL.cs" />
+    <Compile Include="Corporation\DAL\CostCenterDAL.cs" />
+    <Compile Include="Corporation\DAL\ProjectNameDAL.cs" />
+    <Compile Include="Corporation\DAL\ServiceFeeConfigDAL.cs" />
+    <Compile Include="Corporation\DAL\ServiceFeeConfigDetailsDAL.cs" />
+    <Compile Include="Corporation\Factory\CorpDepartmentDALFactory.cs" />
+    <Compile Include="Corporation\Factory\CorporationDALFactory.cs" />
+    <Compile Include="Corporation\Factory\CostCenterDALFactory.cs" />
+    <Compile Include="Corporation\Factory\ProjectNameDALFactory.cs" />
+    <Compile Include="Corporation\Factory\ServiceFeeConfigDALFactory.cs" />
+    <Compile Include="Corporation\Factory\ServiceFeeConfigDetailsDALFactory.cs" />
+    <Compile Include="Corporation\ProjectNameDal.cs" />
+    <Compile Include="Customer\AppOpinionDal.cs" />
+    <Compile Include="Customer\CustomerAppClientIdDal.cs" />
+    <Compile Include="Customer\CustomerDal.cs" />
+    <Compile Include="Customer\CustomerUnionDal.cs" />
+    <Compile Include="Customer\DAL\CustomerUnionInfoDAL.cs" />
+    <Compile Include="Customer\Factory\CustomerUnionInfoDALFactory.cs" />
+    <Compile Include="Customer\SendAppMessageDal.cs" />
+    <Compile Include="Customer\TravelReportAirlineCountDal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Customer\DAL\CustomerInfoDAL.cs" />
+    <Compile Include="Customer\Factory\CustomerInfoDALFactory.cs" />
+    <Compile Include="ServiceFee\ServiceFeeConfigDetailsDal.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Mzl.Common\Mzl.Common.csproj">
+      <Project>{11A12F6E-033F-4A70-A053-193FCED4403E}</Project>
+      <Name>Mzl.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.DomainModel\Mzl.DomainModel.csproj">
+      <Project>{b49c4dbc-6bcd-4697-9a1d-490099b0e376}</Project>
+      <Name>Mzl.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Framework\Mzl.Framework.csproj">
+      <Project>{6A2875C0-EBBD-4ADC-AA08-B796F986F996}</Project>
+      <Name>Mzl.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.IDAL.Customer\Mzl.IDAL.Customer.csproj">
+      <Project>{7403FE14-747B-4572-93C7-D67FA7BE000C}</Project>
+      <Name>Mzl.IDAL.Customer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mzl.Model\Mzl.EntityModel.csproj">
+      <Project>{598a15a2-c70e-4c3a-9303-f9324c7a5c0f}</Project>
+      <Name>Mzl.EntityModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

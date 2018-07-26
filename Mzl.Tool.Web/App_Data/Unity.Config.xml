@@ -1,0 +1,18 @@
+﻿<configuration>
+  <configSections>
+    <section name="unity" type="Microsoft.Practices.Unity.Configuration.UnityConfigurationSection, Microsoft.Practices.Unity.Configuration"/>
+  </configSections>
+  <unity>
+    <sectionExtension type="Microsoft.Practices.Unity.InterceptionExtension.Configuration.InterceptionConfigurationExtension, Microsoft.Practices.Unity.Interception.Configuration"/>
+    <containers>
+      <!--获取B2G航班信息-->
+      <container name="GetB2TFlightNo">
+        <register type="Mzl.IApplication.Tool.IGetB2TFlightNoApplication, Mzl.IApplication" mapTo="Mzl.Application.Tool.GetB2TFlightNoApplication, Mzl.Application"/>
+        <!--获取B2G航班信息服务-->
+        <register type="Mzl.IBLL.Tool.IGetB2TFlightNoServiceBll, Mzl.IBLL.Tool" mapTo="Mzl.BLL.Tool.GetB2TFlightNoServiceBll, Mzl.BLL.Tool"/>
+       </container>
+      
+     
+    </containers>
+  </unity>
+</configuration>

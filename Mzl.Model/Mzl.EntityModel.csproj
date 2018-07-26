@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{598A15A2-C70E-4C3A-9303-F9324C7A5C0F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mzl.EntityModel</RootNamespace>
+    <AssemblyName>Mzl.EntityModel</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator.SolrNet, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SolrNet.1.0.9\lib\net46\CommonServiceLocator.SolrNet.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\Mzl.Library\3DLL\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\Mzl.Library\3DLL\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\Mzl.Library\3DLL\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\Mzl.Library\3DLL\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="SolrNet, Version=1.0.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SolrNet.Core.1.0.9\lib\net46\SolrNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.4.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BaseOrderListQueryEntity.cs" />
+    <Compile Include="Common\AccountInfo\AccountDetailEntity.cs" />
+    <Compile Include="Common\AccountInfo\AccountEntity.cs" />
+    <Compile Include="Common\CountryEntity.cs" />
+    <Compile Include="Common\InsuranceCompanyEntity.cs" />
+    <Compile Include="Customer\AppClient\AppOpinionEntity.cs" />
+    <Compile Include="Customer\AppClient\SendAppMessageEntity.cs" />
+    <Compile Include="Customer\AppClient\CustomerAppClientIdEntity.cs" />
+    <Compile Include="Customer\BaseInfo\CustomerUnionInfoEntity.cs" />
+    <Compile Include="Customer\Contact\ContactAddressEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpAudit\CorpAduitConfigCustomerEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpAudit\CorpAduitConfigDepartmentEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpAudit\CorpAduitConfigEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpAudit\CorpAduitConfigDetailEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpAudit\CorpAduitConfigProjectEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpAudit\CorpAduitOrderDetailEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpAudit\CorpAduitOrderEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpAudit\CorpAduitOrderFlowEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpAudit\CorpAduitOrderLogEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpPolicy\ChoiceReasonEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpPolicy\CorpPolicyConfigCustomerEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpPolicy\CorpPolicyConfigDepartmentEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpPolicy\CorpPolicyConfigEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpPolicy\CorpPolicyConfigProjectEntity.cs" />
+    <Compile Include="Customer\Corporation\CorpPolicy\CorpPolicyDetailConfigEntity.cs" />
+    <Compile Include="Customer\Corporation\Corp\CorporationEntity.cs" />
+    <Compile Include="Customer\Corporation\CostCenter\CostCenterEntity.cs" />
+    <Compile Include="Customer\BaseInfo\CustomerInfoEntity.cs" />
+    <Compile Include="Customer\Contact\ContactIdentificationInfoEntity.cs" />
+    <Compile Include="Customer\Contact\ContactInfoEntity.cs" />
+    <Compile Include="Customer\Corporation\Department\CorpDepartmentEntity.cs" />
+    <Compile Include="Customer\Corporation\Project\ProjectNameEntity.cs" />
+    <Compile Include="Customer\Corporation\ServiceFee\ServiceFeeConfigDetailsEntity.cs" />
+    <Compile Include="Customer\Corporation\ServiceFee\ServiceFeeConfigEntity.cs" />
+    <Compile Include="Customer\Identification\IdentificationTypeEntity.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportAirlineCountEntity.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportAllSalePriceEntity.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportConsumeCountEntity.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportCostCenterCountEntity.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportDportCityEntity.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportPassengerTopEntity.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportReserveDayEntity.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportSalePriceEntity.cs" />
+    <Compile Include="Customer\TravelReport\TravelReportYearPriceCountEntity.cs" />
+    <Compile Include="EFContext\BrightourDbContext.cs" />
+    <Compile Include="Common\AirPortEntity.cs" />
+    <Compile Include="Common\CityEntity.cs" />
+    <Compile Include="Flight\FltClassNameEntity.cs" />
+    <Compile Include="Flight\FltCorpCostCenterEntity.cs" />
+    <Compile Include="Flight\FltFlightEntity.cs" />
+    <Compile Include="Flight\FltModFlightEntity.cs" />
+    <Compile Include="Flight\FltModOrderEntity.cs" />
+    <Compile Include="Flight\FltModOrderLogEntity.cs" />
+    <Compile Include="Flight\FltModPassengerEntity.cs" />
+    <Compile Include="Flight\FltModTicketNoEntity.cs" />
+    <Compile Include="Flight\FltRefundOrderDetailEntity.cs" />
+    <Compile Include="Flight\FltRefundOrderEntity.cs" />
+    <Compile Include="Flight\FltRetModFlightApplyEntity.cs" />
+    <Compile Include="Flight\FltOrderEntity.cs" />
+    <Compile Include="Flight\FltOrderLogEntity.cs" />
+    <Compile Include="Flight\FltOrderUnionEntity.cs" />
+    <Compile Include="Flight\FltPassengerEntity.cs" />
+    <Compile Include="Flight\FltRetModApplyEntity.cs" />
+    <Compile Include="Flight\FltRetModApplyLogEntity.cs" />
+    <Compile Include="Flight\FltTicketNoEntity.cs" />
+    <Compile Include="Flight\FltWhiteListPassengerEntity.cs" />
+    <Compile Include="Hotel\CTripHotel\CTripHotelCityENEntity.cs" />
+    <Compile Include="Hotel\CTripHotel\CTripHotelCityCNEntity.cs" />
+    <Compile Include="Hotel\CTripHotel\SolrModel\HotelOriginalInfoSolrModel.cs" />
+    <Compile Include="Hotel\CTripHotel\SolrModel\HotelSimpleInfoSolrModel.cs" />
+    <Compile Include="Hotel\CTripHotel\SolrModel\HotelSolrModel.cs" />
+    <Compile Include="Hotel\CTripHotel\SolrModel\KeyWordHotel.cs" />
+    <Compile Include="Hotel\Elong\BaseNightlyRate.cs" />
+    <Compile Include="Hotel\Elong\BaseRequestEntity.cs" />
+    <Compile Include="Hotel\Elong\BaseResponseEntity.cs" />
+    <Compile Include="Hotel\Elong\BookingRuleEntity.cs" />
+    <Compile Include="Hotel\Elong\Contact.cs" />
+    <Compile Include="Hotel\Elong\CreditCard.cs" />
+    <Compile Include="Hotel\Elong\CreditCardRequest.cs" />
+    <Compile Include="Hotel\Elong\CreditCardsResponseEntity.cs" />
+    <Compile Include="Hotel\Elong\Customer.cs" />
+    <Compile Include="Hotel\Elong\DetailEntity.cs" />
+    <Compile Include="Hotel\Elong\DrrRuleEntity.cs" />
+    <Compile Include="Hotel\Elong\ExchangeRateEntity.cs" />
+    <Compile Include="Hotel\Elong\ExtendInfo.cs" />
+    <Compile Include="Hotel\Elong\GiftEntity.cs" />
+    <Compile Include="Hotel\Elong\GuaranteeRuleEntity.cs" />
+    <Compile Include="Hotel\Elong\HAvailPolicyEntity.cs" />
+    <Compile Include="Hotel\Elong\HotelBrand.cs" />
+    <Compile Include="Hotel\Elong\HotelBrandResponseEntity.cs" />
+    <Compile Include="Hotel\Elong\HotelDetailRequestEntity.cs" />
+    <Compile Include="Hotel\Elong\HotelEntity.cs" />
+    <Compile Include="Hotel\Elong\HotelGeo.cs" />
+    <Compile Include="Hotel\Elong\HotelGeosResponseEntity.cs" />
+    <Compile Include="Hotel\Elong\HotelImg.cs" />
+    <Compile Include="Hotel\Elong\HotelListRequestEntity.cs" />
+    <Compile Include="Hotel\Elong\HotelListResponseEntity.cs" />
+    <Compile Include="Hotel\Elong\HourlyRoomInfoEntity.cs" />
+    <Compile Include="Hotel\Elong\InstantOrderResponse.cs" />
+    <Compile Include="Hotel\Elong\Inventory.cs" />
+    <Compile Include="Hotel\Elong\InventoryCondition.cs" />
+    <Compile Include="Hotel\Elong\InventoryResponse.cs" />
+    <Compile Include="Hotel\Elong\Invoice.cs" />
+    <Compile Include="Hotel\Elong\ListRatePlanEntity.cs" />
+    <Compile Include="Hotel\Elong\Location.cs" />
+    <Compile Include="Hotel\Elong\NightlyRate.cs" />
+    <Compile Include="Hotel\Elong\NightlyRateEntity.cs" />
+    <Compile Include="Hotel\Elong\NightlyRateWithBreakfastEntity.cs" />
+    <Compile Include="Hotel\Elong\OrderBaseCondition.cs" />
+    <Compile Include="Hotel\Elong\OrderBaseRequest.cs" />
+    <Compile Include="Hotel\Elong\OrderCancelCondition.cs" />
+    <Compile Include="Hotel\Elong\OrderCancelResponse.cs" />
+    <Compile Include="Hotel\Elong\OrderCreateCondition.cs" />
+    <Compile Include="Hotel\Elong\OrderCreateResponse.cs" />
+    <Compile Include="Hotel\Elong\OrderCreditCardRequest.cs" />
+    <Compile Include="Hotel\Elong\OrderDetailCondition.cs" />
+    <Compile Include="Hotel\Elong\OrderDetailResponse.cs" />
+    <Compile Include="Hotel\Elong\OrderHotelRequest.cs" />
+    <Compile Include="Hotel\Elong\OrderRoom.cs" />
+    <Compile Include="Hotel\Elong\OrderUpdateCondition.cs" />
+    <Compile Include="Hotel\Elong\OrderUpdateResponse.cs" />
+    <Compile Include="Hotel\Elong\Position.cs" />
+    <Compile Include="Hotel\Elong\PrepayRuleEntity.cs" />
+    <Compile Include="Hotel\Elong\ProductEntity.cs" />
+    <Compile Include="Hotel\Elong\PubObj.cs" />
+    <Compile Include="Hotel\Elong\Recipient.cs" />
+    <Compile Include="Hotel\Elong\ReviewEntity.cs" />
+    <Compile Include="Hotel\Elong\RoomEntity.cs" />
+    <Compile Include="Hotel\Elong\SearchCandidate.cs" />
+    <Compile Include="Hotel\Elong\ValueAddEntity.cs" />
+    <Compile Include="Hotel\HolOrderDetailEntity.cs" />
+    <Compile Include="Hotel\HolOrderEntity.cs" />
+    <Compile Include="Hotel\HolOrderLogEntity.cs" />
+    <Compile Include="Hotel\HolRefundEntity.cs" />
+    <Compile Include="Operator\OperatorEntity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\BaseResponseEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\ChangeInfo\ChangeDetail.cs" />
+    <Compile Include="Proxy\CTripHotel\ChangeInfo\ChangeInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\ChangeInfo\ChangeInfoReqEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\ChangeInfo\ChangeInfoResEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\ChangeInfo\PagingInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\ChangeInfo\PagingSettings.cs" />
+    <Compile Include="Proxy\CTripHotel\ChangeInfo\SearchCandidate.cs" />
+    <Compile Include="Proxy\CTripHotel\Description.cs" />
+    <Compile Include="Proxy\CTripHotel\Error.cs" />
+    <Compile Include="Proxy\CTripHotel\Extension.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\AcceptedCreditCard.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Amount.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Area.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\ArrivalTimeLimitInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\BossInfos.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Brand.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\BusinessDistrict.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\ChildAndExtraBedPolicy.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\City.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\ContactInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Coordinate.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\DepartureTimeLimitInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Description.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\ExistingBed.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\ExternalFacilities.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\ExtraBed.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Facility.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\FacilityItem.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Fee.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\GeoInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Group.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\HotelStaticInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\HotelTag.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\ImportantNotice.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\LimitInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\MealInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\NearbyPOI.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\NormalizedPolicies.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Percent.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Picture.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Policy.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\RangeLimit.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Rating.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\SellerShowInfos.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\Theme.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\TransportationInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\VideoItems.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\Amount.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\CancelPolicyInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\Cashback.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\DailyPrice.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\DateRange.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\Fee.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\HoldDeadline.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\HotelDetailPriceReqEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\HotelDetailPriceResEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\MealInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\Occupancy.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\PenaltyAmount.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\Price.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\PriceInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\ReserveTimeLimitInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\RoomPriceInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\RoomPriceItem.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\SearchCandidate.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\Settings.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\ShadowRoomInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDetailPrice\Taxe.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelIdListRequestEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelIdListResponseEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\HotelDesInfoReqEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelDesInfo\HotelDesInfoResEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelList\HotelIdListReqEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\HotelList\HotelIdListResEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\ResponseStatusEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\ReturnToken.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\ApplicabilityInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\AvailableDayOfWeek.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\BedInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\BookingOffset.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\BookingRule.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\BroadNet.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\ChannelLimit.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\ChildLimit.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\DateRestriction.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\Discount.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\ExpressCheckout.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\Facility.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\FacilityItem.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\LengthOfStay.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\MemberLimitInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\Picture.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\RoomBedInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\RoomDesInfoReqEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\RoomDesInfoResEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\RoomFGToPPInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\RoomGiftInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\RoomInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\RoomLimit.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\RoomStaticInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\RoomTag.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\RoomTypeInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\Smoking.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\TimeLimitInfo.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomDesInfo\TotalOccupancy.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomStatusChange\DateTimeRange.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomStatusChange\RoomStatusChangeItem.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomStatusChange\RoomStatusChangeReqEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomStatusChange\RoomStatusChangeResEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\RoomStatusChange\SearchCandidate.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchCandidate.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\CityCount.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\FacilityEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\HotelDataList.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\HotelStatusEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\LowPriceReqEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\LowPriceResEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\MinPriceInfoEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\MinPrice_AfterTax.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\MinPrice_CashBack.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\NumEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\OrderBy.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\PublicSearchParameter.cs" />
+    <Compile Include="Proxy\CTripHotel\SearchHotelLowPrice\SearchTypeEntity.cs" />
+    <Compile Include="Proxy\CTripHotel\Settings.cs" />
+    <Compile Include="Proxy\MuB2T\AGTItem.cs" />
+    <Compile Include="Proxy\MuB2T\B2XTaxYQ.cs" />
+    <Compile Include="Proxy\MuB2T\CabinEiVO.cs" />
+    <Compile Include="Proxy\MuB2T\CabinInfo.cs" />
+    <Compile Include="Proxy\MuB2T\ClasFare.cs" />
+    <Compile Include="Proxy\MuB2T\EcfareInfoInput.cs" />
+    <Compile Include="Proxy\MuB2T\EcfareInfoOutput.cs" />
+    <Compile Include="Proxy\MuB2T\FareInfo.cs" />
+    <Compile Include="Proxy\MuB2T\FFPItem.cs" />
+    <Compile Include="Proxy\MuB2T\FlightBookingRequest.cs" />
+    <Compile Include="Proxy\MuB2T\FlightBookingResponse.cs" />
+    <Compile Include="Proxy\MuB2T\FlightInfo.cs" />
+    <Compile Include="Proxy\MuB2T\FlightRefreshRequest.cs" />
+    <Compile Include="Proxy\MuB2T\FlightRefreshResponse.cs" />
+    <Compile Include="Proxy\MuB2T\FlightSearchRequest.cs" />
+    <Compile Include="Proxy\MuB2T\FlightSearchResponse.cs" />
+    <Compile Include="Proxy\MuB2T\FltItem.cs" />
+    <Compile Include="Proxy\MuB2T\KAItem.cs" />
+    <Compile Include="Proxy\MuB2T\MemShipPointItem.cs" />
+    <Compile Include="Proxy\MuB2T\OdFareInfo.cs" />
+    <Compile Include="Proxy\MuB2T\OdFlightInfo.cs" />
+    <Compile Include="Proxy\MuB2T\OdGiftFileInfo.cs" />
+    <Compile Include="Proxy\MuB2T\ODInfo.cs" />
+    <Compile Include="Proxy\MuB2T\OdInfoInput.cs" />
+    <Compile Include="Proxy\MuB2T\OdInfoOutput.cs" />
+    <Compile Include="Proxy\MuB2T\OrderQueryRequest.cs" />
+    <Compile Include="Proxy\MuB2T\OrderQueryResponse.cs" />
+    <Compile Include="Proxy\MuB2T\OriginalFares.cs" />
+    <Compile Include="Proxy\MuB2T\PassengerInfo.cs" />
+    <Compile Include="Proxy\MuB2T\PassInfo.cs" />
+    <Compile Include="Proxy\MuB2T\PaxInfo.cs" />
+    <Compile Include="Proxy\MuB2T\PayDeductRequest.cs" />
+    <Compile Include="Proxy\MuB2T\PayDeductResponse.cs" />
+    <Compile Include="Proxy\MuB2T\PayTaxInfo.cs" />
+    <Compile Include="Proxy\MuB2T\PsgFare.cs" />
+    <Compile Include="Proxy\MuB2T\RouteCombine.cs" />
+    <Compile Include="Proxy\MuB2T\RouteInfo.cs" />
+    <Compile Include="Proxy\MuB2T\RtnEcfareInfo.cs" />
+    <Compile Include="Proxy\MuB2T\RuleFile.cs" />
+    <Compile Include="Proxy\MuB2T\SEARCH_ITEM.cs" />
+    <Compile Include="Proxy\MuB2T\Segment.cs" />
+    <Compile Include="Proxy\MuB2T\SegmentInfo.cs" />
+    <Compile Include="Proxy\MuB2T\SegmentItem.cs" />
+    <Compile Include="Proxy\MuB2T\SegRpu.cs" />
+    <Compile Include="Proxy\MuB2T\SEL_PAX_NUM.cs" />
+    <Compile Include="Proxy\MuB2T\Tax.cs" />
+    <Compile Include="Proxy\MuB2T\TaxInfo.cs" />
+    <Compile Include="Proxy\MuB2T\TicketInfo.cs" />
+    <Compile Include="Proxy\MuB2T\TicketIssueNotification.cs" />
+    <Compile Include="Proxy\MuB2T\TransferFlightInfo.cs" />
+    <Compile Include="Proxy\MuB2T\XMLEcfareInfoInput.cs" />
+    <Compile Include="Proxy\MuB2T\ZhiFlightBookingRequest.cs" />
+    <Compile Include="Proxy\MuB2T\ZhiFlightBookingResponse.cs" />
+    <Compile Include="Proxy\MuB2T\ZhiFlightInfo.cs" />
+    <Compile Include="Proxy\MuB2T\ZhiFlightSearchRequest.cs" />
+    <Compile Include="Proxy\MuB2T\ZhiFlightSearchResponse.cs" />
+    <Compile Include="Register\RegisterCustomerEntity.cs" />
+    <Compile Include="Tool\MuB2T\ETL0RtFlightPrice.cs" />
+    <Compile Include="Tool\MuB2T\FlightNo.cs" />
+    <Compile Include="Tool\MuB2T\PriceSearchQuery.cs" />
+    <Compile Include="Tool\MuB2T\RtFlightTaxQueryLog.cs" />
+    <Compile Include="Tool\MuB2T\RtInterFlightPriceQueryLog.cs" />
+    <Compile Include="Tool\ToolDbContext.cs" />
+    <Compile Include="Train\BaseMaintenance\Tra12306AccountEntity.cs" />
+    <Compile Include="Train\BaseMaintenance\TraAddressEntity.cs" />
+    <Compile Include="Train\Order\TraModOrderDetailEntity.cs" />
+    <Compile Include="Train\Order\TraModOrderEntity.cs" />
+    <Compile Include="Train\Order\TraModOrderListDataEntity.cs" />
+    <Compile Include="Train\Order\TraModOrderListQueryEntity.cs" />
+    <Compile Include="Train\Order\TraOrderDetailEntity.cs" />
+    <Compile Include="Train\Order\TraOrderEntity.cs" />
+    <Compile Include="Train\Order\TraOrderListDataEntity.cs" />
+    <Compile Include="Train\Order\TraOrderListQueryEntity.cs" />
+    <Compile Include="Train\Order\TraOrderLogEntity.cs" />
+    <Compile Include="Train\Order\TraOrderStatusEntity.cs" />
+    <Compile Include="Train\Order\TraPassengerEntity.cs" />
+    <Compile Include="Train\Server\TraCallBackLogBasicEntity.cs" />
+    <Compile Include="Train\Server\TraHoldSeatCallBackLogEntity.cs" />
+    <Compile Include="Train\Server\TraInterFaceOrderEntity.cs" />
+    <Compile Include="Train\Server\TraModHoldSeatCallBackLogEntity.cs" />
+    <Compile Include="Train\Server\TraModPrintTicketCallBackLogEntity.cs" />
+    <Compile Include="Train\Server\TraOrderOperateEntity.cs" />
+    <Compile Include="Train\Server\TraPrintTicketCallBackLogEntity.cs" />
+    <Compile Include="Train\Server\TraRefundTicketCallBackLogEntity.cs" />
+    <Compile Include="Train\TraGrabTicketEntity.cs" />
+    <Compile Include="Train\TraGrabTicketPassengerEntity.cs" />
+    <Compile Include="XingA\XingAEntity.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mzl.Common\Mzl.Common.csproj">
+      <Project>{11A12F6E-033F-4A70-A053-193FCED4403E}</Project>
+      <Name>Mzl.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
